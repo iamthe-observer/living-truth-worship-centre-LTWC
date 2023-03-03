@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import * as THREE from 'three'
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { Mesh, MeshStandardMaterialParameters, Vector2 } from 'three'
 import { gsap } from 'gsap'
 
@@ -139,15 +138,15 @@ window.addEventListener('mousemove', function (event) {
   }, 200)
 })
 
-const controls = new OrbitControls(camera, renderer.domElement)
-controls.autoRotate = false
-controls.enableDamping = true
-controls.enablePan = true
+// const controls = new OrbitControls(camera, renderer.domElement)
+// controls.autoRotate = false
+// controls.enableDamping = true
+// controls.enablePan = true
 
 function animate() {
   requestAnimationFrame(animate)
   renderer.render(scene, camera)
-  controls.update()
+  // controls.update()
 
   // {
   // x:6.1629893609691235,
