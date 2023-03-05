@@ -2,6 +2,7 @@ let container
 let camera, scene, renderer
 let uniforms
 
+let capturing = false
 let loader = new THREE.TextureLoader()
 let texture, bg
 loader.setCrossOrigin('anonymous')
@@ -93,9 +94,8 @@ let capturer = new CCapture({
   format: 'webm',
   workersPath: 'js/',
 })
-let capturing = false
 
-isCapturing = function (val) {
+let isCapturing = val => {
   if (val === false && window.capturing === true) {
     capturer.stop()
     capturer.save()
@@ -104,7 +104,7 @@ isCapturing = function (val) {
   }
   capturing = val
 }
-toggleCapture = function () {
+let toggleCapture = () => {
   isCapturing(!capturing)
 }
 

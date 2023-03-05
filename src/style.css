@@ -29,6 +29,6 @@ body {
 }
 
 .inverse-text {
-  mix-blend-mode: darken;
+  mix-blend-mode: difference;
   @apply text-white;
 }

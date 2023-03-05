@@ -45,24 +45,61 @@
     <section
       class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-3 px-10"
     >
+      <!-- <div class="grid grid-cols-3 grid-rows-2 gap-2">
+        <div class="bg-sec w-full h-96 overflow-clip" v-for="i in 2"></div>
+      </div> -->
+
       <div class="grid grid-cols-3 grid-rows-2 gap-2">
-        <div class="bg-sec w-full h-96 overflow-clip" v-for="i in 6"></div>
+        <div
+          v-for="(source, i) in src"
+          :class="
+            source
+              ? 'w-full h-96 overflow-clip'
+              : 'w-full h-96 overflow-clip bg-sec'
+          "
+        >
+          <img :src="source" alt="" />
+          <div v-if="i == 0">Hello</div>
+          <div v-if="i == 3">Bye</div>
+        </div>
       </div>
     </section>
     <!-- quick navigation section -->
     <section
-      class="flex flex-col text-[1.5em] gap-10 bg- py-3 px-10 h-[1000px]"
+      class="flex flex-col text-[1.5em] my-8 gap-10 py-3 min-h-[500px] overflow-x-hidden"
     >
-      <h1>Find Your Place at Living Truth Worship Centre</h1>
+      <h1 class="text-white font-bold pl-10">
+        Find Your Place at Living Truth Worship Centre
+      </h1>
+
+      <div class="backdrop-blur-lg h-[100%] w-full p-8 ml-32">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis,
+        facilis. Quia quam laboriosam libero obcaecati eos? Magni tempora
+        maiores iste architecto ut non repudiandae, praesentium voluptatibus, et
+        mollitia explicabo repellendus omnis. Error dolorem qui nam totam
+        magnam! Iure dolore, aut laborum sapiente, dolores repudiandae quos,
+        magnam quod aliquam earum iste adipisci ea inventore explicabo eveniet
+        id optio laboriosam iusto! Pariatur facere placeat at cupiditate,
+        eveniet reiciendis expedita? Vero earum aperiam consectetur odio enim.
+        Vero, quibusdam debitis obcaecati excepturi quia mollitia accusantium,
+        facere laudantium doloribus vitae tenetur accusamus eius, perferendis
+        voluptates laborum veniam ut harum velit impedit! Recusandae qui labore
+        sunt.
+      </div>
     </section>
   </div>
-  <div
-    id="container"
-    class="touch-none fixed inset-0 w-full overflow-hidden"
-  ></div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const src = ref([
+  '',
+  'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc1.jpg',
+  'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc2.jpg',
+  '',
+  'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc3.jpg',
+  'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc4.jpg',
+])
+</script>
 
 <style scoped>
 .wrapper {

@@ -11,13 +11,14 @@
       <div class="grid place-items-center rounded-full w-16 aspect-square">
         <img src="../assets/result.png" alt="" class="" />
       </div>
-      <span v-if="isVisible" class="text-2xl text-sec uppercase w-80 font-bold"
-        >living truth international <br />
-        ministry</span
+      <span
+        v-if="isVisible"
+        class="text-2xl inverse-text uppercase w-80 font-bold"
+        >living truth<br />worship centre</span
       >
       <span
         v-if="!isVisible"
-        class="text-2xl text-black uppercase w-80 font-bold"
+        class="text-2xl inverse-text uppercase w-80 font-bold"
         >LTWC</span
       >
     </div>
@@ -30,7 +31,7 @@
         :key="i"
         :class="
           isVisible
-            ? `linkz${i} text-sec cursor-pointer opacity-0 relative -top-20 font-bold links`
+            ? `linkz${i} inverse-text cursor-pointer opacity-0 relative -top-20 font-bold links`
             : `linkz${i} cursor-pointer opacity-0 relative -top-20 font-bold text-black links`
         "
         >{{ link }}</RouterLink

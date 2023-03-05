@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Living Truth International Ministry</title>
+    <title>Living Truth Worship Centre</title>
   </head>
   <body>
     <script type="module" src="/src/main.ts"></script>
@@ -87,12 +87,16 @@
         gl_FragColor = vec4(fragcolour, 1.);
       }
     </script>
-    <script defer type="module" src="index.js"></script>
+    <script async type="module" src="index.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/ccapture.js-npmfixed@1.1.0/build/CCapture.all.min.js
+"></script>
+
     <div class="relative w-screen">
       <div id="app" class="z-30"></div>
       <div
         id="container"
-        class="touch-none fixed inset-0 w-full overflow-hidden"
+        class="touch-none fixed inset-0 w-full overflow-hidden p-0 m-0"
       ></div>
     </div>
   </body>

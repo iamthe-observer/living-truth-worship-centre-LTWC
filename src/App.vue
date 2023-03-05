@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
 import { useAppStore } from './store/appStore'
-import * as THREE from 'three'
 
 const { isVisible } = storeToRefs(useAppStore())
 const target_ref = ref<HTMLDivElement>()
