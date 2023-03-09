@@ -1,34 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;300;400;600;700&family=Courgette&family=Sorts+Mill+Goudy&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.cdnfonts.com/css/aquatico');
+@import url('https://fonts.cdnfonts.com/css/aeroport-2');
+@import url('https://fonts.cdnfonts.com/css/cheorcy');
+@import url('https://fonts.cdnfonts.com/css/harmond-font-family');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  box-sizing: border-box;
+@layer base {
+  :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    box-sizing: content-box;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    place-items: center;
+    min-width: 100%;
+    min-height: 100vh;
+  }
+
+  #app {
+    @apply w-full h-full z-10 bg-transparent;
+  }
+
+  .inverse-text {
+    mix-blend-mode: difference;
+    @apply text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    padding: 0 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-none shadow-md px-2 transition-all duration-300 ease-out;
+    background: repeating-linear-gradient(
+      45deg,
+      #606dbc,
+      #606dbc 2.5px,
+      rgb(93 56 145) 2.5px,
+      rgb(93 56 145) 5px
+    );
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply transition-all duration-300 ease-out;
+    background: rgb(93 56 145);
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  place-items: center;
-  min-width: 100%;
-  min-height: 100vh;
-}
+@layer utilities {
+  .horizontal_scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    gap: 50px;
 
-#app {
-  @apply w-full h-full z-10 bg-transparent;
-}
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
 
-.inverse-text {
-  mix-blend-mode: difference;
-  @apply text-white;
+  .h_scroll_item {
+    @apply h-full w-96 p-10;
+    scroll-snap-align: start;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  .clippy0 {
+    clip-path: polygon(39% 21%, 99% 16%, 64% 100%, 5% 68%, 1% 5%);
+  }
+  .clippy1 {
+    clip-path: polygon(14% 29%, 81% 0, 100% 84%, 54% 61%, 11% 100%);
+  }
+  .clippy2 {
+    clip-path: polygon(0 32%, 100% 7%, 79% 86%, 47% 98%, 29% 84%);
+  }
+  .clippy3 {
+    clip-path: polygon(28% 0, 100% 20%, 83% 61%, 90% 87%, 36% 75%, 0 86%);
+  }
 }

@@ -9,9 +9,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Arrow: typeof import('./src/components/arrow.vue')['default']
     Canvas: typeof import('./src/views/Canvas.vue')['default']
     Content: typeof import('./src/views/Content.vue')['default']
     HomeVideo: typeof import('./src/components/HomeVideo.vue')['default']
+    HorizontalScroller: typeof import('./src/components/HorizontalScroller.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
     Navbar: typeof import('./src/views/Navbar.vue')['default']
     QuickNavigationBox: typeof import('./src/components/QuickNavigationBox.vue')['default']

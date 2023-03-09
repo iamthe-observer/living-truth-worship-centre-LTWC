@@ -2,7 +2,7 @@
   <nav
     :class="
       isVisible
-        ? 'flex justify-between items-center p-10 w-full h-32 fixed z-20 top-0 text-bold backdrop-blur-lg transition-all duration-200 ease-linear'
+        ? 'flex justify-between items-center p-10 w-full h-32 fixed z-20 top-0 text-bold backdrop-blur-lg transition-all duration-200 ease-linear text-sec'
         : 'flex justify-between items-center p-10 w-full h-16 fixed z-20 top-0 text-bold border-y-4 border-black transition-all duration-200 bg-base100 ease-linear'
     "
   >
@@ -13,12 +13,12 @@
       </div>
       <span
         v-if="isVisible"
-        class="text-2xl inverse-text uppercase w-80 font-bold"
+        class="text-sec text-2xl inverse-text uppercase w-80 font-bold font-Gloock"
         >living truth<br />worship centre</span
       >
       <span
         v-if="!isVisible"
-        class="text-2xl inverse-text uppercase w-80 font-bold"
+        class="text-sec text-2xl inverse-text uppercase w-80 font-bold font-Gloock"
         >LTWC</span
       >
     </div>
@@ -31,16 +31,16 @@
         :key="i"
         :class="
           isVisible
-            ? `linkz${i} inverse-text cursor-pointer opacity-0 relative -top-20 font-bold links`
-            : `linkz${i} cursor-pointer opacity-0 relative -top-20 font-bold text-black links`
+            ? ` text-sec linkz${i} inverse-text cursor-pointer opacity-0 relative -top-20 font-bold links`
+            : ` linkz${i} cursor-pointer opacity-0 relative -top-20 font-bold text-black links`
         "
         >{{ link }}</RouterLink
       >
       <span
         :class="
           isVisible
-            ? 'opacity-0 side-menu text-xl ml-4 hover:underline cursor-pointer text-sec font-bold'
-            : 'opacity-0 side-menu text-xl ml-4 hover:underline cursor-pointer text-black font-bold'
+            ? ' text-sec opacity-0 side-menu text-xl ml-4 hover:underline cursor-pointer font-bold'
+            : ' text-black opacity-0 side-menu text-xl ml-4 hover:underline cursor-pointer font-bold'
         "
         >Menu</span
       >
