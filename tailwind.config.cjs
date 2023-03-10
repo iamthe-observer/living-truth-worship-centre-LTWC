@@ -11,6 +11,9 @@ module.exports = {
         base100: '#F5F5F5',
       },
       fontFamily: {
+        Monument: ['Monument Extended'],
+        Barlow: ['Barlow Condensed'],
+        Unbound: ['Unbounded'],
         Gloock: ['Gloock'],
         Outfit: ['Outfit'],
         Bebas_Neue: ['Bebas Neue'],

@@ -24,7 +24,7 @@
       class="relative flex flex-col text-[1.5em] gap-10 pb-56 h-screen bg-base300"
     >
       <div
-        class="relative uppercase my-32 mx-16 text-[3em] w-fit text-black font-Cheorcy z-10"
+        class="relative uppercase my-32 mx-16 text-[2.8em] w-fit text-black font-Unbound z-10"
       >
         Our Mission
         <div class="w-3 h-16 absolute bg-prime -bottom-16 right-32"></div>
@@ -32,12 +32,12 @@
       </div>
       <!-- mission statement -->
       <div
-        class="absolute top-64 font-bold w-2/5 text-justify right-20 text-black font-Bebas_Neue z-10"
+        class="absolute top-64 w-2/5 text-justify right-20 text-black font-Bebas_Neue font-bold text-3xl z-10"
       >
         We exist to bring people to a personal relationship with Jesus Christ
-        and mem-bership in His family; and to develop a Christ-like character;
-        building and restor-ing them through spiritual and economic development
-        to become mature Chris- tians, equipped for ministry in the church, the
+        and membership in His family; and to develop a Christ-like character;
+        building and restoring them through spiritual and economic development
+        to become mature Christians, equipped for ministry in the church, the
         community, and around the world, in order to declare God's
         <span class="">glory.</span>
       </div>
@@ -52,7 +52,7 @@
 
     <!-- showcase images -->
     <section
-      class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-3 px-10"
+      class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-7 px-10"
     >
       <!-- <div class="grid grid-cols-3 grid-rows-2 gap-2">
         <div class="bg-sec w-full h-96 overflow-clip" v-for="i in 2"></div>
@@ -72,7 +72,7 @@
             v-if="i == 0"
             class="uppercase flex justify-between items-end pl-10 pr-10 w-full h-full pb-5"
           >
-            <span class="font-bold font-Cyberion">Visit Us</span>
+            <span class="font-bold font-Unbound">Visit Us</span>
             <svg
               class="w-20 aspect-square"
               fill="#000000"
@@ -120,6 +120,19 @@
       <HorizontalScroller />
     </section>
 
+    <section
+      class="h-10 flex"
+      style="background-image: url(../assets/icons/spike.svg)"
+    >
+      <img
+        v-for="i in 80"
+        class="w-10"
+        src="../assets/icons/Spike-light.svg"
+        alt=""
+      />
+    </section>
+
+    <!-- bible quote -->
     <section class="h-screen flex items-center w-full relative">
       <img
         src="../assets/bible2.png"
@@ -131,12 +144,25 @@
       <div
         class="border-[10px] border-prime opacity-30 w-1/2 h-1/2 absolute translate-x-1/2 -z-1"
       ></div>
-      <span class="p-10 text-white font-bold text-xl drop-shadow-md"
+      <span
+        class="p-10 text-white font-bold text-3xl tracking-wide drop-shadow-md font-Gloock"
         >But when he, the Spirit of truth, comes, he will guide you into all the
         truth. He will not speak on his own; he will speak only what he hears,
         and he will tell you what is yet to come.
         <span class="bg-prime block w-fit px-4 py-2">John 16:13.</span></span
       >
+    </section>
+
+    <section
+      class="h-10 flex"
+      style="background-image: url(../assets/icons/spike.svg)"
+    >
+      <img
+        v-for="i in 80"
+        class="w-10 rotate-180"
+        src="../assets/icons/Spike-dark.svg"
+        alt=""
+      />
     </section>
 
     <Footer />
@@ -162,6 +188,24 @@ const toggleGrabPointer = () => {
 </script>
 
 <style scoped>
+.zigzag {
+  display: flex;
+  height: 20px;
+}
+
+.zigzag div {
+  width: 10px;
+}
+
+.zigzag div:nth-child(even) {
+  background-color: black;
+}
+
+.zigzag div:nth-child(odd) {
+  background-color: transparent;
+  transform: skewX(45deg);
+}
+
 .wrapper {
   max-width: 100%;
   overflow: hidden;

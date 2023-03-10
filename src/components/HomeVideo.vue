@@ -33,7 +33,7 @@
       <source src="../assets/video/loop.mp4" />
     </video> -->
     <div
-      class="absolute bottom-5 right-5 w-80 aspect-video bg-transparent text-white flex flex-col gap-2 justify-center font-bold drop-shadow-md"
+      class="absolute bottom-5 right-5 w-80 aspect-video text-white flex flex-col gap-2 justify-center font-bold drop-shadow-md mix-blend-difference font-Monument tracking-wider"
     >
       <span>Join us for our Service Gatherings on Sunday</span>
       <span
@@ -46,14 +46,5 @@
 </template>
 
 <script setup lang="ts">
-// import { CSSProperties } from 'vue'
-
 const home_video = ref<HTMLDivElement>()
-// const { width, height } = useElementSize(home_video)
-// const style = computed<CSSProperties>(() => {
-//   return {
-//     maxWidth: `${width}`,
-//     maxHeight: `${height}px`,
-//   }
-// })
 </script>
