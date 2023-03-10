@@ -100,7 +100,7 @@
           </div>
           <!-- screenshot of location of church #links you to google map location -->
           <button
-            class="border-black border-2 p-3 absolute bottom-10 left-1/2 translate-x-[-50%]"
+            class="border-black border-[5px] font-bold font-Outfit px-3 py-1 absolute bottom-10 left-1/2 translate-x-[-50%] w-[80%]"
             v-if="i == 3"
           >
             Check it out!
@@ -138,6 +138,8 @@
         <span class="bg-prime block w-fit px-4 py-2">John 16:13.</span></span
       >
     </section>
+
+    <Footer />
   </div>
 </template>
 

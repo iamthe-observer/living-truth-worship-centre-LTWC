@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     Arrow: typeof import('./src/components/arrow.vue')['default']
     Canvas: typeof import('./src/views/Canvas.vue')['default']
     Content: typeof import('./src/views/Content.vue')['default']
+    Footer: typeof import('./src/views/Footer.vue')['default']
     HomeVideo: typeof import('./src/components/HomeVideo.vue')['default']
     HorizontalScroller: typeof import('./src/components/HorizontalScroller.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
