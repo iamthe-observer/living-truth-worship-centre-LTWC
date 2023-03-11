@@ -1,4 +1,3 @@
-// @ts-nocheck
 import * as THREE from 'three'
 
 let camera: THREE.Camera, scene: THREE.Scene, renderer: THREE.WebGLRenderer
@@ -102,38 +101,8 @@ function animate(delta?: any) {
   render(delta)
 }
 
-let capturer = new CCapture({
-  verbose: true,
-  framerate: 60,
-  // motionBlurFrames: 4,
-  quality: 90,
-  format: 'webm',
-  workersPath: 'js/',
-})
-
-let isCapturing = (val: boolean) => {
-  if (val === false && window.capturing === true) {
-    capturer.stop()
-    capturer.save()
-  } else if (val === true && window.capturing === false) {
-    capturer.start()
-  }
-  capturing = val
-}
-let toggleCapture = () => {
-  isCapturing(!capturing)
-}
-
-window.addEventListener('keyup', function (e) {
-  if (e.keyCode == 68) toggleCapture()
-})
-
 function render(delta: any) {
   uniforms.u_time.value = -1000 + delta * 0.0005
   uniforms.u_scroll.value = window.scrollY
   renderer.render(scene, camera)
-
-  if (capturing) {
-    capturer.capture(renderer.domElement)
-  }
 }
