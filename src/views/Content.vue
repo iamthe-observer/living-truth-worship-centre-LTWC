@@ -113,17 +113,14 @@
     <section
       class="flex flex-col text-[1.5em] gap-10 py-12 min-h-screen overflow-x-hidden justify-center bg-base100"
     >
-      <h1 class="text-black font-bold pl-10">
+      <h1 class="text-black text-[.8em] font-bold pl-10 font-Unbound">
         Find Your Place at Living Truth Worship Centre
       </h1>
 
       <HorizontalScroller />
     </section>
 
-    <section
-      class="h-10 flex"
-      style="background-image: url(../assets/icons/spike.svg)"
-    >
+    <section class="h-10 flex">
       <img
         v-for="i in 80"
         class="w-10"
@@ -153,10 +150,7 @@
       >
     </section>
 
-    <section
-      class="h-10 flex"
-      style="background-image: url(../assets/icons/spike.svg)"
-    >
+    <section class="h-10 flex">
       <img
         v-for="i in 80"
         class="w-10 rotate-180"

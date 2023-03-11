@@ -24,15 +24,15 @@
     </div>
 
     <!-- links -->
-    <div class="flex gap-5 items-center h-full">
+    <div class="flex gap-5 items-center h-[79px]">
       <RouterLink
         to="/"
         v-for="(link, i) in links"
         :key="i"
         :class="
           isVisible
-            ? ` text-white linkz${i} inverse-text cursor-pointer opacity-0 relative -top-20 links text-sm`
-            : ` linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm`
+            ? ` text-white linkz${i} inverse-text cursor-pointer opacity-0 relative -top-20 links text-sm hover:bg-sec px-2 py-1 transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:shadow-md`
+            : ` linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm hover:bg-sec hover:text-white px-2 py-1 transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md`
         "
         >{{ link }}</RouterLink
       >

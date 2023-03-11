@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as THREE from 'three'
 
 let camera: THREE.Camera, scene: THREE.Scene, renderer: THREE.WebGLRenderer
