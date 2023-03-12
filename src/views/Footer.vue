@@ -9,8 +9,8 @@
           action=""
           class="flex flex-col w-full p-12 h-full bg-white text-black"
         >
-          <h1 class="font-Unbound text-3xl font-[700] mb-3">
-            Sign Up for Encouragement & News
+          <h1 class="font-Unbound text-3xl text-center mb-3">
+            <Bubbletext text="Sign Up for Encouragement & News" />
           </h1>
           <div class="grid grid-cols-2 h-full font-Poppins text-md">
             <label class="font-bold"

@@ -21,18 +21,23 @@
 
     <!-- introduction -->
     <section
-      class="relative flex flex-col text-[1.5em] gap-10 pb-56 h-screen bg-base300"
+      class="relative flex flex-col items-center justify-center text-[1.5em] py-28 h-screen bg-base300"
     >
+      <!-- heading -->
       <div
-        class="relative uppercase my-32 mx-16 text-[2.8em] w-fit text-black font-Unbound z-10"
+        class="relative uppercase self-start text-[2.8em] pl-24 text-black font-Unbound z-10"
       >
-        Our Mission
-        <div class="w-3 h-16 absolute bg-prime -bottom-16 right-32"></div>
-        <div class="h-3 w-52 absolute bg-prime -bottom-16 -right-20"></div>
+        <Bubbletext :text="`Our Mission`" />
       </div>
       <!-- mission statement -->
       <div
-        class="absolute top-64 w-2/5 text-justify right-20 text-black font-Bebas_Neue font-bold text-3xl z-10"
+        class="absolute left-[35%] top-40% -translate-x-1/2 -translate-y-1/2"
+      >
+        <div class="w-3 h-16 bg-prime"></div>
+        <div class="h-3 w-80 bg-prime"></div>
+      </div>
+      <div
+        class="self-end w-2/4 text-justify right-20 text-black font-Bebas_Neue font-bold text-3xl z-10 pr-24"
       >
         We exist to bring people to a personal relationship with Jesus Christ
         and membership in His family; and to develop a Christ-like character;
@@ -61,10 +66,11 @@
       <div class="grid grid-cols-3 grid-rows-2 gap-2">
         <div
           v-for="(source, i) in src"
+          :ref="i == 0 || i == 3 ? '' : `img`"
           :class="
             source
-              ? 'w-full h-96 overflow-clip'
-              : 'w-full h-96 overflow-clip relative bg-sec'
+              ? 'w-full h-96 overflow-clip img_item'
+              : 'w-full h-96 overflow-clip relative bg-sec img_item'
           "
         >
           <img v-if="source" class="object-contain" :src="source" alt="" />
@@ -72,7 +78,7 @@
             v-if="i == 0"
             class="uppercase flex justify-between items-end pl-10 pr-10 w-full h-full pb-5"
           >
-            <span class="font-bold font-Unbound">Visit Us</span>
+            <span class="font-bold bubble-text font-Unbound">Visit Us</span>
             <svg
               class="w-20 aspect-square"
               fill="#000000"
@@ -164,42 +170,12 @@
 </template>
 
 <script setup lang="ts">
-const src = ref([
-  '',
-  'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc1.jpg',
-  'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc2.jpg',
-  '',
-  'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc3.jpg',
-  'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc4.jpg',
-])
+import { useAppStore } from '../store/appStore'
 
-let if_grab = ref(false)
-let show_hover_box = ref(false)
-
-const toggleGrabPointer = () => {
-  if_grab.value = !if_grab.value
-}
+const { src } = storeToRefs(useAppStore())
 </script>
 
 <style scoped>
-.zigzag {
-  display: flex;
-  height: 20px;
-}
-
-.zigzag div {
-  width: 10px;
-}
-
-.zigzag div:nth-child(even) {
-  background-color: black;
-}
-
-.zigzag div:nth-child(odd) {
-  background-color: transparent;
-  transform: skewX(45deg);
-}
-
 .wrapper {
   max-width: 100%;
   overflow: hidden;

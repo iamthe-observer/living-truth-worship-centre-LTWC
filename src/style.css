@@ -38,14 +38,13 @@
   body {
     margin: 0;
     padding: 0;
-    display: flex;
-    place-items: center;
     min-width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
+    display: flex;
   }
 
   #app {
-    @apply w-full h-full z-10 bg-transparent antialiased;
+    @apply min-w-full min-h-full bg-transparent antialiased;
   }
 
   .inverse-text {

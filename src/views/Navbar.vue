@@ -14,8 +14,12 @@
       <span
         v-if="isVisible"
         class="text-white text-xl inverse-text uppercase w-80 font-Unbound"
-        >living truth<br />worship centre</span
-      >
+        ><Bubbletext
+          class="uppercase"
+          :text="`living truth`" /><br /><Bubbletext
+          class="uppercase"
+          :text="`worship centre`"
+      /></span>
       <span
         v-if="!isVisible"
         class="text-black text-2xl uppercase w-80 font-bold font-Unbound"
@@ -39,8 +43,8 @@
       <span
         :class="
           isVisible
-            ? ' text-white opacity-0 side-menu text-lg ml-4 hover:underline cursor-pointer font-bold'
-            : ' text-black opacity-0 side-menu text-xl ml-4 hover:underline cursor-pointer font-bold'
+            ? ' text-white opacity-0 side-menu text-lg ml-4 hover:underline cursor-pointer '
+            : ' text-black opacity-0 side-menu text-xl ml-4 hover:underline cursor-pointer '
         "
         >Menu</span
       >

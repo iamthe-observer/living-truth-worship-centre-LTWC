@@ -10,11 +10,13 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Arrow: typeof import('./src/components/arrow.vue')['default']
+    Bubbletext: typeof import('./src/components/bubbletext.vue')['default']
     Canvas: typeof import('./src/views/Canvas.vue')['default']
     Content: typeof import('./src/views/Content.vue')['default']
     Footer: typeof import('./src/views/Footer.vue')['default']
     HomeVideo: typeof import('./src/components/HomeVideo.vue')['default']
     HorizontalScroller: typeof import('./src/components/HorizontalScroller.vue')['default']
+    Loading: typeof import('./src/views/Loading.vue')['default']
     Navbar: typeof import('./src/views/Navbar.vue')['default']
     QuickNavigationBox: typeof import('./src/components/QuickNavigationBox.vue')['default']
     Routelinks: typeof import('./src/components/Routelinks.vue')['default']
