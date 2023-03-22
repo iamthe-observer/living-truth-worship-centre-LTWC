@@ -1,5 +1,7 @@
 <template>
-  <div class="w-full h-[800px] bg-base900 flex flex-col text-white">
+  <div
+    class="footer-container w-full h-[800px] bg-base900 flex flex-col text-white"
+  >
     <div class="relative w-full flex justify-between items-center p-10 h-[40%]">
       <!-- top half -->
       <div
@@ -10,22 +12,26 @@
           class="flex flex-col w-full p-12 h-full bg-white text-black"
         >
           <h1 class="font-Unbound text-3xl text-center mb-3">
-            <Bubbletext text="Sign Up for Encouragement & News" />
+            <Bubbletext
+              :default_clr="'000'"
+              :ID="'Sign'"
+              text="Sign Up for Encouragement & News"
+            />
           </h1>
           <div class="grid grid-cols-2 h-full font-Poppins text-md">
-            <label class="font-bold"
+            <label class="font-normal"
               >First Name<input
                 placeholder="Ransford"
                 class="block w-full"
                 type="text"
             /></label>
-            <label class="font-bold"
+            <label class="font-normal"
               >Last Name<input
                 placeholder="Smith"
                 class="block w-full"
                 type="text"
             /></label>
-            <label class="font-bold"
+            <label class="font-normal"
               >Email<input
                 placeholder="email@email.com"
                 class="block w-full"
@@ -72,9 +78,21 @@
         <div class="flex-1 border-r-4 p-5">
           <span class="font-Unbound font-bold text-2xl">Quick Links</span>
           <ul class="mt-6 ml-6 font-Outfit flex flex-col gap-3">
-            <li>Visit</li>
-            <li>Give</li>
-            <li>Contact</li>
+            <li
+              class="hover:scale-110 transition-all duration-150 ease-out cursor-pointer"
+            >
+              Visit
+            </li>
+            <li
+              class="hover:scale-110 transition-all duration-150 ease-out cursor-pointer"
+            >
+              Give
+            </li>
+            <li
+              class="hover:scale-110 transition-all duration-150 ease-out cursor-pointer"
+            >
+              Contact
+            </li>
           </ul>
         </div>
         <div

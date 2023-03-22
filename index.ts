@@ -15,7 +15,6 @@ let uniforms: {
 
 let texture: THREE.Texture, bg: THREE.Texture
 
-let capturing = false
 let loader = new THREE.TextureLoader()
 loader.setCrossOrigin('anonymous')
 
@@ -44,6 +43,8 @@ export default function Loader() {
 
 function init() {
   let container = document.getElementById('container')!
+  container.classList.add('-z-50')
+  container.style.backgroundColor = '#fff'
 
   camera = new THREE.Camera()
   camera.position.z = 1
@@ -64,11 +65,19 @@ function init() {
   var material = new THREE.ShaderMaterial({
     uniforms: uniforms,
     vertexShader: document.getElementById('vertexShader')!.textContent!,
-    fragmentShader: document.getElementById('fragmentShader')!.textContent!,
+    fragmentShader: document.getElementById('fragmentHomeShader')!.textContent!,
+  })
+  let materialSundays = new THREE.ShaderMaterial({
+    uniforms: uniforms,
+    vertexShader: document.getElementById('vertexShader')!.textContent!,
+    fragmentShader: document.getElementById('fragmentSundaysShader')!
+      .textContent!,
   })
   material.extensions.derivatives = true
+  materialSundays.extensions.derivatives = true
 
   var mesh = new THREE.Mesh(geometry, material)
+  let meshSundays = new THREE.Mesh(geometry, materialSundays)
   scene.add(mesh)
 
   renderer = new THREE.WebGLRenderer()

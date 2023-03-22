@@ -1,5 +1,10 @@
 <template>
-  <div class="w-full h-full relative flex flex-col bg-transparent z-10">
+  <div class="target w-full h-40 absolute top-32" ref="target_ref"></div>
+
+  <div
+    ref="content_container"
+    class="w-full h-full relative flex flex-col bg-transparent z-10"
+  >
     <HomeVideo />
     <!-- scroll quick alerts and news -->
     <div
@@ -25,9 +30,18 @@
     >
       <!-- heading -->
       <div
-        class="relative uppercase self-start text-[2.8em] pl-24 text-black font-Unbound z-10"
+        class="relative uppercase self-start text-[2.8em] pl-24 text-black font-Unbound z-10 mission-trigger"
       >
-        <Bubbletext :text="`Our Mission`" />
+        <Bubbletext
+          :default_clr="'000'"
+          :ID="'mission'"
+          class="tracking-wider mission"
+          :text="`Our Mission`"
+          :clrs="{
+            h: [205, 205, 205],
+            h_adj: [155, 155, 155],
+          }"
+        />
       </div>
       <!-- mission statement -->
       <div
@@ -36,6 +50,7 @@
         <div class="w-3 h-16 bg-prime"></div>
         <div class="h-3 w-80 bg-prime"></div>
       </div>
+
       <div
         class="self-end w-2/4 text-justify right-20 text-black font-Bebas_Neue font-bold text-3xl z-10 pr-24"
       >
@@ -57,6 +72,7 @@
 
     <!-- showcase images -->
     <section
+      ref="test"
       class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-7 px-10"
     >
       <!-- <div class="grid grid-cols-3 grid-rows-2 gap-2">
@@ -66,29 +82,34 @@
       <div class="grid grid-cols-3 grid-rows-2 gap-2">
         <div
           v-for="(source, i) in src"
-          :ref="i == 0 || i == 3 ? '' : `img`"
+          :ref="`parallax_img${i}`"
           :class="
             source
-              ? 'w-full h-96 overflow-clip img_item'
-              : 'w-full h-96 overflow-clip relative bg-sec img_item'
+              ? 'w-full h-96 overflow-clip img_item perspective'
+              : 'w-full h-96 overflow-clip relative img_item perspective'
           "
         >
           <img v-if="source" class="object-contain" :src="source" alt="" />
           <div
             v-if="i == 0"
-            class="uppercase flex justify-between items-end pl-10 pr-10 w-full h-full pb-5"
+            class="uppercase flex justify-between items-end px-6 w-full h-full pb-5 bg-prime"
           >
-            <span class="font-bold bubble-text font-Unbound">Visit Us</span>
+            <span
+              v-motion-slide-visible-left
+              class="text-white font-bold bubble-text font-Unbound"
+              >Visit Us</span
+            >
             <svg
-              class="w-20 aspect-square"
-              fill="#000000"
+              v-motion-slide-visible-top
+              class="w-16 aspect-square"
+              fill="#fff"
               version="1.1"
               id="Layer_1"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               viewBox="0 0 476.213 476.213"
               xml:space="preserve"
-              stroke="#000000"
+              stroke="#fff"
               stroke-width="0.004762130000000001"
             >
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -105,25 +126,118 @@
             </svg>
           </div>
           <!-- screenshot of location of church #links you to google map location -->
-          <button
-            class="border-black border-[5px] font-bold font-Outfit px-3 py-1 absolute bottom-10 left-1/2 translate-x-[-50%] w-[80%]"
+          <div
             v-if="i == 3"
+            class="uppercase flex justify-between items-end h-full group"
           >
-            Check it out!
-          </button>
+            <img
+              class="object-cover w-full h-full group-hover:scale-110 transition-all duration-200 ease-out brightness-50 group-hover:brightness-90"
+              src="../assets/edited/location-map.png"
+              alt=""
+            />
+
+            <!-- <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2883.5837543778443!2d-79.71299589410437!3d43.71919869090916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3dc4a2d9a599%3A0xeb6009c0f2222661!2sClark%20Blvd%2C%20Brampton%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sus!4v1678790395697!5m2!1sen!2sus"
+              width="600"
+              height="450"
+              style="border: 0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe> -->
+
+            <button
+              class="transition-all duration-200 ease-in-out border-base900 group-hover:py-10 group-hover:bottom-0 group-hover:w-full text-white group-hover:border-prime group-hover:bg-prime group-hover:text-white border-[5px] font-bold font-Unbound px-3 py-1 absolute z-50 bottom-10 left-1/2 translate-x-[-50%] w-[80%]"
+            >
+              <span
+                class="group-hover:text-3xl transition-all duration-300 ease-out"
+              >
+                Find Us!
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- quick navigation section -->
     <section
-      class="flex flex-col text-[1.5em] gap-10 py-12 min-h-screen overflow-x-hidden justify-center bg-base100"
+      class="flex flex-col text-[1.5em] py-12 min-h-screen overflow-x-hidden justify-center bg-base100"
     >
-      <h1 class="text-black text-[.8em] font-bold pl-10 font-Unbound">
-        Find Your Place at Living Truth Worship Centre
-      </h1>
+      <header
+        v-motion-fade
+        class="text-black text-[1em] pl-10 font-Unbound flex gap-10 items-center"
+      >
+        <Bubbletext
+          :default_clr="'000'"
+          :ID="'Find'"
+          class="font-light"
+          text="Find Your Place at Living Truth Worship Centre"
+        />
+        <svg
+          fill="#000000"
+          width="80px"
+          height="80px"
+          viewBox="-2.4 -2.4 28.80 28.80"
+          id="right-arrow"
+          data-name="Flat Line"
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon flat-line"
+          transform="rotate(0)"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke="#000"
+            stroke-width="0.4800000000000001"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <line
+              id="primary"
+              x1="3"
+              y1="12"
+              x2="21"
+              y2="12"
+              style="
+                fill: none;
+                stroke: #000000;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 0.792;
+              "
+            ></line>
+            <polyline
+              id="primary-2"
+              data-name="primary"
+              points="18 15 21 12 18 9"
+              style="
+                fill: none;
+                stroke: #000000;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 0.792;
+              "
+            ></polyline>
+          </g>
+        </svg>
+      </header>
 
       <HorizontalScroller />
+
+      <div class="flex w-full justify-end relative pr-10 mt-1">
+        <img
+          class="w-10 aspect-square"
+          src="../assets/icons/drag-left-svgrepo-com.svg"
+          alt=""
+        />
+        <span class="">Drag to Scroll</span>
+        <img
+          class="w-10 aspect-square"
+          src="../assets/icons/drag-right-svgrepo-com.svg"
+          alt=""
+        />
+      </div>
     </section>
 
     <section class="h-10 flex">
@@ -136,23 +250,29 @@
     </section>
 
     <!-- bible quote -->
-    <section class="h-screen flex items-center w-full relative">
+    <section
+      ref="quote_ref"
+      class="h-screen quotes flex items-center w-full relative"
+    >
       <img
         src="../assets/bible2.png"
-        class="-rotate-12 -translate-x-20"
+        class="-rotate-12 -translate-x-20 holdbible opacity-0"
         alt=""
         srcset=""
       />
 
       <div
-        class="border-[10px] border-prime opacity-30 w-1/2 h-1/2 absolute translate-x-1/2 -z-1"
+        :style="classer"
+        class="border-[10px] border-collapse border-prime w-1/2 h-1/2 absolute translate-x-1/2 -z-1 frame opacity-0"
       ></div>
       <span
-        class="p-10 text-white font-bold text-3xl tracking-wide drop-shadow-md font-Gloock"
+        class="p-10 text-white font-bold text-3xl tracking-wide drop-shadow-md font-Gloock verse opacity-0 translate-x-40 leading-9"
         >But when he, the Spirit of truth, comes, he will guide you into all the
         truth. He will not speak on his own; he will speak only what he hears,
         and he will tell you what is yet to come.
-        <span class="bg-prime block w-fit px-4 py-2">John 16:13.</span></span
+        <span class="bg-prime block w-fit px-4 py-2 mt-2"
+          >John 16:13.</span
+        ></span
       >
     </section>
 
@@ -171,11 +291,123 @@
 
 <script setup lang="ts">
 import { useAppStore } from '../store/appStore'
+import gsap from 'gsap'
+import { CSSProperties } from 'vue'
+import Loader from '../../index'
+import { useRoute } from 'vue-router'
 
 const { src } = storeToRefs(useAppStore())
+
+const quote_ref = ref<HTMLElement>()
+const classer = ref<{}>()
+const target_ref = ref<HTMLDivElement>()
+const content_container = ref<HTMLDivElement>()
+const route = useRoute()
+
+onMounted(() => {
+  watchEffect(() => {
+    if (route.name === 'home' && content_container.value != undefined) {
+      window.scrollTo({
+        top: 0,
+      })
+    }
+  })
+
+  useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
+    if (isIntersecting && route.name == 'home') {
+      useAppStore().setIsVisible(isIntersecting)
+    } else {
+      useAppStore().setIsVisible(isIntersecting)
+    }
+  })
+})
+
+function initAnimatedBg() {
+  const app_container = document.querySelector('#app_container')
+  const div = document.createElement('div')
+  div.setAttribute('id', 'container')
+  div.setAttribute(
+    'class',
+    'touch-none fixed inset-0 w-full overflow-hidden p-0 m-0'
+  )
+  app_container?.appendChild(div)
+
+  return Loader()
+}
+
+function removeAnimatedBg() {
+  const app_container = document.querySelector('#app_container')
+  app_container?.removeChild(document.querySelector('#container')!)
+}
+
+onBeforeUnmount(() => {
+  removeAnimatedBg()
+  console.log('wow')
+})
+
+onMounted(() => {
+  useAppStore().setIsVisible(true)
+
+  initAnimatedBg()
+
+  gsap.to('.verse', {
+    opacity: 1,
+    x: -16,
+    duration: 1,
+    scrollTrigger: '.verse',
+  })
+
+  gsap.to('.frame', {
+    opacity: 0.3,
+    duration: 1,
+    scrollTrigger: '.frame',
+  })
+
+  gsap.to('.holdbible', {
+    opacity: 1,
+    duration: 1,
+    scrollTrigger: '.holdbible',
+  })
+
+  runParallax(quote_ref, classer)
+})
+
+function runParallax(
+  target: Ref<HTMLElement | undefined>,
+  classer: globalThis.Ref<{} | undefined>
+) {
+  const { tilt, roll, source } = useParallax(target)
+  const isHovered = useElementHover(target)
+
+  const cardParallax = computed<CSSProperties>(() => ({
+    transform: `rotateX(${roll.value * 40}deg) rotateY(${
+      tilt.value * 40
+    }deg) scale(110%)`,
+    transition: '.3s ease-out all',
+    left: '25%',
+    opacity: '70%',
+    perspective: 100,
+  }))
+
+  watchEffect(() => {
+    if (isHovered.value) {
+      classer.value = cardParallax.value
+    } else {
+      classer.value = {
+        opacity: '30%',
+        left: '25%',
+        transition: '.3s ease-out all',
+        transform: `rotateX(${0 * 20}deg) rotateY(${0 * 20}deg)`,
+      }
+    }
+  })
+}
 </script>
 
 <style scoped>
+.perspective {
+  perspective: '300px';
+}
 .wrapper {
   max-width: 100%;
   overflow: hidden;

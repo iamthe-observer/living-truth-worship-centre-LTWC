@@ -2,12 +2,7 @@ import { CSSProperties } from 'vue'
 
 export const useAppStore = defineStore('app', () => {
   const isVisible = ref<boolean>(true)
-  const hoveredChar: CSSProperties = {
-    fontWeight: 900,
-  }
-  const hoveredAdjecent: CSSProperties = {
-    fontWeight: 400,
-  }
+  const NavBar = ref<HTMLElement>()
 
   const src = ref([
     '',
@@ -18,8 +13,22 @@ export const useAppStore = defineStore('app', () => {
     'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc4.jpg',
   ])
 
+  const setNavRef = (nav: HTMLElement) => {
+    NavBar.value = nav
+  }
+
+  const navBarHeight = computed(() => {
+    return NavBar.value?.offsetHeight
+  })
+
+  const navPadding = computed<CSSProperties>(() => {
+    return {
+      paddingTop: `${navBarHeight.value}px`,
+    }
+  })
+
   function setIsVisible(bool: boolean) {
     isVisible.value = bool
   }
-  return { setIsVisible, isVisible, src }
+  return { setIsVisible, isVisible, src, setNavRef, navBarHeight, navPadding }
 })

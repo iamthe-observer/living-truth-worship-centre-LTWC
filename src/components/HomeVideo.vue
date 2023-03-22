@@ -40,7 +40,9 @@
         >We gather each Sunday at 9:30a and 11:45a ET and would love for you to
         join us!</span
       >
-      <span>Join Us! <i class="pl-2 pi pi-arrow-right"></i></span>
+      <span class="cursor-pointer"
+        >Join Us! <i class="pl-2 pi pi-arrow-right"></i
+      ></span>
     </div>
   </div>
 </template>

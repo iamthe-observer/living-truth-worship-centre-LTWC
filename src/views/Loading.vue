@@ -1,19 +1,25 @@
 <template>
-  <teleport to="body">
-    <div class="bg-prime">
-      <div class="loader">
-        <div class="box1"></div>
-        <div class="box2"></div>
-        <div class="box3"></div>
-      </div>
+  <div
+    class="bg-white w-full h-screen flex flex-col justify-center items-center gap-3"
+  >
+    <div v-motion-fade class="loader w-[112px] aspect-square">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
     </div>
-  </teleport>
+    <span
+      v-motion-slide-bottom
+      class="text-black font-Monument tracking-wider uppercase"
+      >Loading...</span
+    >
+  </div>
 </template>
 
 <style scoped>
 .box1,
 .box2,
 .box3 {
+  @apply shadow-xl;
   border: 16px solid rgb(93 56 145);
   box-sizing: border-box;
   position: absolute;

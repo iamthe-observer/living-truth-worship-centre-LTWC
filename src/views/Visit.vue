@@ -1,0 +1,171 @@
+<template>
+  <main class="pt-[59px] flex flex-col gap-20 pb-10">
+    <!-- map section -->
+    <section
+      class="min-h-[75vh] bg-base900 flex justify-between items-center p-10"
+    >
+      <div
+        class="text-head text-white font-Unbound text-[4em] flex flex-col [line-height:0;]"
+      >
+        <span class="warp-text">Visit Us</span>
+        <span class="warp-text">Look For Us</span>
+        <span class="warp-text text-prime">Worship With Us</span>
+
+        <span v-motion-slide-left class="leading-tight" v-if="animation_done"
+          >Check The Location!
+          <svg
+            class="animated-arrow icon flat-line inline-block"
+            fill="#fff"
+            width="120px"
+            height="120px"
+            viewBox="-2.4 -2.4 28.80 28.80"
+            id="right-arrow"
+            data-name="Flat Line"
+            xmlns="http://www.w3.org/2000/svg"
+            transform="rotate(0)"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke="#fff"
+              stroke-width="0.4800000000000001"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <line
+                id="primary"
+                x1="3"
+                y1="12"
+                x2="21"
+                y2="12"
+                style="
+                  fill: none;
+                  stroke: #fff;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 0.792;
+                "
+              ></line>
+              <polyline
+                id="primary-2"
+                data-name="primary"
+                points="18 15 21 12 18 9"
+                style="
+                  fill: none;
+                  stroke: #fff;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 0.792;
+                "
+              ></polyline>
+            </g>
+          </svg>
+        </span>
+      </div>
+
+      <div class="map-container bg-base300">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1714.5921512871546!2d-79.71325138101865!3d43.71909411492406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3dc4a2d9a599%3A0xeb6009c0f2222661!2sClark%20Blvd%2C%20Brampton%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sgh!4v1679394148613!5m2!1sen!2sgh"
+          width="600"
+          height="400"
+          style="border: 0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+
+    <section class="max-h-screen px-10 flex flex-col gap-3">
+      <h1 class="w-full text-4xl font-Unbound">Details</h1>
+      <div class="flex gap-6 w-full">
+        <!-- details for sunday service -->
+        <div class="w-2/5 pt-10">
+          <p
+            class="p-4 border-l-4 border-black transition-all duration-200 hover:border-l-8 ease-out hover:border-prime"
+          >
+            <span class="block font-bold text-xl">Main Service</span>
+            <span class="block">9:15am • 11:00am • 4:30pm</span>
+          </p>
+        </div>
+
+        <div class="h-52 w-full bg-sec">
+          <img
+            class="object-cover w-full h-full"
+            src="../assets/edited/02.webp"
+            alt="image of the church"
+            srcset=""
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</template>
+
+<script setup lang="ts">
+import gsap from 'gsap'
+import { useAppStore } from '../store/appStore'
+import SplitTextJS from 'split-text-js'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const animation_done = ref(false)
+
+onMounted(() => {
+  window.scrollTo({
+    top: 0,
+  })
+
+  watchEffect(() => {
+    if (animation_done.value == true) {
+      setTimeout(() => {
+        let tween = gsap.fromTo(
+          '.animated-arrow',
+          {
+            opacity: 1,
+            duration: 1.3,
+            x: 0,
+            repeat: -1,
+          },
+          {
+            opacity: 0,
+            duration: 1.3,
+            x: 80,
+            repeat: -1,
+          }
+        )
+      }, 500)
+    }
+  })
+
+  setTimeout(() => (animation_done.value = true), 4000)
+  useAppStore().setIsVisible(false)
+  const titles = gsap.utils.toArray('.warp-text')
+  const tl = gsap.timeline()
+
+  titles.forEach(title => {
+    const splitTitle = new SplitTextJS(title)
+
+    tl.from(
+      splitTitle.chars,
+      {
+        opacity: 0,
+        y: 80,
+        rotateX: -90,
+        stagger: 0.03,
+      },
+      '<'
+    ).to(
+      splitTitle.chars,
+      {
+        opacity: 0,
+        y: -80,
+        rotateX: 90,
+        stagger: 0.03,
+      },
+      '<1'
+    )
+  })
+})
+</script>
