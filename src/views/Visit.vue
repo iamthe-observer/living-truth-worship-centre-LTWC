@@ -1,5 +1,5 @@
 <template>
-  <main class="pt-[59px] flex flex-col gap-20 pb-10">
+  <main class="pt-[59px] flex flex-col">
     <!-- map section -->
     <section
       class="min-h-[75vh] bg-base900 flex justify-between items-center p-10"
@@ -76,8 +76,27 @@
       </div>
     </section>
 
-    <section class="max-h-screen px-10 flex flex-col gap-3">
-      <h1 class="w-full text-4xl font-Unbound">Details</h1>
+    <section
+      class="max-h-screen py-20 px-10 flex flex-col gap-3 bg-base300 relative isolate"
+    >
+      <img
+        class="absolute -z-1 inset-0 object-cover w-full h-full"
+        src="../assets/edited/02.webp"
+        alt="image of the church"
+        srcset=""
+      />
+      <!-- <h1 class="w-full text-4xl font-Unbound">Details</h1> -->
+      <Bubbletext
+        :default_clr="'fff'"
+        :ID="'details'"
+        class="tracking-wider mission text-center font-Unbound w-fit text-4xl hover-unerline-animation"
+        :text="`Details`"
+        :clrs="{
+          h: [205, 205, 205],
+          h_adj: [155, 155, 155],
+        }"
+      />
+
       <div class="flex gap-6 w-full">
         <!-- details for sunday service -->
         <div class="w-2/5 pt-10">
@@ -87,15 +106,6 @@
             <span class="block font-bold text-xl">Main Service</span>
             <span class="block">9:15am • 11:00am • 4:30pm</span>
           </p>
-        </div>
-
-        <div class="h-52 w-full bg-sec">
-          <img
-            class="object-cover w-full h-full"
-            src="../assets/edited/02.webp"
-            alt="image of the church"
-            srcset=""
-          />
         </div>
       </div>
     </section>

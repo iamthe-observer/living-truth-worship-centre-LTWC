@@ -30,12 +30,12 @@
     >
       <!-- heading -->
       <div
-        class="relative uppercase self-start text-[2.8em] pl-24 text-black font-Unbound z-10 mission-trigger"
+        class="relative uppercase self-start text-[2.8em] w-[700px] flex justify-center text-black font-Unbound z-10 mission-trigger"
       >
         <Bubbletext
           :default_clr="'000'"
           :ID="'mission'"
-          class="tracking-wider mission"
+          class="tracking-wider mission text-center"
           :text="`Our Mission`"
           :clrs="{
             h: [205, 205, 205],
