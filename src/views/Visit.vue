@@ -106,6 +106,7 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 import { useAppStore } from '../store/appStore'
+// @ts-ignore
 import SplitTextJS from 'split-text-js'
 
 gsap.registerPlugin(ScrollTrigger)
