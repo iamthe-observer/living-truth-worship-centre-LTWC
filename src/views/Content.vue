@@ -148,11 +148,12 @@
             <button
               class="transition-all duration-200 ease-in-out border-base900 group-hover:py-10 group-hover:bottom-0 group-hover:w-full text-white group-hover:border-prime group-hover:bg-prime group-hover:text-white border-[5px] font-bold font-Unbound px-3 py-1 absolute z-50 bottom-10 left-1/2 translate-x-[-50%] w-[80%]"
             >
-              <span
+              <RouterLink
+                to="/visit"
                 class="group-hover:text-3xl transition-all duration-300 ease-out"
               >
                 Find Us!
-              </span>
+              </RouterLink>
             </button>
           </div>
         </div>
@@ -240,19 +241,19 @@
       </div>
     </section>
 
-    <section class="h-10 flex">
+    <!-- <section class="h-10 flex">
       <img
         v-for="i in 80"
         class="w-10"
         src="../assets/icons/Spike-light.svg"
         alt=""
       />
-    </section>
+    </section> -->
 
     <!-- bible quote -->
     <section
       ref="quote_ref"
-      class="h-screen quotes flex items-center w-full relative"
+      class="spikes_container h-screen quotes flex items-center w-full relative"
     >
       <img
         src="../assets/bible2.png"
@@ -276,14 +277,14 @@
       >
     </section>
 
-    <section class="h-10 flex">
+    <!-- <section class="h-10 flex">
       <img
         v-for="i in 80"
         class="w-10 rotate-180"
         src="../assets/icons/Spike-dark.svg"
         alt=""
       />
-    </section>
+    </section> -->
 
     <Footer />
   </div>
@@ -305,6 +306,8 @@ const content_container = ref<HTMLDivElement>()
 const route = useRoute()
 
 onMounted(() => {
+  useTitle('LTWC | Welcome!')
+
   watchEffect(() => {
     if (route.name === 'home' && content_container.value != undefined) {
       window.scrollTo({
@@ -332,7 +335,7 @@ function initAnimatedBg() {
   )
   app_container?.appendChild(div)
 
-  return Loader()
+  return Loader('home')
 }
 
 function removeAnimatedBg() {
@@ -342,7 +345,6 @@ function removeAnimatedBg() {
 
 onBeforeUnmount(() => {
   removeAnimatedBg()
-  console.log('wow')
 })
 
 onMounted(() => {
@@ -380,8 +382,8 @@ function runParallax(
   const isHovered = useElementHover(target)
 
   const cardParallax = computed<CSSProperties>(() => ({
-    transform: `rotateX(${roll.value * 40}deg) rotateY(${
-      tilt.value * 40
+    transform: `rotateX(${roll.value * 30}deg) rotateY(${
+      tilt.value * 30
     }deg) scale(110%)`,
     transition: '.3s ease-out all',
     left: '25%',

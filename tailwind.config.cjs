@@ -7,7 +7,7 @@ module.exports = {
         sec: '#5D3891',
         prime: '#D94b0f',
         base900: '#2f2f2f',
-        base300: '#E8E2E2',
+        base300: '#ededed',
         base100: '#F5F5F5',
       },
       fontFamily: {

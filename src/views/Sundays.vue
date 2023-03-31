@@ -147,6 +147,12 @@ import { useAppStore } from '../store/appStore'
 const { navPadding } = storeToRefs(useAppStore())
 
 onMounted(() => {
+  useTitle('LTWC | Sundays')
+
+  window.scrollTo({
+    top: 0,
+  })
+
   useAppStore().setIsVisible(false)
 })
 </script>

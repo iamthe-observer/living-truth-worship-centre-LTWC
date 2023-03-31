@@ -120,7 +120,7 @@ const props = defineProps<{
 }>()
 
 const links = reactive<{ label: string; to: string }[]>([
-  { label: 'About', to: '/' },
+  { label: 'About', to: '/aboutLTWC' },
   { label: 'Visit', to: '/visit' },
   // { label: 'Messages', to: '/messages' },
   // { label: 'Sermons', to: '/' },

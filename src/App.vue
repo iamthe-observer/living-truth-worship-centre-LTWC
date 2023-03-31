@@ -3,7 +3,7 @@
     <Loading v-if="loading_app"></Loading>
   </teleport>
 
-  <div v-if="!loading_app" class="relative w-full h-full bg-transparent">
+  <div v-if="!loading_app" class="relative w-full h-full bg-transparent z-10">
     <!-- <Canvas></Canvas> -->
     <Navbar :is-visible="isVisible" />
 
@@ -27,6 +27,6 @@ const loading_app = ref(true)
 onMounted(() => {
   setTimeout(() => {
     loading_app.value = false
-  }, 2000)
+  }, 0)
 })
 </script>

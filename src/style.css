@@ -80,6 +80,58 @@
   .scrollbar-hidden::-webkit-scrollbar {
     display: none;
   }
+
+  .spikes_container {
+    --spike-height: 20px;
+    position: relative;
+  }
+
+  .spikes_container::after,
+  .spikes_container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: var(--spike-height);
+    mask-image: url(assets/spikes.svg);
+    mask-size: 80px var(--spike-height);
+    mask-repeat: repeat-x;
+  }
+
+  .spikes_container::after {
+    @apply bg-base100;
+    top: 0;
+  }
+  .spikes_container::before {
+    @apply bg-base900;
+    bottom: 0;
+    transform: rotate(0.5turn);
+  }
+
+  .spikes_container_about {
+    --spike-height: 20px;
+    position: relative;
+  }
+
+  .spikes_container_about::after,
+  .spikes_container_about::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: var(--spike-height);
+    mask-image: url(assets/spikes.svg);
+    mask-size: 80px var(--spike-height);
+    mask-repeat: repeat-x;
+  }
+
+  .spikes_container_about::after {
+    @apply bg-base300;
+    top: 0;
+  }
+  .spikes_container_about::before {
+    @apply bg-base900;
+    bottom: 0;
+    transform: rotate(0.5turn);
+  }
 }
 
 @layer utilities {
@@ -111,6 +163,14 @@
   }
   .clippy3 {
     clip-path: polygon(28% 0, 100% 20%, 83% 61%, 90% 87%, 36% 75%, 0 86%);
+  }
+
+  .clip-para {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+  }
+
+  .clip-para-reverse {
+    clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%);
   }
 
   .hover-underline-animation {

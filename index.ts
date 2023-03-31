@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { Component } from 'vue'
 
 let camera: THREE.Camera, scene: THREE.Scene, renderer: THREE.WebGLRenderer
 let uniforms: {
@@ -18,7 +19,7 @@ let texture: THREE.Texture, bg: THREE.Texture
 let loader = new THREE.TextureLoader()
 loader.setCrossOrigin('anonymous')
 
-export default function Loader() {
+export default function Loader(init_page?: string) {
   loader.load(
     'https://s3-us-west-2.amazonaws.com/s.cdpn.io/982762/noise.png',
     tex => {
@@ -33,7 +34,7 @@ export default function Loader() {
           bg.wrapS = THREE.RepeatWrapping
           bg.wrapT = THREE.RepeatWrapping
           bg.minFilter = THREE.LinearFilter
-          init()
+          init(init_page)
           animate()
         }
       )
@@ -41,10 +42,16 @@ export default function Loader() {
   )
 }
 
-function init() {
+function init(init_page?: string) {
   let container = document.getElementById('container')!
-  container.classList.add('-z-50')
-  container.style.backgroundColor = '#fff'
+  let containerAbout = document.getElementById('containerAbout')!
+  if (init_page == 'home') {
+    container.classList.add('-z-50')
+    container.style.backgroundColor = '#fff'
+  } else if (init_page == 'about') {
+    containerAbout.classList.add('-z-50')
+    containerAbout.style.backgroundColor = '#fff'
+  }
 
   camera = new THREE.Camera()
   camera.position.z = 1
@@ -67,23 +74,42 @@ function init() {
     vertexShader: document.getElementById('vertexShader')!.textContent!,
     fragmentShader: document.getElementById('fragmentHomeShader')!.textContent!,
   })
+
+  // new materials for other pages
   let materialSundays = new THREE.ShaderMaterial({
     uniforms: uniforms,
     vertexShader: document.getElementById('vertexShader')!.textContent!,
     fragmentShader: document.getElementById('fragmentSundaysShader')!
       .textContent!,
   })
+
+  let materialAbout = new THREE.ShaderMaterial({
+    uniforms: uniforms,
+    vertexShader: document.getElementById('vertexShader')!.textContent!,
+    fragmentShader: document.getElementById('fragmentAboutShader')!
+      .textContent!,
+  })
   material.extensions.derivatives = true
   materialSundays.extensions.derivatives = true
 
-  var mesh = new THREE.Mesh(geometry, material)
+  var meshHome = new THREE.Mesh(geometry, material)
+  // new mesh for other pages
   let meshSundays = new THREE.Mesh(geometry, materialSundays)
-  scene.add(mesh)
+  let meshAbout = new THREE.Mesh(geometry, materialAbout)
+  if (init_page == 'home') {
+    scene.add(meshHome)
+  } else if (init_page == 'about') {
+    scene.add(meshAbout)
+  }
 
   renderer = new THREE.WebGLRenderer()
   renderer.setPixelRatio(window.devicePixelRatio)
 
-  container!.appendChild(renderer.domElement)
+  if (init_page == 'home') {
+    container.appendChild(renderer.domElement)
+  } else if (init_page == 'about') {
+    containerAbout.appendChild(renderer.domElement)
+  }
 
   onWindowResize()
   window.addEventListener('resize', onWindowResize, false)
@@ -112,6 +138,6 @@ function animate(delta?: any) {
 
 function render(delta: any) {
   uniforms.u_time.value = -1000 + delta * 0.0005
-  uniforms.u_scroll.value = window.scrollY
+  uniforms.u_scroll.value = window.scrollY * 15
   renderer.render(scene, camera)
 }

@@ -9,6 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    About: typeof import('./src/views/About.vue')['default']
     Arrow: typeof import('./src/components/arrow.vue')['default']
     Bubbletext: typeof import('./src/components/bubbletext.vue')['default']
     Canvas: typeof import('./src/views/Canvas.vue')['default']

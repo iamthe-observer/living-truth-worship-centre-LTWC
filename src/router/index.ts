@@ -1,6 +1,7 @@
 import Home from '../views/Content.vue'
 import Sundays from '../views/Sundays.vue'
 import Visit from '../views/Visit.vue'
+import About from '../views/About.vue'
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
@@ -21,6 +22,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'visit',
     component: Visit,
     // props: true,
+  },
+  {
+    path: '/aboutLTWC',
+    name: 'about',
+    component: About,
   },
 ]
 
