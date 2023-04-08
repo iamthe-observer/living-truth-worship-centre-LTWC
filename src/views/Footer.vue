@@ -79,16 +79,19 @@
           <span class="font-Unbound font-bold text-2xl">Quick Links</span>
           <ul class="mt-6 ml-6 font-Outfit flex flex-col gap-3">
             <li
+              @click="$router.push('/visit')"
               class="hover:scale-110 transition-all duration-150 ease-out cursor-pointer"
             >
               Visit
             </li>
             <li
+              @click="$router.push('/give')"
               class="hover:scale-110 transition-all duration-150 ease-out cursor-pointer"
             >
               Give
             </li>
             <li
+              @click="$router.push('/contact')"
               class="hover:scale-110 transition-all duration-150 ease-out cursor-pointer"
             >
               Contact

@@ -7,15 +7,19 @@
       <div
         class="text-head text-white font-Unbound text-[3.5em] flex flex-col [line-height:0;]"
       >
-        <span class="warp-text">Visit Us</span>
-        <span class="warp-text">Look For Us</span>
-        <span class="warp-text text-prime">Worship With Us</span>
+        <span class="warp-text">{{ visitData?.head_text[0] }}</span>
+        <span class="warp-text">{{ visitData?.head_text[1] }}</span>
+        <span class="warp-text text-prime">{{ visitData?.head_text[2] }}</span>
 
         <span
           v-motion-slide-left
           class="leading-tight text-4xl"
           v-if="animation_done"
-          ><Bubbletext text="Find Our Location!" ID="rock" default_clr="fff" />
+          ><Bubbletext
+            :text="visitData?.head_text[3]!"
+            ID="rock"
+            default_clr="fff"
+          />
           <svg
             class="animated-arrow icon flat-line inline-block"
             fill="#fff"
@@ -82,7 +86,7 @@
     </section>
 
     <section
-      class="max-h-screen py-32 px-10 flex flex-col gap-3 bg-base900 relative isolate"
+      class="max-h-screen py-32 px-10 flex flex-col gap-10 bg-base900 relative isolate"
     >
       <div class="absolute -z-1 top-0 right-0 w-3/4 h-full clip-para">
         <img
@@ -97,21 +101,21 @@
         :default_clr="'fff'"
         :ID="'details'"
         class="tracking-wider mission text-center font-Unbound w-fit text-4xl hover-unerline-animation"
-        :text="`Details`"
+        :text="visitData?.details.title!"
         :clrs="{
           h: [205, 205, 205],
           h_adj: [155, 155, 155],
         }"
       />
 
-      <div class="flex gap-6 w-full">
+      <div class="flex flex-col w-full">
         <!-- details for sunday service -->
-        <div class="w-2/5 pt-10">
+        <div v-for="info in visitData?.details.info" class="w-2/5 font-Outfit">
           <p
             class="p-4 border-l-4 border-white transition-all duration-200 hover:border-l-8 ease-out hover:border-prime text-white"
           >
-            <span class="block font-bold text-xl">Main Service</span>
-            <span class="block">9:15am • 11:00am • 4:30pm</span>
+            <span class="block font-bold text-xl">{{ info.head }}</span>
+            <span class="block">{{ info.body }}</span>
           </p>
         </div>
       </div>
@@ -121,21 +125,21 @@
       class="text-white max-h-screen flex justify-between py-32 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate"
     >
       <div class="w-3/5 flex flex-col">
-        <h1>What you should be prepared for</h1>
-        <p>
-          When you visit Living Truth Worship Centre, you can anticipate an
-          enjoyable experience while connecting with God in a meaningful manner.
+        <h1 class="font-Monument text-[2em]">
+          {{ visitData?.expectations.title }}
+        </h1>
+        <p class="text-md font-Unbound">
+          {{ visitData?.expectations.title_exp }}
         </p>
 
-        <div class="w-full h-full gap-7 grid grid-cols-2 pr-5">
+        <div class="w-full h-full gap-7 grid grid-cols-2 pr-5 mt-10">
           <div
             class="border-t-8 border-prime flex flex-col gap-5 py-8"
-            v-for="i in 8"
+            v-for="info in visitData?.expectations.info"
           >
-            <h1 class="font-Monument text-2xl">CONTENT</h1>
-            <p class="font-Outfit">
-              Hol' lotta content here. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Eligendi, quaerat.
+            <h1 class="font-Monument text-2xl">{{ info.head }}</h1>
+            <p class="font-Unbound font-light">
+              {{ info.body }}
             </p>
           </div>
         </div>
@@ -226,6 +230,9 @@ import gsap from 'gsap'
 import { useAppStore } from '../store/appStore'
 // @ts-ignore
 import SplitTextJS from 'split-text-js'
+
+const { siteData: data } = storeToRefs(useAppStore())
+const visitData = computed(() => data.value.visit)
 
 gsap.registerPlugin(ScrollTrigger)
 

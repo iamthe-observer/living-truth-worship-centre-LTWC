@@ -1,8 +1,11 @@
 import { CSSProperties } from 'vue'
+import allData from '../data'
 
 export const useAppStore = defineStore('app', () => {
   const isVisible = ref<boolean>(true)
   const NavBar = ref<HTMLElement>()
+
+  const siteData = ref(allData)
 
   const src = ref([
     '',
@@ -30,5 +33,13 @@ export const useAppStore = defineStore('app', () => {
   function setIsVisible(bool: boolean) {
     isVisible.value = bool
   }
-  return { setIsVisible, isVisible, src, setNavRef, navBarHeight, navPadding }
+  return {
+    setIsVisible,
+    isVisible,
+    src,
+    setNavRef,
+    navBarHeight,
+    navPadding,
+    siteData,
+  }
 })

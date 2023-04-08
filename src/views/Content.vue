@@ -11,16 +11,7 @@
       class="wrapper border-y-4 border-black bg-sec text-white font-bold grid place-items-center py-2"
     >
       <div class="marquee">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          volutpat, ante eu bibendum tincidunt, sem lacus vehicula augue, ut
-          suscipit.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          volutpat, ante eu bibendum tincidunt, sem lacus vehicula augue, ut
-          suscipit.
-        </p>
+        <p class="" v-for="ann in data.home?.announcements">{{ ann }}</p>
       </div>
     </div>
 
@@ -35,8 +26,8 @@
         <Bubbletext
           :default_clr="'000'"
           :ID="'mission'"
-          class="tracking-wider mission text-center"
-          :text="`Our Mission`"
+          class="tracking-wider mission text-center font-light"
+          :text="data.home?.mission_statement.title!"
           :clrs="{
             h: [205, 205, 205],
             h_adj: [155, 155, 155],
@@ -52,18 +43,16 @@
       </div>
 
       <div
-        class="self-end w-2/4 text-justify right-20 text-black font-Bebas_Neue font-bold text-3xl z-10 pr-24"
+        class="self-end w-2/4 text-justify right-20 text-black font-Unbound font-normal drop-shadow-lg hover:scale-105 transition-transform peer duration-150 ease-in-out text-xl z-10 pr-24"
       >
-        We exist to bring people to a personal relationship with Jesus Christ
-        and membership in His family; and to develop a Christ-like character;
-        building and restoring them through spiritual and economic development
-        to become mature Christians, equipped for ministry in the church, the
-        community, and around the world, in order to declare God's
-        <span class="">glory.</span>
+        {{ data.home?.mission_statement.body[0] }}
+        <span class="">
+          {{ data.home?.mission_statement.body[1] }}
+        </span>
       </div>
       <!-- background image -->
       <div
-        class="opacity-20 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        class="peer-hover:opacity-5 transition-opacity duration-500 ease-out opacity-20 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <img src="../assets/sunrise.png" alt="" />
       </div>
@@ -172,7 +161,7 @@
           :default_clr="'000'"
           :ID="'Find'"
           class="font-light"
-          text="Find Your Place at Living Truth Worship Centre"
+          :text="data.home?.quick_nav_section.title!"
         />
         <svg
           fill="#000000"
@@ -224,7 +213,7 @@
         </svg>
       </header>
 
-      <HorizontalScroller />
+      <HorizontalScroller :content="data.home?.quick_nav_section.body!" />
 
       <div class="flex w-full justify-end relative pr-10 mt-1">
         <img
@@ -264,16 +253,14 @@
 
       <div
         :style="classer"
-        class="border-[10px] border-collapse border-prime w-1/2 h-1/2 absolute translate-x-1/2 -z-1 frame opacity-0"
+        class="border-[10px] border-collapse border-prime w-1/2 h-1/2 absolute translate-x-1/2 -z-1 frame opacity-0 perspective"
       ></div>
       <span
         class="p-10 text-white font-bold text-3xl tracking-wide drop-shadow-md font-Gloock verse opacity-0 translate-x-40 leading-9"
-        >But when he, the Spirit of truth, comes, he will guide you into all the
-        truth. He will not speak on his own; he will speak only what he hears,
-        and he will tell you what is yet to come.
+        >{{ data.home?.bible_verse.quote }}
         <span class="bg-prime block w-fit px-4 py-2 mt-2"
-          >John 16:13.</span
-        ></span
+          >{{ data.home?.bible_verse.loc }}
+        </span></span
       >
     </section>
 
@@ -297,13 +284,14 @@ import { CSSProperties } from 'vue'
 import Loader from '../../index'
 import { useRoute } from 'vue-router'
 
-const { src } = storeToRefs(useAppStore())
+const { src, siteData: data } = storeToRefs(useAppStore())
 
 const quote_ref = ref<HTMLElement>()
 const classer = ref<{}>()
 const target_ref = ref<HTMLDivElement>()
 const content_container = ref<HTMLDivElement>()
 const route = useRoute()
+// const data = reactive(allData.home!)
 
 onMounted(() => {
   useTitle('LTWC | Welcome!')
