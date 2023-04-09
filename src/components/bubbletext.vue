@@ -8,7 +8,7 @@
       ref="hover_spans"
       v-for="(txt, i) in text.split('')"
       @mouseleave="removeClasses"
-      class="transition-all duration-200 ease-out cursor-pointer"
+      class="transition-all duration-150 ease-out"
       @mouseover="$event => setHoverStyle($event, i)"
       :key="i"
       >{{ txt }}</span

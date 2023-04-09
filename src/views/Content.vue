@@ -1,3 +1,153 @@
+<script setup lang="ts">
+import { useAppStore } from '../store/appStore'
+import gsap from 'gsap'
+import { CSSProperties } from 'vue'
+import Loader from '../../index'
+import { useRoute } from 'vue-router'
+
+const { src, siteData: data } = storeToRefs(useAppStore())
+
+const quote_ref = ref<HTMLElement>()
+const classer = ref<{}>()
+const target_ref = ref<HTMLDivElement>()
+const content_container = ref<HTMLDivElement>()
+const route = useRoute()
+// const data = reactive(allData.home!)
+
+onMounted(() => {
+  useTitle('LTWC | Welcome!')
+
+  watchEffect(() => {
+    if (route.name === 'home' && content_container.value != undefined) {
+      window.scrollTo({
+        top: 0,
+      })
+    }
+  })
+
+  useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
+    if (isIntersecting && route.name == 'home') {
+      useAppStore().setIsVisible(isIntersecting)
+    } else {
+      useAppStore().setIsVisible(isIntersecting)
+    }
+  })
+})
+
+function initAnimatedBg() {
+  const app_container = document.querySelector('#app_container')
+  const div = document.createElement('div')
+  div.setAttribute('id', 'container')
+  div.setAttribute(
+    'class',
+    'touch-none fixed inset-0 w-full overflow-hidden p-0 m-0'
+  )
+  app_container?.appendChild(div)
+
+  return Loader('home')
+}
+
+function removeAnimatedBg() {
+  const app_container = document.querySelector('#app_container')
+  app_container?.removeChild(document.querySelector('#container')!)
+}
+
+onBeforeUnmount(() => {
+  removeAnimatedBg()
+})
+
+onMounted(() => {
+  useAppStore().setIsVisible(true)
+
+  initAnimatedBg()
+
+  gsap.to('.verse', {
+    opacity: 1,
+    x: -16,
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.verse',
+      start: 'top 80%',
+      end: 'end 60%',
+    },
+  })
+
+  gsap.to('.frame', {
+    opacity: 0.3,
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.frame',
+      start: 'top 80%',
+      end: 'end 60%',
+    },
+  })
+
+  gsap.to('.holdbible', {
+    opacity: 1,
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.holdbible',
+      start: 'top 80%',
+      end: 'end 60%',
+    },
+  })
+
+  gsap.to('.mission_title', {
+    opacity: 1,
+    x: 80,
+    duration: 2,
+    scrollTrigger: {
+      trigger: '.mission_title',
+      start: 'top 80%',
+      end: 'end 60%',
+    },
+  })
+
+  gsap.to('.mission_text', {
+    opacity: 1,
+    duration: 2,
+    scrollTrigger: {
+      trigger: '.mission_text',
+      start: 'top 80%',
+      end: 'end 60%',
+    },
+  })
+
+  runParallax(quote_ref, classer)
+})
+
+function runParallax(
+  target: Ref<HTMLElement | undefined>,
+  classer: globalThis.Ref<{} | undefined>
+) {
+  const { tilt, roll, source } = useParallax(target)
+  const isHovered = useElementHover(target)
+
+  const cardParallax = computed<CSSProperties>(() => ({
+    transform: `rotateX(${roll.value * 30}deg) rotateY(${
+      tilt.value * 30
+    }deg) scale(110%)`,
+    transition: '.3s ease-out all',
+    left: '25%',
+    opacity: '70%',
+    perspective: 100,
+  }))
+
+  watchEffect(() => {
+    if (isHovered.value) {
+      classer.value = cardParallax.value
+    } else {
+      classer.value = {
+        opacity: '30%',
+        left: '25%',
+        transition: '.3s ease-out all',
+        transform: `rotateX(${0 * 20}deg) rotateY(${0 * 20}deg)`,
+      }
+    }
+  })
+}
+</script>
+
 <template>
   <div class="target w-full h-40 absolute top-32" ref="target_ref"></div>
 
@@ -8,7 +158,7 @@
     <HomeVideo />
     <!-- scroll quick alerts and news -->
     <div
-      class="wrapper border-y-4 border-black bg-sec text-white font-bold grid place-items-center py-2"
+      class="wrapper border-y-4 border-white shadow-2xl bg-prime text-white font-bold grid place-items-center py-2"
     >
       <div class="marquee">
         <p class="" v-for="ann in data.home?.announcements">{{ ann }}</p>
@@ -21,12 +171,12 @@
     >
       <!-- heading -->
       <div
-        class="relative uppercase self-start text-[2.8em] w-[700px] flex justify-center text-black font-Unbound z-10 mission-trigger"
+        class="relative uppercase self-start text-[2.8em] w-[700px] flex justify-center text-black font-Unbound z-10 mission-trigger -left-20"
       >
         <Bubbletext
           :default_clr="'000'"
           :ID="'mission'"
-          class="tracking-wider mission text-center font-light"
+          class="tracking-wider mission text-center font-light mission_title opacity-0"
           :text="data.home?.mission_statement.title!"
           :clrs="{
             h: [205, 205, 205],
@@ -43,7 +193,7 @@
       </div>
 
       <div
-        class="self-end w-2/4 text-justify right-20 text-black font-Unbound font-normal drop-shadow-lg hover:scale-105 transition-transform peer duration-150 ease-in-out text-xl z-10 pr-24"
+        class="self-end w-2/4 text-justify right-20 text-black font-Unbound font-normal drop-shadow-lg hover:scale-105 transition-transform peer duration-150 ease-in-out text-xl z-10 pr-24 mission_text opacity-0"
       >
         {{ data.home?.mission_statement.body[0] }}
         <span class="">
@@ -277,126 +427,13 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { useAppStore } from '../store/appStore'
-import gsap from 'gsap'
-import { CSSProperties } from 'vue'
-import Loader from '../../index'
-import { useRoute } from 'vue-router'
-
-const { src, siteData: data } = storeToRefs(useAppStore())
-
-const quote_ref = ref<HTMLElement>()
-const classer = ref<{}>()
-const target_ref = ref<HTMLDivElement>()
-const content_container = ref<HTMLDivElement>()
-const route = useRoute()
-// const data = reactive(allData.home!)
-
-onMounted(() => {
-  useTitle('LTWC | Welcome!')
-
-  watchEffect(() => {
-    if (route.name === 'home' && content_container.value != undefined) {
-      window.scrollTo({
-        top: 0,
-      })
-    }
-  })
-
-  useIntersectionObserver(target_ref, ([{ isIntersecting }]) => {
-    if (isIntersecting && route.name == 'home') {
-      useAppStore().setIsVisible(isIntersecting)
-    } else {
-      useAppStore().setIsVisible(isIntersecting)
-    }
-  })
-})
-
-function initAnimatedBg() {
-  const app_container = document.querySelector('#app_container')
-  const div = document.createElement('div')
-  div.setAttribute('id', 'container')
-  div.setAttribute(
-    'class',
-    'touch-none fixed inset-0 w-full overflow-hidden p-0 m-0'
-  )
-  app_container?.appendChild(div)
-
-  return Loader('home')
-}
-
-function removeAnimatedBg() {
-  const app_container = document.querySelector('#app_container')
-  app_container?.removeChild(document.querySelector('#container')!)
-}
-
-onBeforeUnmount(() => {
-  removeAnimatedBg()
-})
-
-onMounted(() => {
-  useAppStore().setIsVisible(true)
-
-  initAnimatedBg()
-
-  gsap.to('.verse', {
-    opacity: 1,
-    x: -16,
-    duration: 1,
-    scrollTrigger: '.verse',
-  })
-
-  gsap.to('.frame', {
-    opacity: 0.3,
-    duration: 1,
-    scrollTrigger: '.frame',
-  })
-
-  gsap.to('.holdbible', {
-    opacity: 1,
-    duration: 1,
-    scrollTrigger: '.holdbible',
-  })
-
-  runParallax(quote_ref, classer)
-})
-
-function runParallax(
-  target: Ref<HTMLElement | undefined>,
-  classer: globalThis.Ref<{} | undefined>
-) {
-  const { tilt, roll, source } = useParallax(target)
-  const isHovered = useElementHover(target)
-
-  const cardParallax = computed<CSSProperties>(() => ({
-    transform: `rotateX(${roll.value * 30}deg) rotateY(${
-      tilt.value * 30
-    }deg) scale(110%)`,
-    transition: '.3s ease-out all',
-    left: '25%',
-    opacity: '70%',
-    perspective: 100,
-  }))
-
-  watchEffect(() => {
-    if (isHovered.value) {
-      classer.value = cardParallax.value
-    } else {
-      classer.value = {
-        opacity: '30%',
-        left: '25%',
-        transition: '.3s ease-out all',
-        transform: `rotateX(${0 * 20}deg) rotateY(${0 * 20}deg)`,
-      }
-    }
-  })
-}
-</script>
-
 <style scoped>
+.mission_title {
+  cursor: url(../assets/icons/circle.svg);
+}
+
 .perspective {
-  perspective: '300px';
+  transform: perspective(3000px);
 }
 .wrapper {
   max-width: 100%;

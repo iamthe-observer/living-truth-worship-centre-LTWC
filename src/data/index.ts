@@ -84,7 +84,7 @@ const allData: Partial<SiteData> = {
     mission_statement: {
       body: [
         "We exist to bring people to a personal relationship with Jesus Christ and membership in His family; and to develop a Christ-like character; building and restoring them through spiritual and economic development to become mature Christians, equipped for ministry in the church, the community, and around the world, in order to declare God's",
-        'glory',
+        'glory.',
       ],
       title: 'Our Mission',
     },
