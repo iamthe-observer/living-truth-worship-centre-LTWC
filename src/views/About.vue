@@ -10,7 +10,7 @@
       </div>
 
       <div class="flex-1 w-full h-full bg-white">
-        <img src="../assets/ltwc (11).jpg" alt="" />
+        <!-- <img src="../assets/ltwc (11).jpg" alt="" /> -->
       </div>
     </section>
 
