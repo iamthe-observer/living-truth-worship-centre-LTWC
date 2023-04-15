@@ -61,13 +61,24 @@ onMounted(() => {
 
   initAnimatedBg()
 
+  gsap.to('.drag_img', {
+    opacity: 1,
+    duration: 1.5,
+    scrollTrigger: {
+      trigger: '.drag_img',
+      start: 'top 80%',
+    },
+    markers: true,
+  })
+
   gsap.to('.verse', {
     opacity: 1,
     x: -16,
     duration: 1,
+    delay: 0.3,
     scrollTrigger: {
       trigger: '.verse',
-      start: 'top 80%',
+      start: 'top 60%',
       end: 'end 60%',
     },
   })
@@ -75,9 +86,10 @@ onMounted(() => {
   gsap.to('.frame', {
     opacity: 0.3,
     duration: 1,
+    delay: 0.1,
     scrollTrigger: {
       trigger: '.frame',
-      start: 'top 80%',
+      start: 'top 60%',
       end: 'end 60%',
     },
   })
@@ -85,9 +97,10 @@ onMounted(() => {
   gsap.to('.holdbible', {
     opacity: 1,
     duration: 1,
+    delay: 0.2,
     scrollTrigger: {
       trigger: '.holdbible',
-      start: 'top 80%',
+      start: 'top 60%',
       end: 'end 60%',
     },
   })
@@ -365,15 +378,19 @@ function runParallax(
 
       <HorizontalScroller :content="data.home?.quick_nav_section.body!" />
 
-      <div class="flex w-full justify-end relative pr-10 mt-1">
+      <div
+        class="flex w-full items-center justify-end gap-2 relative pr-10 mt-1"
+      >
         <img
-          class="w-10 aspect-square"
+          class="w-6 aspect-square drag_img"
           src="../assets/icons/drag-left-svgrepo-com.svg"
           alt=""
         />
-        <span class="">Drag to Scroll</span>
+        <span class="drag_txt font-Unbound font-lighter text-sm"
+          >Drag to Scroll</span
+        >
         <img
-          class="w-10 aspect-square"
+          class="drag_img w-6 aspect-square"
           src="../assets/icons/drag-right-svgrepo-com.svg"
           alt=""
         />
