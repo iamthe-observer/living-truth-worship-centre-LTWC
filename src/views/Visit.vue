@@ -122,7 +122,7 @@
     </section>
 
     <section
-      class="text-white max-h-screen flex justify-between py-32 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate"
+      class="text-white max-h-screen flex justify-between mt-32 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate"
     >
       <div class="w-3/5 flex flex-col">
         <h1 class="font-Monument text-[2em]">
@@ -145,8 +145,12 @@
         </div>
       </div>
 
-      <div class="flex-1 bg-white">
-        <div class="sticky w-20 aspect-square bg-prime"></div>
+      <div class="flex-1 image_container">
+        <img
+          src="../assets/ltwc (2).jpg"
+          alt=""
+          class="image w-[85%] mx-auto"
+        />
       </div>
     </section>
 
@@ -295,5 +299,19 @@ onMounted(() => {
       '<1'
     )
   })
+
+  setTimeout(() => {
+    gsap.to('.image', {
+      scrollTrigger: {
+        trigger: '.image_container',
+        start: 'top 12%',
+        // @ts-ignore
+        end: () =>
+          `+=${document.querySelector('.image_container')!.clientHeight * 0.7}`,
+        scrub: 3,
+        pin: true,
+      },
+    })
+  }, 500)
 })
 </script>

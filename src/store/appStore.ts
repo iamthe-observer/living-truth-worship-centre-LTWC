@@ -9,11 +9,11 @@ export const useAppStore = defineStore('app', () => {
 
   const src = ref([
     '',
-    'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc1.jpg',
-    'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc2.jpg',
+    'https://live.staticflickr.com/65535/52865220011_d2250f53b4_n.jpg',
+    'https://live.staticflickr.com/65535/52865651070_ea875b1d26_n.jpg',
     '',
-    'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc3.jpg',
-    'https://mpozygvxihgkdfpsrocm.supabase.co/storage/v1/object/public/homepage/ltwc4.jpg',
+    'https://live.staticflickr.com/65535/52865720758_3cdd23c1ac_n.jpg',
+    'https://live.staticflickr.com/65535/52865429844_eed813830b_n.jpg',
   ])
 
   const setNavRef = (nav: HTMLElement) => {

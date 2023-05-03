@@ -237,11 +237,16 @@ function runParallax(
           :ref="`parallax_img${i}`"
           :class="
             source
-              ? 'w-full h-96 overflow-clip img_item perspective'
-              : 'w-full h-96 overflow-clip relative img_item perspective'
+              ? 'w-full h-96 flex justify-center items-center overflow-hidden img_item perspective'
+              : 'w-full h-96 relative overflow-hidden img_item perspective'
           "
         >
-          <img v-if="source" class="object-contain" :src="source" alt="" />
+          <img
+            v-if="source"
+            class="object-cover shrink-0 w-full h-full"
+            :src="source"
+            alt=""
+          />
           <div
             v-if="i == 0"
             class="uppercase flex justify-between items-end px-6 w-full h-full pb-5 bg-prime"
@@ -287,16 +292,6 @@ function runParallax(
               src="../assets/edited/location-map.png"
               alt=""
             />
-
-            <!-- <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2883.5837543778443!2d-79.71299589410437!3d43.71919869090916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3dc4a2d9a599%3A0xeb6009c0f2222661!2sClark%20Blvd%2C%20Brampton%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sus!4v1678790395697!5m2!1sen!2sus"
-              width="600"
-              height="450"
-              style="border: 0"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe> -->
-
             <button
               class="transition-all duration-200 ease-in-out border-base900 group-hover:py-10 group-hover:bottom-0 group-hover:w-full text-white group-hover:border-prime group-hover:bg-prime group-hover:text-white border-[5px] font-bold font-Unbound px-3 py-1 absolute z-50 bottom-10 left-1/2 translate-x-[-50%] w-[80%]"
             >

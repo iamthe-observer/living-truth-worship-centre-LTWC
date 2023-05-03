@@ -61,14 +61,14 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-none shadow-md px-2 transition-all duration-300 ease-out;
-    background: repeating-linear-gradient(
+    @apply rounded-none shadow-md px-2 transition-all duration-300 ease-out bg-[#d94b0f];
+    /* background: repeating-linear-gradient(
       45deg,
-      #606dbc,
-      #606dbc 2.5px,
-      rgb(93 56 145) 2.5px,
-      rgb(93 56 145) 5px
-    );
+      #d94b0f,
+      #d94b0f 2.5px,
+      #a1a1a1 2.5px,
+      #a1a1a1 5px
+    ); */
   }
 
   ::-webkit-scrollbar-thumb:hover {

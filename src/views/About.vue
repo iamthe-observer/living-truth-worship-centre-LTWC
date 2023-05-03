@@ -65,8 +65,8 @@
     <section
       class="text-white max-h-screen flex justify-between py-32 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate"
     >
-      <div class="flex-1 bg-white opacity-30">
-        <div class="sticky w-20 aspect-square bg-prime"></div>
+      <div class="image_container flex-1">
+        <img class="image1 w-[85%] mx-auto" src="../assets/ltwc (4).jpg" alt="">
       </div>
 
       <div class="w-3/5 flex flex-col">
@@ -101,10 +101,15 @@
         Our Values
       </h1>
 
-      <div class="w-full h-full flex gap-20">
-        <div class="flex-1">
+      <div class="w-full h-full flex flex-col gap-20">
+        <div class="flex-1 flex gap-10">
           <img
             src="../assets/edited/07.jpg"
+            alt=""
+            class="object-cover w-full h-[400px]"
+          />
+          <img
+            src="../assets/edited/04.jpg"
             alt=""
             class="object-cover w-full h-[400px]"
           />
@@ -184,6 +189,24 @@
 <script setup lang="ts">
 import { useAppStore } from '../store/appStore'
 import Loader from '../..'
+import gsap from 'gsap';
+
+onMounted(() => {
+  const container_height = document.querySelector('.image_container')!.clientHeight
+
+  setTimeout(() => {
+    gsap.to('.image1', {
+    scrollTrigger: {
+      trigger: ".image_container",
+      start: "top 12%",
+      end: () => `+=${container_height * 0.7}`,
+      scrub: 3,
+      pin: true,
+    }
+  })
+},500)
+})
+
 
 function initAnimatedBg() {
   const app_container = document.querySelector('#app_container')

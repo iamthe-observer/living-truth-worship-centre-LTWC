@@ -68,7 +68,11 @@
         v-for="(link, i) in links.slice(0, -2)"
         :to="link.to"
         :key="i"
-        :class="`linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm hover:bg-prime hover:text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`"
+        :class="
+          link.label.toLowerCase() == $route.name
+            ? `linkz${i} cursor-pointer opacity-0 relative -top-20 links text-sm bg-prime text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`
+            : `linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm hover:bg-prime hover:text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`
+        "
         >{{ link.label }}</RouterLink
       >
 
@@ -92,7 +96,11 @@
         v-for="(link, i) in links.slice(2)"
         :to="link.to"
         :key="i"
-        :class="`linkz${i} linkh cursor-pointer opacity-0 relative -top-20 text-black hover:text-white hover:bg-prime links text-sm transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`"
+        :class="
+          link.label.toLowerCase() == $route.name
+            ? `linkz${i} cursor-pointer opacity-0 relative -top-20 links text-sm bg-prime text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`
+            : `linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm hover:bg-prime hover:text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`
+        "
         >{{ link.label }}</RouterLink
       >
       <!-- <span
@@ -111,9 +119,12 @@
 import { Power3 } from 'gsap'
 import { gsap } from 'gsap'
 import { useAppStore } from '../store/appStore'
+import { useRoute } from 'vue-router'
 gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin)
 
 const navBar = ref<HTMLElement>()
+
+const route = useRoute()
 
 const props = defineProps<{
   isVisible: boolean
