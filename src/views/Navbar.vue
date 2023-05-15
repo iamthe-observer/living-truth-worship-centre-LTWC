@@ -120,7 +120,7 @@ import { Power3 } from 'gsap'
 import { gsap } from 'gsap'
 import { useAppStore } from '../store/appStore'
 import { useRoute } from 'vue-router'
-gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin)
+// gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin)
 
 const navBar = ref<HTMLElement>()
 

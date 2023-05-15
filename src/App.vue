@@ -18,8 +18,9 @@
 <script setup lang="ts">
 import { gsap } from 'gsap'
 import { useAppStore } from './store/appStore'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin)
+gsap.registerPlugin(ScrollTrigger)
 
 const { isVisible } = storeToRefs(useAppStore())
 const loading_app = ref(true)

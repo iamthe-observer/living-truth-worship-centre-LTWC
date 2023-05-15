@@ -10,6 +10,9 @@ export interface SiteData {
       body: {
         head: string
         info: string
+        link_text?: string
+        link?: string
+        func?: VoidFunction
       }[]
     }
     bible_verse: {
@@ -92,28 +95,33 @@ const allData: Partial<SiteData> = {
       title: 'Find Your Place at Living Truth Worship Centre',
       body: [
         {
-          head: 'I ❤ Jesus',
-          info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Amet illum asperiores ullam sunt sed tempora optio laudantium quae sapiente?',
+          head: 'New to Living Truth?',
+          info: 'We believe that everyone at LTWC has the potential to find truth through Jesus and his teachings, and we are committed to creating a community where everyone can thrive.',
+          link: '/aboutLTWC',
+          link_text: 'Get Started',
         },
         {
-          head: 'I ❤ God',
-          info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Amet illum asperiores ullam sunt sed tempora optio laudantium quae sapiente?',
+          head: 'Connect With Us',
+          info: 'Join our email list to get updates from Living Truth Worship Centre.',
+          link_text: 'Sign Up',
+          func: () =>
+            document
+              .getElementsByClassName('footer-container')[0]
+              .scrollIntoView({ behavior: 'smooth', block: 'start' }),
         },
         {
-          head: 'I ❤ Holy Spirit',
-          info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Amet illum asperiores ullam sunt sed tempora optio laudantium quae sapiente?',
+          head: 'Join Us Online',
+          info: 'We gather online each Sunday at 9:30am - 11:45:am GMT. Join Us This Sunday!',
+          link_text: 'Watch us Live!',
         },
         {
-          head: 'I ❤ Jesus',
-          info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Amet illum asperiores ullam sunt sed tempora optio laudantium quae sapiente?',
+          head: 'Serve and Protect His Home',
+          info: 'Participate in all sort of activities that will contribute to the operations nad development of the chapel.',
+          link_text: 'Get Started',
         },
         {
-          head: 'I ❤ God',
-          info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Amet illum asperiores ullam sunt sed tempora optio laudantium quae sapiente?',
-        },
-        {
-          head: 'I ❤ Holy Spirit',
-          info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Amet illum asperiores ullam sunt sed tempora optio laudantium quae sapiente?',
+          head: 'Give',
+          info: 'Your generosity will go a long way! God Bless you.',
         },
       ],
     },

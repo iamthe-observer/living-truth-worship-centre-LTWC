@@ -104,12 +104,12 @@
       <div class="w-full h-full flex flex-col gap-20">
         <div class="flex-1 flex gap-10">
           <img
-            src="../assets/edited/07.jpg"
+            src="../assets/edited/02.webp"
             alt=""
             class="object-cover w-full h-[400px]"
           />
           <img
-            src="../assets/edited/04.jpg"
+            src="../assets/edited/05.jpg"
             alt=""
             class="object-cover w-full h-[400px]"
           />
@@ -190,6 +190,7 @@
 import { useAppStore } from '../store/appStore'
 import Loader from '../..'
 import gsap from 'gsap';
+// gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin)
 
 onMounted(() => {
   const container_height = document.querySelector('.image_container')!.clientHeight

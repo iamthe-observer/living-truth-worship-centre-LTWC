@@ -234,11 +234,10 @@ import gsap from 'gsap'
 import { useAppStore } from '../store/appStore'
 // @ts-ignore
 import SplitTextJS from 'split-text-js'
+// gsap.registerPlugin(ScrollTrigger)
 
 const { siteData: data } = storeToRefs(useAppStore())
 const visitData = computed(() => data.value.visit)
-
-gsap.registerPlugin(ScrollTrigger)
 
 const animation_done = ref(false)
 
