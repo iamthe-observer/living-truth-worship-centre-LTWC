@@ -147,7 +147,7 @@
 
       <div class="flex-1 image_container">
         <img
-          src="../assets/ltwc (2).jpg"
+          src="https://live.staticflickr.com/65535/52864536457_2a4b9c119b_o.jpg"
           alt=""
           class="image w-[85%] mx-auto"
         />

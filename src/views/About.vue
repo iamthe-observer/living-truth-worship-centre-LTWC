@@ -66,7 +66,7 @@
       class="text-white max-h-screen flex justify-between py-32 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate"
     >
       <div class="image_container flex-1">
-        <img class="image1 w-[85%] mx-auto scale-90" src="../assets/ltwc (4).jpg" alt="">
+        <img class="image1 w-[85%] mx-auto " src="https://live.staticflickr.com/65535/52865506040_6c24735dfb_o.jpg" alt="">
       </div>
 
       <div class="w-3/5 flex flex-col">
