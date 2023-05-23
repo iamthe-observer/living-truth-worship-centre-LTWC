@@ -7,6 +7,7 @@ module.exports = {
         sec: '#5D3891',
         prime: '#D94b0f',
         base900: '#2f2f2f',
+        base600: '#8c8c8c',
         base300: '#ededed',
         base100: '#F5F5F5',
       },

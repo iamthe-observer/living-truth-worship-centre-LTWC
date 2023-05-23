@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     Arrow: typeof import('./src/components/arrow.vue')['default']
     Bubbletext: typeof import('./src/components/bubbletext.vue')['default']
     Canvas: typeof import('./src/views/Canvas.vue')['default']
+    Connect: typeof import('./src/views/Connect.vue')['default']
     Content: typeof import('./src/views/Content.vue')['default']
     Footer: typeof import('./src/views/Footer.vue')['default']
     HomeVideo: typeof import('./src/components/HomeVideo.vue')['default']

@@ -10,7 +10,7 @@
       </div>
 
       <div class="flex-1 w-full h-full bg-white">
-        <!-- <img src="../assets/ltwc (11).jpg" alt="" /> -->
+        <img src="https://live.staticflickr.com/65535/52918725652_323217ede7_o.png" />
       </div>
     </section>
 
@@ -156,7 +156,7 @@
 
           <Bubbletext
         text="EVERYTHING FOR THE GLORY OF JESUS CHRIST “WHO CAME FROM THE FATHER, FULL
-        OF GRACE AND TRUTH”"
+        OF GRACE AND TRUTH"
         ID="12"
         default_clr="fff"
         class="text-center w-full text-4xl font-Unbound font-[200]"
@@ -173,15 +173,6 @@
     </div>
     </section>
 
-    <!-- <section
-      class="min-h-screen py-32 px-10 flex flex-col gap-3 bg-base300 relative isolate border-y-4 border-black"
-    >
-      <div class="relative w-full min-h-full flex-1">
-        <div
-          class="-z-1 absolute w-1/2 h-[400px] bg-green-500 top-3/4 left-1/2 -translate-y-1/2 -translate-x-1/2"
-        ></div>
-      </div>
-    </section> -->
   </main>
   <Footer />
 </template>
@@ -244,7 +235,7 @@ const ltwc_values = ref([
 'Service: LTWC values serving others and making a positive impact in the community.',
 'Humility: LTWC values being humble and recognizing the value of others.',
 'Inclusivity: LTWC values welcoming and accepting all individuals, regardless of their differences.',
-]);
+])
 
 const missions = ref( ['Glorify God: The church exists to give honor and praise to God in all that it does.','Nurture a community of believers: Living Truth Worship Centre provides a supportive and welcoming community where believers can grow in their faith through worship, fellowship, and discipleship.','Impact the local community: The church seeks to make a positive impact on its local community and beyond through outreach and evangelism efforts.','Teach the truth of the Gospel: Living Truth Worship Centre is committed to teaching the truth of the Gospel in a relevant and impactful way that helps individuals understand and apply it in their daily lives.'])
 

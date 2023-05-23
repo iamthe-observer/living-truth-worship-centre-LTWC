@@ -292,16 +292,16 @@ function runParallax(
               src="../assets/edited/location-map.png"
               alt=""
             />
-            <button
-              class="transition-all duration-200 ease-in-out border-base900 group-hover:py-10 group-hover:bottom-0 group-hover:w-full text-white group-hover:border-prime group-hover:bg-prime group-hover:text-white border-[5px] font-bold font-Unbound px-3 py-1 absolute z-50 bottom-10 left-1/2 translate-x-[-50%] w-[80%]"
+            <RouterLink
+              to="/visit"
+              class="group-hover:text-3xl transition-all duration-300 ease-out"
             >
-              <RouterLink
-                to="/visit"
-                class="group-hover:text-3xl transition-all duration-300 ease-out"
+              <button
+                class="transition-all duration-200 ease-in-out border-base900 group-hover:py-10 group-hover:bottom-0 group-hover:w-full text-white group-hover:border-prime group-hover:bg-prime group-hover:text-white border-[5px] font-bold font-Unbound px-3 py-1 absolute z-50 bottom-10 left-1/2 translate-x-[-50%] w-[80%]"
               >
                 Find Us!
-              </RouterLink>
-            </button>
+              </button>
+            </RouterLink>
           </div>
         </div>
       </div>

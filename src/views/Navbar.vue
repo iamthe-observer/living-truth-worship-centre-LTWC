@@ -4,7 +4,7 @@
     :class="
       isVisible
         ? 'flex justify-between items-center py-5 px-2 w-full min-h-[128px] fixed z-[100] top-0 text-bold backdrop-blur-lg transition-all duration-200 ease-linear text-white font-Monument tracking-wide navbar'
-        : 'flex justify-between items-center w-full min-h-fit fixed z-[100] top-0 text-bold border-y-4 border-black transition-all duration-200 bg-base100 ease-linear font-Monument tracking-wide navbar shadow-lg'
+        : 'flex justify-between items-center w-full min-h-fit fixed z-[100] top-0 text-bold border-y-4 border-base900 transition-all duration-200 bg-base100 ease-linear font-Monument tracking-wide navbar shadow-lg'
     "
   >
     <!-- logo -->
@@ -63,7 +63,7 @@
         "
         >{{ link.label }}</RouterLink
       >
-      <RouterLink
+      <!-- <RouterLink
         v-show="!isVisible"
         v-for="(link, i) in links.slice(0, -2)"
         :to="link.to"
@@ -74,7 +74,7 @@
             : `linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm hover:bg-prime hover:text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`
         "
         >{{ link.label }}</RouterLink
-      >
+      > -->
 
       <!-- logo -->
       <RouterLink
@@ -93,7 +93,7 @@
 
       <RouterLink
         v-show="!isVisible"
-        v-for="(link, i) in links.slice(2)"
+        v-for="(link, i) in links"
         :to="link.to"
         :key="i"
         :class="
@@ -124,8 +124,6 @@ import { useRoute } from 'vue-router'
 
 const navBar = ref<HTMLElement>()
 
-const route = useRoute()
-
 const props = defineProps<{
   isVisible: boolean
 }>()
@@ -133,10 +131,7 @@ const props = defineProps<{
 const links = reactive<{ label: string; to: string }[]>([
   { label: 'About', to: '/aboutLTWC' },
   { label: 'Visit', to: '/visit' },
-  // { label: 'Messages', to: '/messages' },
-  // { label: 'Sermons', to: '/' },
   { label: 'Sundays', to: '/sundays' },
-  { label: 'Give', to: '/' },
 ])
 
 onMounted(() => {

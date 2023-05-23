@@ -57,6 +57,13 @@ export interface SiteData {
         a: string
       }[]
     }
+    section2: {
+      expect_head: string
+      expectations: {
+        title: string
+        body: string
+      }[]
+    }
   }
   visit: {
     head_text: string[]
@@ -218,7 +225,7 @@ const allData: Partial<SiteData> = {
         },
         {
           q: 'Is There A Place For My Kids?',
-          a: 'bloom + Passion Kids are the rooms of our House designed for your kids! bloom (6 Weeks – Pre-K) and Passion Kids (K-5th) both meet in the Roam building on the second floor (210 Trilith Pkwy Suite 100, Fayetteville, GA 30214). We have the best Door Holders that will help your family check-in and take great care of your kids while you attend the gathering. Check-in opens as early as 8:45 am, and you can plan to pick up your child after the gathering ends. Passion Students (6th-8th) will meet in the Shipyard (125 Shepperton Way, Fayetteville, GA 30214).',
+          a: 'bloom + Passion Kids are the rooms of our House designed for your kids! bloom (6 Weeks - Pre-K) and Passion Kids (K-5th) both meet in the Roam building on the second floor (210 Trilith Pkwy Suite 100, Fayetteville, GA 30214). We have the best Door Holders that will help your family check-in and take great care of your kids while you attend the gathering. Check-in opens as early as 8:45 am, and you can plan to pick up your child after the gathering ends. Passion Students (6th-8th) will meet in the Shipyard (125 Shepperton Way, Fayetteville, GA 30214).',
         },
         {
           q: 'When Do We Gather?',
@@ -234,6 +241,35 @@ const allData: Partial<SiteData> = {
       p1: "We foster a community rooted in the truth of Christ's teachings,where honesty, integrity, and accountability are upheld to make a positive impact on society.",
       p2: 'At Living Truth Worship Centre, we welcome people of all ages to join us for Sunday service. Read on to discover what to expect during our gatherings.',
     },
+    section2: {
+      expect_head: 'What To Expect At LTWC',
+      expectations: [
+        {
+          title: 'GENERATION LEADERSHIP COLLEGE',
+          body: 'Build your leadership skills and get hands-on experience in ministry. Through our partnership with Southeastern University, you can also work toward completing a degree.',
+        },
+        {
+          title: 'BAPTISM',
+          body: 'Have you accepted Jesus? Take the next step in your faith and get baptized. Click below for more details.',
+        },
+        {
+          title: 'CARE AND SUPPORT GROUPS',
+          body: 'LTWC offers a variety of supportive groups where you will find support and encouragement. Click below to learn more.',
+        },
+        {
+          title: 'YOUNG ADULTS',
+          body: "LTWC Young Adults is the perfect place to build lasting friendships, serve together, and study God's Word while making lifelong connections with other young adults.",
+        },
+        {
+          title: 'KIDS',
+          body: 'Kids are important to us at LTWC! Find out about our ministries for the little toddies (birth-preschool) and kids (kindergarten through 5th grade).',
+        },
+        {
+          title: 'SUNDAY SERVICES',
+          body: 'The large corporate gathering of our church community every Sunday. Our gathering is always centered on worshiping God, proclaiming God’s Word, and connecting with others.',
+        },
+      ],
+    },
   },
   visit: {
     head_text: [
@@ -244,47 +280,44 @@ const allData: Partial<SiteData> = {
     ],
     details: {
       title: 'Details',
-      info: [
-        { head: 'Main Service', body: '9:15am • 11:00am • 4:30pm' },
-        { head: 'Main Service', body: '9:15am • 11:00am • 4:30pm' },
-      ],
+      info: [{ head: 'Main Service Time', body: '9:15am • 11:30am' }],
     },
     expectations: {
-      title: 'What you should be prepared for',
+      title: 'Experience worshipping the Lord in a fulfilling way',
       title_exp:
         'When you visit Living Truth Worship Centre, you can anticipate an enjoyable experience while connecting with God in a meaningful manner.',
       info: [
         {
-          head: 'Content',
-          body: "Hol' lotta content here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quaerat.",
+          head: 'Pray for others',
+          body: "Prayer is a powerful way to connect with God and to ask for his help for others. When you pray for others, you are showing God's love and compassion",
         },
         {
-          head: 'Content',
-          body: "Hol' lotta content here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quaerat.",
+          head: 'Worship Services',
+          body: "Participate in uplifting worship services where you can join others in praising and expressing gratitude to God. Engage in communal singing, prayers, and listening to sermons that focus on God's truth and love.",
         },
         {
-          head: 'Content',
-          body: "Hol' lotta content here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quaerat.",
+          head: 'Prayer Gatherings',
+          body: "Take part in prayer gatherings or prayer circles where individuals come together to seek God's guidance, share their burdens, and intercede for one another. This experience promotes a sense of community and deepens your connection with God and others.",
         },
         {
-          head: 'Content',
-          body: "Hol' lotta content here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quaerat.",
+          head: 'Community Outreach',
+          body: "Engage in community outreach programs organized by the church, such as feeding the homeless, supporting local charities, or visiting the sick and elderly. These activities allow you to express God's love through acts of kindness and service.",
         },
         {
-          head: 'Content',
-          body: "Hol' lotta content here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quaerat.",
+          head: 'Retreats and Conferences',
+          body: "Participate in church retreats or conferences where you can take a break from the busyness of everyday life and focus on deepening your faith. These events often feature speakers, workshops, and activities that explore God's truth and love in a more immersive and transformative way.",
         },
         {
-          head: 'Content',
-          body: "Hol' lotta content here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quaerat.",
+          head: 'Passion',
+          body: "We show our passion, so feel free to join us. We're just so excited about what Jesus has done in our lives. We can't keep quiet about it!",
         },
         {
-          head: 'Content',
-          body: "Hol' lotta content here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quaerat.",
+          head: "Celebrating life's milestones",
+          body: "Church is a great place to celebrate life's milestones, such as baptisms, weddings, and funerals. These events are a time to come together as a community to rejoice and mourn with each other.",
         },
         {
-          head: 'Content',
-          body: "Hol' lotta content here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, quaerat.",
+          head: 'Fellowship Events',
+          body: 'Attend fellowship events and social gatherings organized by the church, such as potlucks, picnics, or game nights. These activities provide an opportunity to build relationships with other believers, fostering a sense of belonging and support.',
         },
       ],
     },

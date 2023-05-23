@@ -191,7 +191,7 @@
     </section>
 
     <section
-      class="my-32 max-h-screen py-32 px-10 flex flex-col items-end gap-3 bg-base900 relative isolate"
+      class="my-32 max-h-screen py-32 px-10 flex flex-col items-end gap-3 bg-base900 relative isolate shadow-sm"
     >
       <div class="absolute -z-1 top-0 left-0 w-3/4 h-full clip-para-reverse">
         <img

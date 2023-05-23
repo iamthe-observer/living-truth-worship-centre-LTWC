@@ -1,17 +1,16 @@
 <template>
   <div
     ref="home_video"
-    class="w-full h-screen bg-red-100 aboslute top-0 grid place-items-center relative overflow-clip"
+    class="w-full h-screen bg-base900 aboslute top-0 grid place-items-center relative overflow-clip"
   >
-    <!-- <span class="text-black text-4xl">Hero Video Goes Here</span> -->
     <video
-      ref="video_ref"
       id="my-video"
-      class="video-js w-full absolute top-0 left-0"
-      controls
+      class="video-js w-full absolute inset-0 object-cover"
       autoplay
       loop
       preload="auto"
+      playsinline
+      muted
       width="640"
       height="264"
       data-setup="{}"
@@ -25,13 +24,7 @@
         >
       </p>
     </video>
-    <!-- <video
-      :controls="true"
-      loop
-      class="w-full pointer-events-none absolute top-0 left-0"
-    >
-      <source src="../assets/video/loop.mp4" />
-    </video> -->
+
     <div
       class="absolute bottom-5 right-5 w-80 aspect-video text-white flex flex-col gap-2 justify-center font-bold drop-shadow-md mix-blend-difference font-Monument tracking-wider"
     >
@@ -48,5 +41,6 @@
 </template>
 
 <script setup lang="ts">
-const home_video = ref<HTMLDivElement>()
+const wid = 1356
+const hei = 678
 </script>
