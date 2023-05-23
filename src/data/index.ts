@@ -82,6 +82,10 @@ export interface SiteData {
         body: string
       }[]
     }
+    welcome_msg: {
+      title: string
+      body: string[]
+    }
   }
 }
 
@@ -102,7 +106,7 @@ const allData: Partial<SiteData> = {
       title: 'Find Your Place at Living Truth Worship Centre',
       body: [
         {
-          head: 'New to Living Truth?',
+          head: 'New to the Living Truth?',
           info: 'We believe that everyone at LTWC has the potential to find truth through Jesus and his teachings, and we are committed to creating a community where everyone can thrive.',
           link: '/aboutLTWC',
           link_text: 'Get Started',
@@ -144,7 +148,7 @@ const allData: Partial<SiteData> = {
       title: 'Our Mission',
       body: {
         explanation: [
-          'Our purpose is to help people who are distant from God to discover new life through Jesus Christ.',
+          'Our purpose is to help people who are distant from God to discover new life through the Truth which is Jesus Christ.',
           'That means:',
         ],
         notes: [
@@ -319,6 +323,14 @@ const allData: Partial<SiteData> = {
           head: 'Fellowship Events',
           body: 'Attend fellowship events and social gatherings organized by the church, such as potlucks, picnics, or game nights. These activities provide an opportunity to build relationships with other believers, fostering a sense of belonging and support.',
         },
+      ],
+    },
+    welcome_msg: {
+      title: "Welcome To The Lord's Abode",
+      body: [
+        'Come as you are and discover why people love Generation Church.',
+        "No matter your background, your current situation, or how close or far from God you feel, we're excited to help you feel welcome the moment you step through our doors.",
+        'Come, meet God, and experience Him work in your life so that it will never be the same.',
       ],
     },
   },

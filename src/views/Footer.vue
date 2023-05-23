@@ -57,7 +57,7 @@
             <span class="font-bold text-xl"
               >Living Truth<br />Worship Centre</span
             >
-            <span class="block font-Outfit mt-3">490-554-5543</span>
+            <span class="block font-Outfit mt-3">+1 490-554-5543</span>
             <span class="block font-Outfit">ltwc-main@ltwc.com</span>
           </div>
           <div class="flex-1 flex gap-8 justify-center items-center">

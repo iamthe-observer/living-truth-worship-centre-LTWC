@@ -9,10 +9,10 @@ export const useAppStore = defineStore('app', () => {
 
   const src = ref([
     '',
-    'https://live.staticflickr.com/65535/52865220011_d2250f53b4_n.jpg',
-    'https://live.staticflickr.com/65535/52865651070_ea875b1d26_n.jpg',
+    'https://live.staticflickr.com/65535/52865127731_d142129254_o.jpg',
+    'https://live.staticflickr.com/65535/52919976509_9c6b9030af_o.jpg',
     '',
-    'https://live.staticflickr.com/65535/52865720758_3cdd23c1ac_n.jpg',
+    'https://live.staticflickr.com/65535/52865118066_dab47be796_o.jpg',
     'https://live.staticflickr.com/65535/52865429844_eed813830b_n.jpg',
   ])
 

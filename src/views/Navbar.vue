@@ -15,7 +15,11 @@
       class="opacity-0 logo flex gap-3 items-center"
     >
       <div class="grid place-items-center rounded-full w-16 aspect-square">
-        <img src="../assets/result.png" alt="" class="" />
+        <img
+          src="https://live.staticflickr.com/65535/52864536397_c81ebaab56_o.png"
+          alt=""
+          class=""
+        />
       </div>
       <span
         v-if="isVisible"
@@ -84,7 +88,11 @@
         class="opacity-0 logo flex gap-3 items-center"
       >
         <div class="grid place-items-center rounded-full w-10 aspect-square">
-          <img src="../assets/result.png" alt="" class="" />
+          <img
+            src="https://live.staticflickr.com/65535/52864536397_c81ebaab56_o.png"
+            alt=""
+            class=""
+          />
         </div>
         <span class="text-black text-lg uppercase w-fit font-bold font-Unbound"
           >LTWC</span

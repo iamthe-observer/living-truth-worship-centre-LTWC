@@ -217,7 +217,10 @@ function runParallax(
       <div
         class="peer-hover:opacity-5 transition-opacity duration-500 ease-out opacity-20 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <img src="../assets/sunrise.png" alt="" />
+        <img
+          src="https://live.staticflickr.com/65535/52864536387_b8d4d45fae_o.png"
+          alt=""
+        />
       </div>
     </section>
     <!-- <QuickNavigationBox /> -->
@@ -289,7 +292,7 @@ function runParallax(
           >
             <img
               class="object-cover w-full h-full group-hover:scale-110 transition-all duration-200 ease-out brightness-50 group-hover:brightness-90"
-              src="../assets/edited/location-map.png"
+              src="https://live.staticflickr.com/65535/52865504755_fdc1f77d16_o.png"
               alt=""
             />
             <RouterLink
@@ -392,22 +395,13 @@ function runParallax(
       </div>
     </section>
 
-    <!-- <section class="h-10 flex">
-      <img
-        v-for="i in 80"
-        class="w-10"
-        src="../assets/icons/Spike-light.svg"
-        alt=""
-      />
-    </section> -->
-
     <!-- bible quote -->
     <section
       ref="quote_ref"
       class="spikes_container h-screen quotes flex items-center w-full relative"
     >
       <img
-        src="../assets/bible2.png"
+        src="https://live.staticflickr.com/65535/52918754843_2c8497cb25_o.png"
         class="-rotate-12 -translate-x-20 holdbible opacity-0"
         alt=""
         srcset=""
@@ -425,16 +419,6 @@ function runParallax(
         </span></span
       >
     </section>
-
-    <!-- <section class="h-10 flex">
-      <img
-        v-for="i in 80"
-        class="w-10 rotate-180"
-        src="../assets/icons/Spike-dark.svg"
-        alt=""
-      />
-    </section> -->
-
     <Footer />
   </div>
 </template>

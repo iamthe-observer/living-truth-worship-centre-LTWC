@@ -9,7 +9,7 @@
 
       <div class="h-[80vh] w-full overflow-clip shadow-lg">
         <img
-          src="../assets/edited/02.webp"
+          src="https://live.staticflickr.com/65535/52865514555_4b3f8457be_o.jpg"
           class="h-full w-full object-cover -z-1"
           alt=""
           srcset=""
@@ -26,7 +26,11 @@
         >
           <span class="w-full">{{ data?.section1.intro }}</span>
           <div class="w-full">
-            <img src="../assets/edited/01.webp" alt="" class="object-contain" />
+            <img
+              src="https://live.staticflickr.com/65535/52865514565_275c50ef28_o.jpg"
+              alt=""
+              class="object-contain"
+            />
           </div>
         </div>
         <!-- right side -->
@@ -72,13 +76,20 @@
         </div>
 
         <div class="flex-1 w-full h-full bg-white">
-          <img src="../assets/edited/03.webp" alt="" />
+          <img
+            src="https://live.staticflickr.com/65535/52865540210_d5010dea3e_o.jpg"
+            alt=""
+          />
         </div>
       </section>
 
       <section class="flex h-96 my-10">
         <div class="pl-10 w-fit h-full opacity-60">
-          <img src="../assets/jesus.png" alt="" class="object-center" />
+          <img
+            src="https://live.staticflickr.com/65535/52918680615_ecab3c105c_o.png"
+            alt=""
+            class="object-center"
+          />
         </div>
 
         <div
@@ -120,13 +131,20 @@
 
           <div class="col-span-3 flex gap-3 w-full h-56">
             <div
-              v-for="(pix, idx) in 4"
+              v-for="(str, idx) in pix_str"
               :class="
                 idx == 2
                   ? 'w-full border-prime border-8'
                   : 'w-full bg-green-700'
               "
-            ></div>
+            >
+              <img
+                class="object-cover w-full h-full"
+                v-if="idx == 2 ? false : true"
+                :src="str"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -136,12 +154,12 @@
     <section class="py-32 px-20 flex-col flex gap-10 h-max">
       <div class="relative w-full h-full">
         <img
-          src="../assets/edited/08.jpg"
+          src="https://live.staticflickr.com/65535/52865279829_5b074e256f_o.jpg"
           alt=""
           class="object-contain -translate-x-5 -translate-y-5 brightness-90 shadow-lg w-full"
         />
         <img
-          src="../assets/edited/08.jpg"
+          src="https://live.staticflickr.com/65535/52865279829_5b074e256f_o.jpg"
           alt=""
           class="object-contain absolute inset-0 translate-x-5 translate-y-5 shadow-lg w-full brightness-50"
         />
@@ -216,6 +234,13 @@ onMounted(() => {
     },
   })
 })
+
+const pix_str = ref([
+  'https://live.staticflickr.com/65535/52919403396_3dbb94148d_o.png',
+  'https://live.staticflickr.com/65535/52865280994_2ee59efb3f_o.jpg',
+  '',
+  'https://live.staticflickr.com/65535/52864570107_e0bc628f1b_o.jpg',
+])
 </script>
 
 <style scoped></style>

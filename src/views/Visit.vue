@@ -1,5 +1,5 @@
 <template>
-  <main class="pt-[59px] flex flex-col bg-base900">
+  <main class="pt-[59px] flex flex-col bg-base100">
     <!-- map section -->
     <section
       class="min-h-[75vh] bg-base900 flex justify-evenly items-center p-10 py-32"
@@ -86,19 +86,11 @@
     </section>
 
     <section
-      class="max-h-screen py-32 px-10 flex flex-col gap-10 bg-base900 relative isolate"
+      class="h-full my-44 pl-10 flex gap-10 bg-base100 isolate"
     >
-      <div class="absolute -z-1 top-0 right-0 w-3/4 h-full clip-para">
-        <img
-          class="object-cover w-full h-full"
-          src="../assets/edited/02.webp"
-          alt="image of the church"
-          srcset=""
-        />
-      </div>
-      <!-- <h1 class="w-full text-4xl font-Unbound">Details</h1> -->
+      <div class="flex flex-col gap-5 place-self-center min-w-fit">
       <Bubbletext
-        :default_clr="'fff'"
+        :default_clr="'000'"
         :ID="'details'"
         class="tracking-wider mission text-center font-Unbound w-fit text-4xl hover-unerline-animation"
         :text="visitData?.details.title!"
@@ -108,21 +100,31 @@
         }"
       />
 
-      <div class="flex flex-col w-full">
-        <!-- details for sunday service -->
-        <div v-for="info in visitData?.details.info" class="w-2/5 font-Outfit">
-          <p
-            class="p-4 border-l-4 border-white transition-all duration-200 hover:border-l-8 ease-out hover:border-prime text-white"
-          >
-            <span class="block font-bold text-xl">{{ info.head }}</span>
-            <span class="block">{{ info.body }}</span>
-          </p>
+        <div class="flex flex-col min-w-fit">
+          <!-- details for sunday service -->
+          <div v-for="info in visitData?.details.info" class="w-2/5 font-Outfit">
+            <p
+            class="p-4 border-l-4 border-black transition-all duration-200 hover:border-l-8 ease-out hover:border-prime text-black inline-block"
+            >
+              <span class="font-bold text-xl whitespace-nowrap">{{ info.head }}</span>
+              <br>
+              <span class="whitespace-nowrap">{{ info.body }}</span>
+            </p>
+          </div>
         </div>
+      </div>
+      <div class="w-full h-80 clip-para">
+        <img
+          class="object-cover w-full h-full"
+          src="https://live.staticflickr.com/65535/52918923092_3cda9503e6_o.jpg"
+          alt="image of the church"
+          srcset=""
+        />
       </div>
     </section>
 
     <section
-      class="text-white max-h-screen flex justify-between mt-32 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate"
+      class="text-white max-h-screen flex justify-between pt-10 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate"
     >
       <div class="w-3/5 flex flex-col">
         <h1 class="font-Monument text-[2em]">
@@ -155,75 +157,13 @@
     </section>
 
     <section
-      class="my-32 max-h-screen py-32 px-10 flex flex-col gap-3 bg-base900 relative isolate"
+      class="py-32 px-10 flex gap-20 bg-base100 relative isolate"
     >
-      <div class="absolute -z-1 top-0 right-0 w-3/4 h-full clip-para">
-        <img
-          class="object-cover w-full h-full"
-          src="../assets/edited/03.webp"
-          alt="image of the church"
-          srcset=""
-        />
-      </div>
-      <!-- <h1 class="w-full text-4xl font-Unbound">Details</h1> -->
-      <Bubbletext
-        :default_clr="'fff'"
-        :ID="'details'"
-        class="tracking-wider mission text-center font-Unbound w-fit text-4xl hover-unerline-animation"
-        :text="`Content`"
-        :clrs="{
-          h: [205, 205, 205],
-          h_adj: [155, 155, 155],
-        }"
-      />
-
-      <div class="flex gap-6 w-full">
-        <!-- details for sunday service -->
-        <div class="w-2/5 pt-10">
-          <p
-            class="p-4 border-l-4 border-white transition-all duration-200 hover:border-l-8 ease-out hover:border-prime text-white"
-          >
-            <span class="block font-bold text-xl">Main Service</span>
-            <span class="block">9:15am • 11:00am • 4:30pm</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section
-      class="my-32 max-h-screen py-32 px-10 flex flex-col items-end gap-3 bg-base900 relative isolate shadow-sm"
-    >
-      <div class="absolute -z-1 top-0 left-0 w-3/4 h-full clip-para-reverse">
-        <img
-          class="object-cover w-full h-full"
-          src="../assets/edited/05.jpg"
-          alt="image of the church"
-          srcset=""
-        />
-      </div>
-      <!-- <h1 class="w-full text-4xl font-Unbound">Details</h1> -->
-      <Bubbletext
-        :default_clr="'fff'"
-        :ID="'details'"
-        class="tracking-wider mission text-center font-Unbound w-fit text-4xl hover-unerline-animation"
-        :text="`Content`"
-        :clrs="{
-          h: [205, 205, 205],
-          h_adj: [155, 155, 155],
-        }"
-      />
-
-      <div class="flex gap-6 w-full justify-end">
-        <!-- details for sunday service -->
-        <div class="w-2/5 pt-10 text-right">
-          <p
-            class="p-4 border-r-4 border-white transition-all duration-200 hover:border-r-8 ease-out hover:border-prime text-white"
-          >
-            <span class="block font-bold text-xl">Main Service</span>
-            <span class="block">9:15am • 11:00am • 4:30pm</span>
-          </p>
-        </div>
-      </div>
+      <p class="flex flex-col w-1/3 h-fulll gap-8 place-self-center">
+<h3 class="font-Monument text-3xl pb-3 border-b-8 border-prime">{{ visitData?.welcome_msg.title }}</h3>
+<p v-for="(msg,i) in visitData?.welcome_msg.body" :key="i" class="w-full font-semibold text-lg font-Outfit">{{ msg }}</p>
+      </p>
+      <div class="w-2/3 h-full"><img src="https://live.staticflickr.com/65535/52865328454_3edb969606_o.jpg" alt="" class="object-cover"></div>
     </section>
   </main>
   <Footer />
@@ -306,7 +246,7 @@ onMounted(() => {
         start: 'top 12%',
         // @ts-ignore
         end: () =>
-          `+=${document.querySelector('.image_container')!.clientHeight * 0.7}`,
+          `+=${document.querySelector('.image_container')!.clientHeight * 0.68}`,
         scrub: 3,
         pin: true,
       },

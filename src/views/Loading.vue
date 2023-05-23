@@ -20,7 +20,7 @@
 .box2,
 .box3 {
   @apply shadow-xl;
-  border: 16px solid rgb(93 56 145);
+  border: 16px solid #d94b0f;
   box-sizing: border-box;
   position: absolute;
   display: block;

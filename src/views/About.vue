@@ -93,7 +93,7 @@
     </section>
 
     <section
-      class="max-h-full py-20 px-10 flex flex-col gap-3 bg-base300 relative isolate"
+      class="max-h-full py-20 flex flex-col gap-3 bg-base300 relative isolate"
     >
       <h1
         class="self-center bg-prime text-white p-4 font-Monument uppercase tracking-[.3em] mb-10"
@@ -102,20 +102,20 @@
       </h1>
 
       <div class="w-full h-full flex flex-col gap-20">
-        <div class="flex-1 flex gap-10">
+        <div class="flex-1 flex gap-10 pl-10 pr-20">
           <img
-            src="../assets/edited/02.webp"
+            src="https://live.staticflickr.com/65535/52919403376_4bb6abe58e_o.png"
             alt=""
-            class="object-cover w-full h-[400px]"
+            class="object-cover w-1/2 h-[400px]"
           />
           <img
-            src="../assets/edited/05.jpg"
+            src="https://live.staticflickr.com/65535/52919863688_2e39f97c4d_o.png"
             alt=""
-            class="object-cover w-full h-[400px]"
+            class="object-cover w-1/2 h-[400px]"
           />
         </div>
 
-        <div class="grid grid-cols-2 gap-5 flex-1">
+        <div class="grid grid-cols-2 gap-5 flex-1 px-20">
           <div
             v-for="values in ltwc_values"
             class="flex gap-5 h-full items-center bg-base100 p-4"
