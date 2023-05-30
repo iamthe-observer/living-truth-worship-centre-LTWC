@@ -139,7 +139,7 @@ const allData: Partial<SiteData> = {
     bible_verse: {
       quote:
         'But when he, the Spirit of truth, comes, he will guide you into all the truth. He will not speak on his own; he will speak only what he hears, and he will tell you what is yet to come.',
-      loc: 'John 16:134',
+      loc: 'John 16:13',
     },
   },
   about: {
@@ -225,19 +225,11 @@ const allData: Partial<SiteData> = {
       FAQ: [
         {
           q: 'When Do We Gather?',
-          a: 'We gather on Sundays at 9:30 am! We are located at 210 Trilith Parkway.',
-        },
-        {
-          q: 'Is There A Place For My Kids?',
-          a: 'bloom + Passion Kids are the rooms of our House designed for your kids! bloom (6 Weeks - Pre-K) and Passion Kids (K-5th) both meet in the Roam building on the second floor (210 Trilith Pkwy Suite 100, Fayetteville, GA 30214). We have the best Door Holders that will help your family check-in and take great care of your kids while you attend the gathering. Check-in opens as early as 8:45 am, and you can plan to pick up your child after the gathering ends. Passion Students (6th-8th) will meet in the Shipyard (125 Shepperton Way, Fayetteville, GA 30214).',
-        },
-        {
-          q: 'When Do We Gather?',
-          a: 'We gather on Sundays at 9:30 am! We are located at 210 Trilith Parkway.',
+          a: 'We gather on Sundays at 9:30 am! We are located at 4 Kings Cross Rd, Brampton, ON L6T 3X8, Canada.',
         },
         {
           q: 'Where Do I Park?',
-          a: 'There are two locations to park. If you are bringing your child, you can park in the Piedmont Wellness Center parking lot, and a shuttle can take you over to the main gathering after you drop off your child. If you do not have any children to drop off, you can park in the lot located right outside the Town Stage and the Shipyard (125 Shepperton Way, Fayetteville, GA 30214). The Town Stage is where we will have our main gatherings. We will have Door Holders scattered throughout to help direct you where you need to go!',
+          a: 'There is a spacious area to park right around the building. We will have Door Holders scattered throughout to help direct you where you need to go!',
         },
       ],
       intro:
@@ -328,7 +320,7 @@ const allData: Partial<SiteData> = {
     welcome_msg: {
       title: "Welcome To The Lord's Abode",
       body: [
-        'Come as you are and discover why people love Generation Church.',
+        'Come as you are and discover why people love Living Truth Worship Centre.',
         "No matter your background, your current situation, or how close or far from God you feel, we're excited to help you feel welcome the moment you step through our doors.",
         'Come, meet God, and experience Him work in your life so that it will never be the same.',
       ],

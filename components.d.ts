@@ -24,6 +24,7 @@ declare module '@vue/runtime-core' {
     Routelinks: typeof import('./src/components/Routelinks.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    StaggerPics: typeof import('./src/components/staggerPics.vue')['default']
     Sundays: typeof import('./src/views/Sundays.vue')['default']
     Visit: typeof import('./src/views/Visit.vue')['default']
   }

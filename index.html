@@ -22,6 +22,7 @@
           gl_Position = vec4( position, 1.0 );
       }
     </script>
+    <!-- content fragment shader -->
     <script id="fragmentHomeShader" type="x-shader/x-fragment">
         uniform vec2 u_resolution;
         uniform vec2 u_mouse;
@@ -91,6 +92,7 @@
           gl_FragColor = vec4(fragcolour, 1.);
         }
     </script>
+    <!-- Sunday fragment shader -->
     <script id="fragmentSundaysShader" type="x-shader/x-fragment">
         uniform vec2 u_resolution;
         uniform vec2 u_mouse;
@@ -230,7 +232,7 @@
               }
     </script>
     <script async type="module" src="index.ts"></script>
-    <div id="app_container" class="relative w-full">
+    <div id="app_container" class="relative w-screen overflow-x-hidden">
       <div id="app" class="z-30"></div>
     </div>
   </body>

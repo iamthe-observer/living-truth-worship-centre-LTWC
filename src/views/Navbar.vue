@@ -1,72 +1,32 @@
 <template>
-  <nav
-    ref="navBar"
-    :class="
-      isVisible
-        ? 'flex justify-between items-center py-5 px-2 w-full min-h-[128px] fixed z-[100] top-0 text-bold backdrop-blur-lg transition-all duration-200 ease-linear text-white font-Monument tracking-wide navbar'
-        : 'flex justify-between items-center w-full min-h-fit fixed z-[100] top-0 text-bold border-y-4 border-base900 transition-all duration-200 bg-base100 ease-linear font-Monument tracking-wide navbar shadow-lg'
-    "
-  >
+  <nav ref="navBar" :class="isVisible
+    ? 'flex justify-between items-center sm:py-5 sm:px-2 w-full min-h-[128px] fixed z-[100] top-0 text-bold backdrop-blur-lg transition-all duration-200 ease-linear text-white font-Monument tracking-wide navbar'
+    : 'flex justify-between items-center w-full min-h-fit fixed z-[100] top-0 text-bold border-y-4 border-base900 transition-all duration-200 bg-base100 ease-linear font-Monument tracking-wide navbar shadow-lg'
+    ">
     <!-- logo -->
-    <RouterLink
-      v-if="isVisible"
-      to="/"
-      v-motion-slide-left
-      class="opacity-0 logo flex gap-3 items-center"
-    >
-      <div class="grid place-items-center rounded-full w-16 aspect-square">
-        <img
-          src="https://live.staticflickr.com/65535/52864536397_c81ebaab56_o.png"
-          alt=""
-          class=""
-        />
+    <RouterLink v-if="isVisible" to="/" v-motion-slide-left class="opacity-0 logo flex gap-3 items-center">
+      <div class="grid place-items-center rounded-full w-10 sm:w-16 aspect-square">
+        <img src="https://live.staticflickr.com/65535/52864536397_c81ebaab56_o.png" alt="" class="" />
       </div>
-      <span
-        v-if="isVisible"
-        class="text-white text-xl inverse-text uppercase w-80 font-Unbound"
-        ><Bubbletext
-          :default_clr="'fff'"
-          :ID="'truth'"
-          class="uppercase"
-          :text="`living truth`"
-          :h="'e48157'"
+      <span v-if="isVisible" class="text-white text-[.7rem] sm:text-xl inverse-text uppercase sm:w-80 w-80 font-Unbound">
+        <Bubbletext :default_clr="'fff'" :ID="'truth'" class="uppercase" :text="`living truth`" :h="'e48157'"
           :h_adj="'f3c9b7'" />
         <br />
-        <Bubbletext
-          :default_clr="'fff'"
-          :ID="'centre'"
-          class="uppercase"
-          :text="`worship centre`"
-          :h="'e48157'"
-          :h_adj="'f3c9b7'"
-      /></span>
-      <span
-        v-if="!isVisible"
-        class="text-black text-2xl uppercase w-80 font-bold font-Unbound"
-        >LTWC</span
-      >
+        <Bubbletext :default_clr="'fff'" :ID="'centre'" class="uppercase" :text="`worship centre`" :h="'e48157'"
+          :h_adj="'f3c9b7'" />
+      </span>
+      <span v-if="!isVisible" class="text-black text-2xl uppercase w-80 font-bold font-Unbound">LTWC</span>
     </RouterLink>
 
     <!-- links -->
-    <div
-      :class="
-        isVisible
-          ? 'flex gap-5 items-center min-h-full pr-10'
-          : 'flex gap-5 items-center justify-evenly min-h-full w-full'
-      "
-    >
-      <RouterLink
-        v-show="isVisible"
-        v-for="(link, i) in links"
-        :to="link.to"
-        :key="i"
-        :class="
-          isVisible
-            ? ` text-white linkz${i} inverse-text cursor-pointer opacity-0 relative -top-20 links text-sm hover:bg-prime px-2 py-1 transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:shadow-md active:shadow-none`
-            : ` linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm hover:bg-prime hover:text-white px-2 py-1 transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none`
-        "
-        >{{ link.label }}</RouterLink
-      >
+    <div v-if="!if_sm" :class="isVisible
+      ? 'flex gap-5 items-center min-h-full pr-10'
+      : 'flex gap-5 items-center justify-evenly min-h-full w-full'
+      ">
+      <RouterLink v-show="isVisible" v-for="(link, i) in links" :to="link.to" :key="i" :class="isVisible
+        ? ` text-white linkz${i} inverse-text cursor-pointer opacity-0 relative -top-20 links text-sm hover:bg-prime px-2 py-1 transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:shadow-md active:shadow-none`
+        : ` linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm hover:bg-prime hover:text-white px-2 py-1 transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none`
+        ">{{ link.label }}</RouterLink>
       <!-- <RouterLink
         v-show="!isVisible"
         v-for="(link, i) in links.slice(0, -2)"
@@ -81,36 +41,17 @@
       > -->
 
       <!-- logo -->
-      <RouterLink
-        v-motion-fade
-        v-if="!isVisible"
-        to="/"
-        class="opacity-0 logo flex gap-3 items-center"
-      >
+      <RouterLink v-motion-fade v-if="!isVisible" to="/" class="opacity-0 logo flex gap-3 items-center">
         <div class="grid place-items-center rounded-full w-10 aspect-square">
-          <img
-            src="https://live.staticflickr.com/65535/52864536397_c81ebaab56_o.png"
-            alt=""
-            class=""
-          />
+          <img src="https://live.staticflickr.com/65535/52864536397_c81ebaab56_o.png" alt="" class="" />
         </div>
-        <span class="text-black text-lg uppercase w-fit font-bold font-Unbound"
-          >LTWC</span
-        >
+        <span class="text-black text-lg uppercase w-fit font-bold font-Unbound">LTWC</span>
       </RouterLink>
 
-      <RouterLink
-        v-show="!isVisible"
-        v-for="(link, i) in links"
-        :to="link.to"
-        :key="i"
-        :class="
-          link.label.toLowerCase() == $route.name
-            ? `linkz${i} cursor-pointer opacity-0 relative -top-20 links text-sm bg-prime text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`
-            : `linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm hover:bg-prime hover:text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`
-        "
-        >{{ link.label }}</RouterLink
-      >
+      <RouterLink v-show="!isVisible" v-for="(link, i) in links" :to="link.to" :key="i" :class="link.label.toLowerCase() == $route.name
+        ? `linkz${i} cursor-pointer opacity-0 relative -top-20 links text-sm bg-prime text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`
+        : `linkz${i} cursor-pointer opacity-0 relative -top-20 text-black links text-sm hover:bg-prime hover:text-white transition-all duration-150 ease-in-out active:bg-transparent active:text-prime hover:scale-105 hover:shadow-md active:shadow-none py-4 px-3`
+        ">{{ link.label }}</RouterLink>
       <!-- <span
         :class="
           isVisible
@@ -120,6 +61,8 @@
         >Menu</span
       > -->
     </div>
+
+    <div class="self-center mr-10 w-fit h-full aspect-square" v-else><i class="pi pi-angle-down text-3xl"></i></div>
   </nav>
 </template>
 
@@ -127,10 +70,12 @@
 import { Power3 } from 'gsap'
 import { gsap } from 'gsap'
 import { useAppStore } from '../store/appStore'
-import { useRoute } from 'vue-router'
-// gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin)
+
+gsap.registerPlugin(ScrollTrigger)
 
 const navBar = ref<HTMLElement>()
+const if_sm = inject('small_screen')
+
 
 const props = defineProps<{
   isVisible: boolean
@@ -147,13 +92,15 @@ onMounted(() => {
   init_animate()
 })
 
-function init_animate() {
-  // gsap.to(`.side-menu`, {
-  //   opacity: 1,
-  //   duration: 2.3,
-  //   scrollTrigger: '.navbar',
-  // })
+watch(if_sm!, (new_val) => {
+  if (!new_val) {
+    setTimeout(() => {
+      init_animate()
+    }, 500)
+  }
+})
 
+function init_animate() {
   gsap.to(`.logo`, {
     opacity: 1,
     duration: 1.6,
