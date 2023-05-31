@@ -5,14 +5,14 @@ import { CSSProperties } from 'vue'
 import Loader from '../../index'
 import { useRoute } from 'vue-router'
 
-const { src, siteData: data } = storeToRefs(useAppStore())
+const { sm_src, src, siteData: data } = storeToRefs(useAppStore())
 
+const if_sm = inject('small_screen')
 const quote_ref = ref<HTMLElement>()
 const classer = ref<{}>()
 const target_ref = ref<HTMLDivElement>()
 const content_container = ref<HTMLDivElement>()
 const route = useRoute()
-// const data = reactive(allData.home!)
 
 onMounted(() => {
   useTitle('LTWC | Welcome!')
@@ -125,6 +125,16 @@ onMounted(() => {
     },
   })
 
+  gsap.to('.mission_img', {
+    opacity: .2,
+    duration: 2,
+    scrollTrigger: {
+      trigger: '.mission_text',
+      start: 'top 80%',
+      end: 'end 60%',
+    },
+  })
+
   runParallax(quote_ref, classer)
 })
 
@@ -175,22 +185,23 @@ function runParallax(
     <section class="relative flex flex-col items-center justify-center text-[1.5em] py-28 h-screen bg-base300">
       <!-- heading -->
       <div
-        class="relative uppercase self-start text-[2.8em] w-[700px] flex justify-center text-black font-Unbound z-10 mission-trigger -left-20">
+        class="relative uppercase self-start sm:text-[2.8em] text-[1.3em] sm:w-[700px] w-fit flex justify-center text-black font-Unbound z-10 mission-trigger -left-20 mx-auto sm:mx-0">
         <Bubbletext :default_clr="'000'" :ID="'mission'"
-          class="tracking-wider mission text-center font-light mission_title opacity-0"
+          class="sm:tracking-wider tracking-normal mission text-center font-light mission_title opacity-0 w-full sm:border-none border-b-4 border-prime mb-10"
           :text="data.home?.mission_statement.title!" :clrs="{
             h: [205, 205, 205],
             h_adj: [155, 155, 155],
           }" />
       </div>
+
       <!-- mission statement -->
-      <div class="absolute left-[35%] top-40% -translate-x-1/2 -translate-y-1/2">
+      <div v-if="!if_sm" class="absolute left-[35%] top-40% -translate-x-1/2 -translate-y-1/2">
         <div class="w-3 h-16 bg-prime"></div>
         <div class="h-3 w-80 bg-prime"></div>
       </div>
 
       <div
-        class="self-end w-2/4 text-justify right-20 text-black font-Unbound font-normal drop-shadow-lg hover:scale-105 transition-transform peer duration-150 ease-in-out text-xl z-10 pr-24 mission_text opacity-0">
+        class="self-center sm:self-end sm:w-2/4 w-full sm:text-justify text-center right-20 text-black font-Unbound font-normal drop-shadow-lg hover:scale-105 transition-transform peer duration-150 ease-in-out text-xl z-10 sm:pr-24 px-4 mission_text opacity-0">
         {{ data.home?.mission_statement.body[0] }}
         <span class="">
           {{ data.home?.mission_statement.body[1] }}
@@ -198,22 +209,17 @@ function runParallax(
       </div>
       <!-- background image -->
       <div
-        class="peer-hover:opacity-5 transition-opacity duration-500 ease-out opacity-20 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        class="peer-hover:opacity-5 transition-opacity duration-500 ease-out opacity-100 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mission_img">
         <img src="https://live.staticflickr.com/65535/52864536387_b8d4d45fae_o.png" alt="" />
       </div>
     </section>
-    <!-- <QuickNavigationBox /> -->
 
     <!-- showcase images -->
-    <section ref="test" class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-7 px-10">
-      <!-- <div class="grid grid-cols-3 grid-rows-2 gap-2">
-        <div class="bg-sec w-full h-96 overflow-clip" v-for="i in 2"></div>
-      </div> -->
-
-      <div class="grid grid-cols-3 grid-rows-2 gap-2">
+    <section ref="test" class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-7 sm:h-full h-screen">
+      <div v-if="!if_sm" class="grid grid-cols-3 grid-rows-2 gap-2 px-10">
         <div v-for="(source, i) in src" :ref="`parallax_img${i}`" :class="source
-            ? 'w-full h-96 flex justify-center items-center overflow-hidden img_item perspective'
-            : 'w-full h-96 relative overflow-hidden img_item perspective'
+          ? 'w-full h-96 flex justify-center items-center overflow-hidden img_item perspective'
+          : 'w-full h-96 relative overflow-hidden img_item perspective'
           ">
           <img v-if="source" class="object-cover shrink-0 w-full h-full" :src="source" alt="" />
           <div v-if="i == 0" class="uppercase flex justify-between items-end px-6 w-full h-full pb-5 bg-prime">
@@ -230,7 +236,7 @@ function runParallax(
               </g>
             </svg>
           </div>
-          <!-- screenshot of location of church #links you to google map location -->
+          <!-- screenshot of location of church links you to google map location -->
           <div v-if="i == 3" class="uppercase flex justify-between items-end h-full group">
             <img
               class="object-cover w-full h-full group-hover:scale-110 transition-all duration-200 ease-out brightness-50 group-hover:brightness-90"
@@ -244,11 +250,47 @@ function runParallax(
           </div>
         </div>
       </div>
+
+      <!-- for small screen -->
+      <div class="grid grid-cols-2 gap-2 px-2 h-full" v-else>
+        <div class="" v-for="(source, i) in sm_src">
+          <div v-if="i == 0"
+            class="uppercase flex justify-between items-end px-6 w-full aspect-square py-5 bg-prime h-full">
+            <span v-motion-slide-visible-left class="text-white font-bold bubble-text font-Unbound">Visit Us</span>
+            <svg v-motion-slide-visible-top class="w-16 aspect-square" fill="#fff" version="1.1" id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 476.213 476.213"
+              xml:space="preserve" stroke="#fff" stroke-width="0.004762130000000001">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <polygon
+                  points="287.5,384.394 253.107,418.787 253.107,0 223.107,0 223.107,418.787 188.713,384.394 167.5,405.606 238.107,476.213 308.713,405.606 ">
+                </polygon>
+              </g>
+            </svg>
+          </div>
+
+          <img v-if="source" class="object-cover w-full h-full aspect-square" :src="source" alt="" />
+
+          <div v-if="i == 3" class="uppercase flex justify-between items-end w-full h-full group aspect-square relative">
+            <img
+              class="object-cover w-full h-full group-hover:scale-110 transition-all duration-200 ease-out brightness-50 group-hover:brightness-90"
+              src="https://live.staticflickr.com/65535/52865504755_fdc1f77d16_o.png" alt="" />
+            <RouterLink to="/visit" class="absolute bottom-2 right-1/2 translate-x-1/2">
+              <button
+                class="border-base900 text-black border-[3px] active:border-none active:bg-prime text-sm font-Unbound px-2  whitespace-nowrap">
+                Find Us!
+              </button>
+            </RouterLink>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- quick navigation section -->
     <section class="flex flex-col text-[1.5em] py-12 min-h-screen overflow-x-hidden justify-center bg-base100">
-      <header v-motion-fade class="text-black text-[1em] pl-10 font-Unbound flex gap-10 items-center">
+      <header v-motion-fade
+        class="text-black sm:text-[1em] text-[.8em] sm:pl-10 pl-3 font-Unbound flex sm:gap-10 items-center">
         <Bubbletext :default_clr="'000'" :ID="'Find'" class="font-light" :text="data.home?.quick_nav_section.title!" />
         <svg fill="#000000" width="80px" height="80px" viewBox="-2.4 -2.4 28.80 28.80" id="right-arrow"
           data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line" transform="rotate(0)">

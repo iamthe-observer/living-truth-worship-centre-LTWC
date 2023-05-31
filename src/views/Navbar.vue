@@ -8,7 +8,7 @@
       <div class="grid place-items-center rounded-full w-10 sm:w-16 aspect-square">
         <img src="https://live.staticflickr.com/65535/52864536397_c81ebaab56_o.png" alt="" class="" />
       </div>
-      <span v-if="isVisible" class="text-white text-[.7rem] sm:text-xl inverse-text uppercase sm:w-80 w-80 font-Unbound">
+      <span v-if="isVisible" class="text-white text-[.7rem] sm:text-xl inverse-text uppercase sm:w-80 w-fit font-Unbound">
         <Bubbletext :default_clr="'fff'" :ID="'truth'" class="uppercase" :text="`living truth`" :h="'e48157'"
           :h_adj="'f3c9b7'" />
         <br />
@@ -62,7 +62,7 @@
       > -->
     </div>
 
-    <div class="self-center mr-10 w-fit h-full aspect-square" v-else><i class="pi pi-angle-down text-3xl"></i></div>
+    <div class="self-center mr-6 w-fit h-full aspect-square" v-else><i class="pi pi-angle-down text-3xl"></i></div>
   </nav>
 </template>
 

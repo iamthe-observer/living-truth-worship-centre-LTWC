@@ -16,6 +16,13 @@ export const useAppStore = defineStore('app', () => {
     'https://live.staticflickr.com/65535/52865429844_eed813830b_n.jpg',
   ])
 
+  const sm_src = ref([
+    '',
+    'https://live.staticflickr.com/65535/52865127731_d142129254_o.jpg',
+    'https://live.staticflickr.com/65535/52919976509_9c6b9030af_o.jpg',
+    '',
+  ])
+
   const setNavRef = (nav: HTMLElement) => {
     NavBar.value = nav
   }
@@ -37,6 +44,7 @@ export const useAppStore = defineStore('app', () => {
     setIsVisible,
     isVisible,
     src,
+    sm_src,
     setNavRef,
     navBarHeight,
     navPadding,
