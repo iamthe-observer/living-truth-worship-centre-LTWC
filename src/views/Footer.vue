@@ -2,7 +2,7 @@
   <div class="footer-container w-full h-[800px] bg-base900 flex flex-col text-white">
     <div class="relative w-full flex justify-between items-center p-10 h-[40%]">
       <!-- top half -->
-      <div class="absolute w-[60%] h-fit bg-base100 -bottom-1/2 left-1/2 -translate-x-1/2">
+      <div class="absolute sm:w-[60%] w-full h-fit bg-base100 -bottom-1/2 left-1/2 -translate-x-1/2">
         <form action="" class="flex flex-col w-full p-12 h-full bg-white text-black">
           <h1 class="font-Unbound text-3xl text-center mb-3">
             <Bubbletext :default_clr="'000'" :ID="'Sign'" text="Sign Up for Encouragement & News" />

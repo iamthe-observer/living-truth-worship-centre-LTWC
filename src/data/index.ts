@@ -225,7 +225,7 @@ const allData: Partial<SiteData> = {
       FAQ: [
         {
           q: 'When Do We Gather?',
-          a: 'We gather on Sundays at 9:30 am! We are located at 4 Kings Cross Rd, Brampton, ON L6T 3X8, Canada.',
+          a: 'We gather on Sundays at 9:00 am! We are located at 1900 Clark Blvd Unit #4, Brampton, ON L6T 0E9, Canada.',
         },
         {
           q: 'Where Do I Park?',
@@ -276,7 +276,12 @@ const allData: Partial<SiteData> = {
     ],
     details: {
       title: 'Details',
-      info: [{ head: 'Main Service Time', body: '9:15am • 11:30am' }],
+      info: [
+        { head: 'Intercession', body: 'Sundays: 9:00am • 9:30am' },
+        { head: 'Worship Service', body: 'Sundays: 9:30am • 11:30am' },
+        { head: 'Bible Study', body: 'Wednesdays: 9:15am • 11:30am' },
+        { head: 'Prayer Service', body: 'Fridays: 10:00pm • 12:00 Midnight' },
+      ],
     },
     expectations: {
       title: 'Experience worshipping the Lord in a fulfilling way',

@@ -127,7 +127,7 @@ onMounted(() => {
 
   gsap.to('.mission_img', {
     opacity: .2,
-    duration: 2,
+    duration: 1,
     scrollTrigger: {
       trigger: '.mission_text',
       start: 'top 80%',
@@ -326,15 +326,17 @@ function runParallax(
     </section>
 
     <!-- bible quote -->
-    <section ref="quote_ref" class="spikes_container h-screen quotes flex items-center w-full relative">
-      <img src="https://live.staticflickr.com/65535/52918754843_2c8497cb25_o.png"
+    <section ref="quote_ref"
+      :class="if_sm ? 'spikesSM_container h-screen quotes flex items-center w-full relative' : 'spikes_container h-screen quotes flex items-center w-full relative'">
+      <img v-if="!if_sm" src="https://live.staticflickr.com/65535/52918754843_2c8497cb25_o.png"
         class="-rotate-12 -translate-x-20 holdbible opacity-0" alt="" srcset="" />
 
       <div :style="classer"
         class="border-[10px] border-collapse border-prime w-1/2 h-1/2 absolute translate-x-1/2 -z-1 frame opacity-0 perspective">
       </div>
+
       <span
-        class="p-10 text-white font-bold text-3xl tracking-wide drop-shadow-md font-Gloock verse opacity-0 translate-x-40 leading-9">{{
+        class="sm:p-10 px-10 pl-16 sm:text-left text-justify text-white font-bold text-3xl tracking-wide drop-shadow-md font-Gloock verse opacity-0 translate-x-40 leading-9">{{
           data.home?.bible_verse.quote }}
         <span class="bg-prime block w-fit px-4 py-2 mt-2">{{ data.home?.bible_verse.loc }}
         </span></span>
