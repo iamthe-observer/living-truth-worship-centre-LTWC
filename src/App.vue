@@ -34,6 +34,6 @@ const loading_app = ref(true)
 onMounted(() => {
   setTimeout(() => {
     loading_app.value = false
-  }, 0)
+  }, 3000)
 })
 </script>
