@@ -73,21 +73,21 @@
 
 
   <!-- sm_screen -->
-  <div v-if="if_sm" class="footer-container w-full h-[800px] bg-base900 flex flex-col text-white">
+  <div v-if="if_sm" class="footer-container w-full h-[800px] flex flex-col text-white">
     <!-- top half -->
-    <div class="h-1/2 bg-base100">
-      <form action="" class="flex flex-col w-full p-12 h-full bg-white text-black">
-        <h1 class="font-Unbound text-3xl text-center mb-3">
+    <div class="h-1/2">
+      <form action="" class="flex flex-col w-full p-4 h-full bg-white text-black">
+        <h1 class="font-Unbound text-3xl text-center my-3 mb-4">
           <Bubbletext :default_clr="'000'" :ID="'Sign'" text="Sign Up for Encouragement & News" />
         </h1>
-        <div class="grid grid-cols-2 h-full font-Poppins text-md">
+        <div class="grid grid-cols-1 h-full font-Poppins text-md">
           <label class="font-normal">First Name<input placeholder="Ransford" class="block w-full" type="text" /></label>
           <label class="font-normal">Last Name<input placeholder="Smith" class="block w-full" type="text" /></label>
           <label class="font-normal">Email<input placeholder="email@email.com" class="block w-full" type="text" /></label>
           <label class="">
             <span class="opacity-0">Jesus is King</span>
             <span
-              class="transition-all duration-300 ease-out hover:shadow-xl hover:shadow-prime hover:scale-95 active:text-black cursor-pointer font-Unbound min-h-[55%] border-[3px] border-prime bg-prime text-white text-center px-2 py-1 focus:outline-4 rounded-none focus:rounded-none focus:outline-offset-4">Send
+              class="transition-all duration-300 ease-out hover:shadow-xl hover:shadow-prime hover:scale-95 active:text-black cursor-pointer font-Unbound min-h-fit border-[3px] border-prime bg-prime text-white text-center px-2 py-1 focus:outline-4 rounded-none focus:rounded-none focus:outline-offset-4">Send
               Me Updates</span>
           </label>
         </div>
