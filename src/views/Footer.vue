@@ -73,7 +73,7 @@
 
 
   <!-- sm_screen -->
-  <div v-if="if_sm" class="footer-container w-full h-screen bg-base900 flex flex-col text-white">
+  <div v-if="if_sm" class="footer-container w-full h-[800px] bg-base900 flex flex-col text-white">
     <!-- top half -->
     <div class="h-1/2 bg-base100">
       <form action="" class="flex flex-col w-full p-12 h-full bg-white text-black">
@@ -97,7 +97,7 @@
 
     <!-- bottom half -->
     <div class="h-1/2 bg-prime flex justify-center items-center">
-      <div class="border-[4px] w-[95%] h-[95%] flex">
+      <div class="border-[4px] w-[95%] h-[85%] flex">
         <div class="border-r-4 w-1/2 flex flex-col">
           <div class="h-3/4 border-b-4 flex flex-col items-center justify-center">
             <span class="font-bold text-xl text-center font-Unbound drop-shadow-lg">LTWC</span>
