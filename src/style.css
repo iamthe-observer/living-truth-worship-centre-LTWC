@@ -184,7 +184,7 @@
     top: 0;
   }
   .spikesSM_container_about::before {
-    @apply bg-base100;
+    @apply bg-white;
     bottom: 0;
     transform: rotate(0.5turn);
   }

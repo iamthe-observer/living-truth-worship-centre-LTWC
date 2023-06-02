@@ -327,7 +327,7 @@ function runParallax(
 
     <!-- bible quote -->
     <section ref="quote_ref"
-      :class="if_sm ? 'spikesSM_container h-screen quotes flex items-center w-full relative' : 'spikes_container h-screen quotes flex items-center w-full relative'">
+      class="sm:spikes_container spikesSM_container h-screen quotes flex items-center w-full relative">
       <img v-if="!if_sm" src="https://live.staticflickr.com/65535/52918754843_2c8497cb25_o.png"
         class="-rotate-12 -translate-x-20 holdbible opacity-0" alt="" srcset="" />
 
