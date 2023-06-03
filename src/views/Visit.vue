@@ -2,11 +2,11 @@
   <main class="sm:pt-[59px] scrollbar-hidden pt-5 flex flex-col bg-base100">
     <!-- map section -->
     <section
-      class="sm:min-h-[75vh] transition-all duration-150 min-h-[421px] bg-base900 flex justify-evenly items-center p-10 py-32 location-section">
-      <div class="text-head text-white font-Unbound sm:text-[3.5em] text-[2em] flex flex-col [line-height:0;]">
+      class="sm:min-h-[75vh] transition-all duration-150 min-h-screen bg-base900 flex justify-evenly items-center p-10 py-20 location-section">
+      <div class="text-head text-white font-Unbound sm:text-[3.5em] text-[2rem] flex flex-col [line-height:0;]">
         <span class="warp-text">{{ visitData?.head_text[0] }}</span>
         <span class="warp-text">{{ visitData?.head_text[1] }}</span>
-        <span class="warp-text text-prime">{{ visitData?.head_text[2] }}</span>
+        <span class="warp-text text-prime [line-height:2rem;]">{{ visitData?.head_text[2] }}</span>
 
         <span v-motion-slide-left class="leading-tight text-4xl sm:text-left text-center" v-if="animation_done">
           <Bubbletext :text="visitData?.head_text[3]!" ID="rock" default_clr="fff" />
@@ -46,9 +46,9 @@
       </div>
     </section>
 
-    <section class="h-full my-44 pl-10 flex gap-10 bg-base100 isolate">
+    <section class="h-full sm:my-44 my-20 sm:pl-10 p-0 sm:flex-row flex-col flex gap-10 bg-base100 isolate">
       <!-- info -->
-      <div class="flex flex-col gap-5 place-self-center w-1/2">
+      <div class="flex flex-col gap-5 place-self-center sm:w-1/2 w-full sm:ml-0 ml-5">
         <Bubbletext :default_clr="'000'" :ID="'details'"
           class="tracking-wider mission text-center font-Unbound w-fit text-4xl hover-unerline-animation"
           :text="visitData?.details.title!" :clrs="{
@@ -70,48 +70,48 @@
       </div>
 
       <!-- image -->
-      <div class="w-full min-h-full clip-para">
-        <img class="object-cover w-full h-full" src="https://live.staticflickr.com/65535/52918923092_3cda9503e6_o.jpg"
-          alt="image of the church" srcset="" />
+      <div class="w-full min-h-full sm:clip-para">
+        <img class="object-cover sm:w-full w-[95%] sm:mx-0 mx-auto h-full"
+          src="https://live.staticflickr.com/65535/52947199654_7fbd5b3a81_o.jpg" alt="image of the church" srcset="" />
       </div>
     </section>
 
     <section
-      class="text-white max-h-screen flex justify-between pt-10 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate">
-      <div class="w-3/5 flex flex-col">
-        <h1 class="font-Monument text-[2em]">
+      class="text-white sm:max-h-screen h-full flex justify-between pt-10 sm:px-10 px-4 min-h-[1900px] gap-3 bg-base900 relative isolate">
+      <div class="sm:w-3/5 w-full flex flex-col">
+        <h1 class="font-Monument sm:text-[2em] text-[1.5em]">
           {{ visitData?.expectations.title }}
         </h1>
-        <p class="text-md font-Unbound">
+        <p class="sm:text-md text-[.8em] font-Unbound">
           {{ visitData?.expectations.title_exp }}
         </p>
 
-        <div class="w-full h-full gap-7 grid grid-cols-2 pr-5 mt-10">
+        <div class="w-full h-full gap-7 grid sm:grid-cols-2 grid-cols-1 sm:pr-5 pr-0 mt-10">
           <div class="border-t-8 border-prime flex flex-col gap-5 py-8" v-for="info in visitData?.expectations.info">
-            <h1 class="font-Monument text-2xl">{{ info.head }}</h1>
-            <p class="font-Unbound font-light">
+            <h1 class="font-Monument text-xl">{{ info.head }}</h1>
+            <p class="font-Unbound font-light text-[.8em]">
               {{ info.body }}
             </p>
           </div>
         </div>
       </div>
 
-      <div class="flex-1 image_container">
+      <div v-if="!if_sm" class="flex-1 image_container">
         <img src="https://live.staticflickr.com/65535/52864536457_2a4b9c119b_o.jpg" alt=""
           class="image w-[85%] mx-auto" />
       </div>
     </section>
 
-    <section class="py-32 px-10 flex gap-20 bg-base100 relative isolate">
-      <p class="flex flex-col w-1/3 h-fulll gap-8 place-self-center">
+    <section class="sm:py-32 py-20 sm:px-10 px-4 flex sm:flex-row flex-col gap-20 bg-base100 relative isolate">
+      <p class="flex flex-col sm:w-1/3 w-full h-fulll gap-8 place-self-center">
       <h3 class="font-Monument text-3xl pb-3 border-b-8 border-prime">{{ visitData?.welcome_msg.title }}</h3>
       <p v-for="(msg, i) in visitData?.welcome_msg.body" :key="i" class="w-full font-semibold text-lg font-Outfit">{{ msg
       }}</p>
       </p>
-      <div class="w-2/3 min-h-full">
-        <staggerPics />
+      <div class="sm:w-2/3 w-full min-h-full">
+        <!-- <staggerPics /> -->
 
-        <!-- <img src="https://live.staticflickr.com/65535/52865328454_3edb969606_o.jpg" alt="" class="object-cover"> -->
+        <img src="https://live.staticflickr.com/65535/52865328454_3edb969606_o.jpg" alt="" class="object-cover">
       </div>
     </section>
   </main>
@@ -130,6 +130,7 @@ const { siteData: data } = storeToRefs(useAppStore())
 const visitData = computed(() => data.value.visit)
 const if_sm = inject('small_screen')
 const animation_done = ref(false)
+const if_animation = ref(true)
 
 async function setMapBG() {
   const container = document.querySelector<HTMLElement>('.location-section')!
@@ -151,26 +152,31 @@ onMounted(() => {
       // if (if_sm.value) setMapBG()
 
       setTimeout(() => {
-        let tween = gsap.fromTo(
-          '.animated-arrow',
-          {
-            opacity: 1,
-            duration: 1.3,
-            x: 0,
-            repeat: -1,
-          },
-          {
-            opacity: 0,
-            duration: 1.3,
-            x: 80,
-            repeat: -1,
-          }
-        )
+        const animated_arrow = document.querySelector('.animated-arrow')
+        if (animated_arrow) {
+          let tween = gsap.fromTo(
+            '.animated-arrow',
+            {
+              opacity: 1,
+              duration: 1.3,
+              x: 0,
+              repeat: -1,
+            },
+            {
+              opacity: 0,
+              duration: 1.3,
+              x: 80,
+              repeat: -1,
+            }
+          )
+        }
       }, 500)
     }
   })
 
-  setTimeout(() => (animation_done.value = true), 4000)
+  setTimeout(() => {
+    animation_done.value = true
+  }, 4000)
   useAppStore().setIsVisible(false)
   const titles = gsap.utils.toArray('.warp-text')
   const tl = gsap.timeline()
@@ -200,17 +206,20 @@ onMounted(() => {
   })
 
   setTimeout(() => {
-    gsap.to('.image', {
-      scrollTrigger: {
-        trigger: '.image_container',
-        start: 'top 12%',
-        // @ts-ignore
-        end: () =>
-          `+=${document.querySelector('.image_container')!.clientHeight * 0.68}`,
-        scrub: 3,
-        pin: true,
-      },
-    })
+    const image_container = document.querySelector('.image_container')
+    if (image_container) {
+      gsap.to('.image', {
+        scrollTrigger: {
+          trigger: '.image_container',
+          start: 'top 12%',
+          // @ts-ignore
+          end: () =>
+            `+=${document.querySelector('.image_container')!.clientHeight * 0.68}`,
+          scrub: 3,
+          pin: true,
+        },
+      })
+    }
   }, 500)
 })
 </script>
