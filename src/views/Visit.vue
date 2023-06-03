@@ -1,15 +1,16 @@
 <template>
-  <main class="pt-[59px] flex flex-col bg-base100">
+  <main class="sm:pt-[59px] scrollbar-hidden pt-5 flex flex-col bg-base100">
     <!-- map section -->
-    <section class="min-h-[75vh] bg-base900 flex justify-evenly items-center p-10 py-32">
-      <div class="text-head text-white font-Unbound text-[3.5em] flex flex-col [line-height:0;]">
+    <section
+      class="sm:min-h-[75vh] transition-all duration-150 min-h-[421px] bg-base900 flex justify-evenly items-center p-10 py-32 location-section">
+      <div class="text-head text-white font-Unbound sm:text-[3.5em] text-[2em] flex flex-col [line-height:0;]">
         <span class="warp-text">{{ visitData?.head_text[0] }}</span>
         <span class="warp-text">{{ visitData?.head_text[1] }}</span>
         <span class="warp-text text-prime">{{ visitData?.head_text[2] }}</span>
 
-        <span v-motion-slide-left class="leading-tight text-4xl" v-if="animation_done">
+        <span v-motion-slide-left class="leading-tight text-4xl sm:text-left text-center" v-if="animation_done">
           <Bubbletext :text="visitData?.head_text[3]!" ID="rock" default_clr="fff" />
-          <svg class="animated-arrow icon flat-line inline-block" fill="#fff" width="120px" height="120px"
+          <svg v-if="!if_sm" class="animated-arrow icon flat-line inline-block" fill="#fff" width="120px" height="120px"
             viewBox="-2.4 -2.4 28.80 28.80" id="right-arrow" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
             transform="rotate(0)">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -32,10 +33,13 @@
                 "></polyline>
             </g>
           </svg>
+          <span v-if="if_sm" v-motion-fade
+            class="font-Unbound min-h-fit border-[3px] border-white bg- text-2xl text-center px-4 py-1 rounded-lg block w-fit mx-auto mt-5">GO
+            <i class="pi pi-map text-prime"></i></span>
         </span>
       </div>
 
-      <div class="map-container bg-base300 hover:scale-110 transition-all duration-500 ease-in-out">
+      <div v-if="!if_sm" class="map-container bg-base300 hover:scale-110 transition-all duration-500 ease-in-out">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1714.5921512871546!2d-79.71325138101865!3d43.71909411492406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3dc4a2d9a599%3A0xeb6009c0f2222661!2sClark%20Blvd%2C%20Brampton%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sgh!4v1679394148613!5m2!1sen!2sgh"
           width="600" height="400" style="border: 0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -43,7 +47,8 @@
     </section>
 
     <section class="h-full my-44 pl-10 flex gap-10 bg-base100 isolate">
-      <div class="flex flex-col gap-5 place-self-center min-w-fit">
+      <!-- info -->
+      <div class="flex flex-col gap-5 place-self-center w-1/2">
         <Bubbletext :default_clr="'000'" :ID="'details'"
           class="tracking-wider mission text-center font-Unbound w-fit text-4xl hover-unerline-animation"
           :text="visitData?.details.title!" :clrs="{
@@ -63,7 +68,9 @@
           </div>
         </div>
       </div>
-      <div class="w-full h-80 clip-para">
+
+      <!-- image -->
+      <div class="w-full min-h-full clip-para">
         <img class="object-cover w-full h-full" src="https://live.staticflickr.com/65535/52918923092_3cda9503e6_o.jpg"
           alt="image of the church" srcset="" />
       </div>
@@ -121,8 +128,14 @@ gsap.registerPlugin(ScrollTrigger)
 
 const { siteData: data } = storeToRefs(useAppStore())
 const visitData = computed(() => data.value.visit)
-
+const if_sm = inject('small_screen')
 const animation_done = ref(false)
+
+async function setMapBG() {
+  const container = document.querySelector<HTMLElement>('.location-section')!
+  container.style.backgroundColor = 'transparent'
+  container.style.backgroundImage = "url('https://live.staticflickr.com/65535/52865504755_fdc1f77d16_o.png')"
+}
 
 onMounted(() => {
   useTitle('LTWC | Visit')
@@ -133,6 +146,10 @@ onMounted(() => {
 
   watchEffect(() => {
     if (animation_done.value == true) {
+
+      // @ts-ignore
+      // if (if_sm.value) setMapBG()
+
       setTimeout(() => {
         let tween = gsap.fromTo(
           '.animated-arrow',

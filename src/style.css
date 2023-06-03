@@ -81,6 +81,13 @@
     display: none;
   }
 
+  @media only screen and (max-width: 320px) {
+    /* Styles here */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   /* spikes */
   .spikes_container {
     --spike-height: 20px;
