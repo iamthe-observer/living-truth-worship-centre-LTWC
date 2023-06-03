@@ -13,13 +13,13 @@
       </div>
     </section>
 
-    <section class="min-h-screen sm:py-20 py-16 sm:px-20 px-8 flex flex-col gap-3 bg-base100 relative isolate">
+    <section class="min-h-screen sm:py-20 py-16 sm:px-20 px-4 flex flex-col gap-3 bg-base100 relative isolate">
       <h1 class="self-center bg-prime text-white p-4 font-Monument uppercase tracking-[.3em] mb-10">
         Our Mission
       </h1>
 
-      <p class="sm:mx-20 mx-0 w-fit max-w-full sm:text-[3em] text-[2.1em] font-Gloock relative">
-      <div class="w-32 aspect-square absolute opacity-50 -top-10 -left-16 -rotate-[20deg] -z-1">
+      <p class="sm:mx-20 mx-0 w-fit max-w-full sm:text-[3em] text-[2.1em] sm:text-left text-center font-Gloock relative">
+      <div class="w-32 aspect-square absolute opacity-50 -top-10 sm:-left-16 -left-6 -rotate-[20deg] -z-1">
         <svg version="1.1" id="svg2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
           xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -51,7 +51,7 @@
                 style="fill: #000"></path>
             </g>
           </svg>
-          <span class="ml-3 w-fit font-Outfit font-bold text-lg">{{ mission }}</span>
+          <span class="ml-3 w-fit font-Outfit font-bold text-md">{{ mission }}</span>
         </div>
       </div>
     </section>
@@ -94,7 +94,7 @@
         Our Values
       </h1>
 
-      <div class="w-full h-full flex flex-col gap-20">
+      <div class="w-full h-full flex flex-col sm:gap-20 gap-12">
         <div class="flex-1 flex gap-10 pl-10 sm:pr-20 pr-10">
           <img v-if="!if_sm" src="https://live.staticflickr.com/65535/52919403376_4bb6abe58e_o.png" alt=""
             class="object-cover w-1/2 h-[400px]" />
@@ -103,7 +103,7 @@
         </div>
 
         <div class="grid sm:grid-cols-2 gid-cols-1 gap-5 flex-1 sm:px-20 px-4">
-          <div v-for="values in ltwc_values" class="flex gap-5 h-full items-center bg-base100 p-4">
+          <div v-for="values in ltwc_values" class="flex sm:gap-5 gap-0 h-full items-center bg-base100 p-4">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="right-alt-circle"
               class="icon glyph w-8 aspect-square" fill="#000000">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
