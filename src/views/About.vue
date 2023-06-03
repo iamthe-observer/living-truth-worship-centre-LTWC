@@ -13,12 +13,12 @@
       </div>
     </section>
 
-    <section class="min-h-screen sm:py-20 py-16 sm:px-20 px-10 flex flex-col gap-3 bg-base100 relative isolate">
+    <section class="min-h-screen sm:py-20 py-16 sm:px-20 px-8 flex flex-col gap-3 bg-base100 relative isolate">
       <h1 class="self-center bg-prime text-white p-4 font-Monument uppercase tracking-[.3em] mb-10">
         Our Mission
       </h1>
 
-      <p class="sm:mx-20 mx-0 w-fit max-w-full sm:text-[3em] text-[2.5em] font-Gloock relative">
+      <p class="sm:mx-20 mx-0 w-fit max-w-full sm:text-[3em] text-[2.1em] font-Gloock relative">
       <div class="w-32 aspect-square absolute opacity-50 -top-10 -left-16 -rotate-[20deg] -z-1">
         <svg version="1.1" id="svg2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@
     </section>
 
     <section
-      class="text-white sm:max-h-screen max-h-full flex justify-between py-32 px-10 min-h-[1900px] gap-3 bg-base900 relative isolate">
+      class="text-white sm:max-h-screen max-h-full flex justify-between sm:py-32 py-20 sm:px-10 px-4 min-h-[1900px] gap-3 bg-base900 relative isolate">
       <div v-if="!if_sm" class="image_container flex-1">
         <img class="image1 w-[85%] mx-auto " src="https://live.staticflickr.com/65535/52865506040_6c24735dfb_o.jpg"
           alt="">
@@ -102,7 +102,7 @@
             class="object-cover w-full sm:w-1/2 sm:h-[400px] h-[250px]" />
         </div>
 
-        <div class="grid sm:grid-cols-2 gid-cols-1 gap-5 flex-1 sm:px-20 px-10">
+        <div class="grid sm:grid-cols-2 gid-cols-1 gap-5 flex-1 sm:px-20 px-4">
           <div v-for="values in ltwc_values" class="flex gap-5 h-full items-center bg-base100 p-4">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="right-alt-circle"
               class="icon glyph w-8 aspect-square" fill="#000000">
@@ -124,10 +124,11 @@
       class="sm:spikes_container_about spikesSM_container_about min-h-[80vh] py-32  bg-transparent isolate relative flex items-center">
 
       <div
-        class="flex flex-col items-center justify-center gap-6 h-full w-full relative my-auto before:content-[''] before:w-24 before:h-2 before:absolute before:-top-16 before:bg-base100 before:left-10 after:content-[''] after:w-24 after:h-2 after:absolute after:-bottom-16 after:bg-base100 after:right-10">
+        class="flex flex-col items-center justify-center gap-6 h-full w-full relative my-auto sm:mx-0 mx-5 before:content-[''] before:w-24 before:h-2 before:absolute before:-top-16 before:bg-base100 before:left-10 after:content-[''] after:w-24 after:h-2 after:absolute after:-bottom-16 after:bg-base100 after:right-10">
 
         <Bubbletext text="EVERYTHING FOR THE GLORY OF JESUS CHRIST “WHO CAME FROM THE FATHER, FULL
-        OF GRACE AND TRUTH" ID="12" default_clr="fff" class="text-center w-full text-4xl font-Unbound font-[200]" />
+        OF GRACE AND TRUTH" ID="12" default_clr="fff"
+          class="text-center w-full sm:text-4xl text-2xl font-Unbound font-[200]" />
 
         <div
           class="isolate p-5 before:content-[''] after:content-[''] before:absolute before:top-0 before:left-0 before:w-1/3 before:h-1/3 before:bg-base100 after:absolute after:bottom-0 after:right-0 after:w-1/3 after:h-1/3 after:bg-base100 relative bg-prime shadow-lg w-fit mx-auto font-Monument tracking-[.2em] hover:before:w-1/2 hover:after:w-1/2 before:transition-all before:duration-150 before:ease-in-out after:transition-all after:duration-150 after:ease-in-out">

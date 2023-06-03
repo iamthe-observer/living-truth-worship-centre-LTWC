@@ -136,7 +136,7 @@
             </ul>
           </div>
           <div class="h-3/4 flex flex-col justify-center items-center">
-            <span class="font-bold text-xl text-center drop-shadow-md">
+            <span class="font-bold text-md text-center drop-shadow-md font-Unbound">
               &copy; Living Truth Worship Centre (CA)
             </span>
             <span class="font-thin"> All Rights Reserved </span>
