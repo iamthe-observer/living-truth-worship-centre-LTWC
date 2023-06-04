@@ -49,7 +49,6 @@ export interface SiteData {
   sundays: {
     title: string[]
     section1: {
-      intro: string
       p1: string
       p2: string
       FAQ: {
@@ -232,8 +231,6 @@ const allData: Partial<SiteData> = {
           a: 'There is a spacious area to park right around the building. We will have Door Holders scattered throughout to help direct you where you need to go!',
         },
       ],
-      intro:
-        "Building a community founded on the truth of Christ's teachings,where love, faith, and service come together to make a positive impact on the world.",
       p1: "We foster a community rooted in the truth of Christ's teachings,where honesty, integrity, and accountability are upheld to make a positive impact on society.",
       p2: 'At Living Truth Worship Centre, we welcome people of all ages to join us for Sunday service. Read on to discover what to expect during our gatherings.',
     },
