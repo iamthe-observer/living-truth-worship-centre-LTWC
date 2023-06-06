@@ -185,9 +185,9 @@ function runParallax(
     <section class="relative flex flex-col items-center justify-center text-[1.5em] py-28 h-screen bg-base300">
       <!-- heading -->
       <div
-        class="relative uppercase self-start sm:text-[2.8em] text-[1.3em] sm:w-[700px] w-fit flex justify-center text-black font-Unbound z-10 mission-trigger -left-20 mx-auto sm:mx-0">
+        class="relative uppercase self-start lg:text-[2.8em] text-[1.3em] lg:w-[700px] w-fit flex justify-center text-black font-Unbound z-10 mission-trigger -left-20 mx-auto lg:mx-0">
         <Bubbletext :default_clr="'000'" :ID="'mission'"
-          class="sm:tracking-wider tracking-normal mission text-center font-light mission_title opacity-0 w-full sm:border-none border-b-4 border-prime mb-10"
+          class="lg:tracking-wider tracking-normal mission text-center font-light mission_title opacity-0 w-full lg:border-none border-b-4 border-prime mb-10"
           :text="data.home?.mission_statement.title!" :clrs="{
             h: [205, 205, 205],
             h_adj: [155, 155, 155],
@@ -201,7 +201,7 @@ function runParallax(
       </div>
 
       <div
-        class="self-center sm:self-end sm:w-2/4 w-full sm:text-justify text-center right-20 text-black font-Unbound font-normal drop-shadow-lg hover:scale-105 transition-transform peer duration-150 ease-in-out text-xl z-10 sm:pr-24 px-4 mission_text opacity-0">
+        class="self-center lg:self-end lg:w-2/4 w-full lg:text-justify text-center right-20 text-black font-Unbound font-normal drop-shadow-lg hover:scale-105 transition-transform peer duration-150 ease-in-out text-xl z-10 lg:pr-24 px-4 mission_text opacity-0">
         {{ data.home?.mission_statement.body[0] }}
         <span class="">
           {{ data.home?.mission_statement.body[1] }}
@@ -215,9 +215,9 @@ function runParallax(
     </section>
 
     <!-- showcase images -->
-    <section ref="test" class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-7 sm:h-full h-screen">
+    <section ref="test" class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-7 sm:h-full min-h-screen">
       <div v-if="!if_sm" class="grid grid-cols-3 grid-rows-2 gap-2 px-10">
-        <div v-for="(source, i) in src" :ref="`parallax_img${i}`" :class="source
+        <div v-for="(source, i) in src" :class="source
           ? 'w-full h-96 flex justify-center items-center overflow-hidden img_item perspective'
           : 'w-full h-96 relative overflow-hidden img_item perspective'
           ">
@@ -252,10 +252,9 @@ function runParallax(
       </div>
 
       <!-- for small screen -->
-      <div class="grid grid-cols-2 gap-2 px-2 h-full" v-else>
-        <div class="" v-for="(source, i) in sm_src">
-          <div v-if="i == 0"
-            class="uppercase flex justify-between items-end px-6 w-full aspect-square py-5 bg-prime h-full">
+      <div class="h-full grid grid-cols-2 gap-2 px-2 my-auto" v-else>
+        <div class="h-full" v-for="(source, i) in sm_src">
+          <div v-if="i == 0" class="h-[250px] uppercase flex justify-between items-end px-6 py-5 bg-prime">
             <span v-motion-slide-visible-left class="text-white font-bold bubble-text font-Unbound">Visit Us</span>
             <svg v-motion-slide-visible-top class="w-16 aspect-square" fill="#fff" version="1.1" id="Layer_1"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 476.213 476.213"
@@ -270,11 +269,10 @@ function runParallax(
             </svg>
           </div>
 
-          <img v-if="source" class="object-cover w-full h-full aspect-square" :src="source" alt="" />
+          <img v-if="source" class="object-cover h-[250px] w-full" :src="source" alt="" />
 
-          <div v-if="i == 3" class="uppercase flex justify-between items-end w-full h-full group aspect-square relative">
-            <img
-              class="object-cover w-full h-full group-hover:scale-110 transition-all duration-200 ease-out brightness-50 group-hover:brightness-90"
+          <div v-if="i == 3" class="h-[250px] w-full uppercase flex justify-between items-end group relative">
+            <img class="object-cover w-full h-full brightness-50"
               src="https://live.staticflickr.com/65535/52865504755_fdc1f77d16_o.png" alt="" />
             <RouterLink to="/visit" class="absolute bottom-2 right-1/2 translate-x-1/2">
               <button
@@ -285,12 +283,45 @@ function runParallax(
           </div>
         </div>
       </div>
+
+      <!-- actual one -->
+      <!-- <div class="grid grid-cols-2 gap-2 px-2 h-full w-full" v-else>
+        <div class="w-full flex h-full" v-for="(source, i) in sm_src">
+          <div v-if="i == 0" class="uppercase flex justify-between items-end px-6 w-full flex-1 py-5 bg-prime">
+            <span v-motion-slide-visible-left class="text-white font-bold bubble-text font-Unbound">Visit Us</span>
+            <svg v-motion-slide-visible-top class="w-16 aspect-square" fill="#fff" version="1.1" id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 476.213 476.213"
+              xml:space="preserve" stroke="#fff" stroke-width="0.004762130000000001">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <polygon
+                  points="287.5,384.394 253.107,418.787 253.107,0 223.107,0 223.107,418.787 188.713,384.394 167.5,405.606 238.107,476.213 308.713,405.606 ">
+                </polygon>
+              </g>
+            </svg>
+          </div>
+
+          <img v-if="source" class="object-cover w-full h-full" :src="source" alt="" />
+
+          <div v-if="i == 3" class="uppercase flex justify-between items-end w-full h-full group relative">
+            <img class="object-cover w-full h-full brightness-50"
+              src="https://live.staticflickr.com/65535/52865504755_fdc1f77d16_o.png" alt="" />
+            <RouterLink to="/visit" class="absolute bottom-2 right-1/2 translate-x-1/2">
+              <button
+                class="border-base900 text-black border-[3px] active:border-none active:bg-prime text-sm font-Unbound px-2  whitespace-nowrap">
+                Find Us!
+              </button>
+            </RouterLink>
+          </div>
+        </div>
+      </div> -->
     </section>
 
     <!-- quick navigation section -->
     <section class="flex flex-col text-[1.5em] py-12 min-h-screen overflow-x-hidden justify-center bg-base100">
       <header v-motion-fade
-        class="text-black sm:text-[1em] text-[.8em] sm:pl-10 pl-3 font-Unbound flex sm:gap-10 items-center">
+        class="text-black lg:text-[1em] text-[.8em] lg:pl-10 pl-3 font-Unbound flex lg:gap-10 items-center">
         <Bubbletext :default_clr="'000'" :ID="'Find'" class="font-light" :text="data.home?.quick_nav_section.title!" />
         <svg fill="#000000" width="80px" height="80px" viewBox="-2.4 -2.4 28.80 28.80" id="right-arrow"
           data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line" transform="rotate(0)">
@@ -327,7 +358,7 @@ function runParallax(
 
     <!-- bible quote -->
     <section ref="quote_ref"
-      class="sm:spikes_container spikesSM_container h-screen quotes flex items-center w-full relative">
+      class="lg:spikes_container spikesSM_container h-screen quotes flex items-center w-full relative">
       <img v-if="!if_sm" src="https://live.staticflickr.com/65535/52918754843_2c8497cb25_o.png"
         class="-rotate-12 -translate-x-20 holdbible opacity-0" alt="" srcset="" />
 
@@ -336,7 +367,7 @@ function runParallax(
       </div>
 
       <span
-        class="sm:p-10 px-10 pl-16 sm:text-left text-justify text-white font-bold text-3xl tracking-wide drop-shadow-md font-Gloock verse opacity-0 translate-x-40 leading-9">{{
+        class="lg:p-10 px-10 pl-16 lg:text-left text-justify text-white font-bold text-3xl tracking-wide drop-shadow-md font-Gloock verse opacity-0 translate-x-40 leading-9">{{
           data.home?.bible_verse.quote }}
         <span class="bg-prime block w-fit px-4 py-2 mt-2">{{ data.home?.bible_verse.loc }}
         </span></span>

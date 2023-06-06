@@ -24,9 +24,11 @@ import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 gsap.registerPlugin(ScrollTrigger)
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
-const if_sm = breakpoints.smaller('md')
+const if_sm = breakpoints.smaller('lg')
+const if_md = breakpoints.smaller('md')
 
 provide('small_screen', if_sm)
+provide('nav_screen', if_md)
 
 const { isVisible } = storeToRefs(useAppStore())
 const loading_app = ref(true)

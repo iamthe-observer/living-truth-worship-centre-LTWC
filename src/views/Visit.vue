@@ -1,42 +1,44 @@
 <template>
-  <main class="sm:pt-[59px] scrollbar-hidden pt-5 flex flex-col bg-base100">
+  <main class="lg:pt-[59px] scrollbar-hidden pt-5 flex flex-col bg-base100">
     <!-- map section -->
     <section
-      class="sm:min-h-[75vh] transition-all duration-150 min-h-screen bg-base900 flex justify-evenly items-center p-10 py-20 location-section">
-      <div class="text-head text-white font-Unbound sm:text-[3.5em] text-[2rem] flex flex-col [line-height:0;]">
+      class="lg:min-h-[75vh] transition-all duration-150 min-h-screen bg-base900 flex justify-evenly items-center p-10 py-20 location-section">
+      <div class="text-head text-white font-Unbound lg:text-[3.5em] text-[2rem] flex flex-col [line-height:0;]">
         <span class="warp-text">{{ visitData?.head_text[0] }}</span>
         <span class="warp-text">{{ visitData?.head_text[1] }}</span>
         <span class="warp-text text-prime [line-height:2rem;]">{{ visitData?.head_text[2] }}</span>
 
-        <span v-motion-slide-left class="leading-tight text-4xl sm:text-left text-center" v-if="animation_done">
-          <Bubbletext :text="visitData?.head_text[3]!" ID="rock" default_clr="fff" />
-          <svg v-if="!if_sm" class="animated-arrow icon flat-line inline-block" fill="#fff" width="120px" height="120px"
-            viewBox="-2.4 -2.4 28.80 28.80" id="right-arrow" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
-            transform="rotate(0)">
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#fff"
-              stroke-width="0.4800000000000001"></g>
-            <g id="SVGRepo_iconCarrier">
-              <line id="primary" x1="3" y1="12" x2="21" y2="12" style="
+        <a href="https://goo.gl/maps/bajfjsFn3DsHosgS8">
+          <span v-motion-slide-left class="leading-tight text-4xl lg:text-left text-center" v-if="animation_done">
+            <Bubbletext :text="visitData?.head_text[3]!" ID="rock" default_clr="fff" />
+            <svg v-if="!if_sm" class="animated-arrow icon flat-line inline-block" fill="#fff" width="120px" height="120px"
+              viewBox="-2.4 -2.4 28.80 28.80" id="right-arrow" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
+              transform="rotate(0)">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#fff"
+                stroke-width="0.4800000000000001"></g>
+              <g id="SVGRepo_iconCarrier">
+                <line id="primary" x1="3" y1="12" x2="21" y2="12" style="
                   fill: none;
                   stroke: #fff;
                   stroke-linecap: round;
                   stroke-linejoin: round;
                   stroke-width: 0.792;
                 "></line>
-              <polyline id="primary-2" data-name="primary" points="18 15 21 12 18 9" style="
+                <polyline id="primary-2" data-name="primary" points="18 15 21 12 18 9" style="
                   fill: none;
                   stroke: #fff;
                   stroke-linecap: round;
                   stroke-linejoin: round;
                   stroke-width: 0.792;
                 "></polyline>
-            </g>
-          </svg>
-          <span v-if="if_sm" v-motion-fade
-            class="font-Unbound min-h-fit border-[3px] border-white bg- text-2xl text-center px-4 py-1 rounded-lg block w-fit mx-auto mt-5">GO
-            <i class="pi pi-map text-prime"></i></span>
-        </span>
+              </g>
+            </svg>
+            <span v-if="if_sm" v-motion-fade
+              class="font-Unbound min-h-fit border-[3px] border-white bg- text-2xl text-center px-4 py-1 rounded-lg block w-fit mx-auto mt-5">GO
+              <i class="pi pi-map text-prime"></i></span>
+          </span>
+        </a>
       </div>
 
       <div v-if="!if_sm" class="map-container bg-base300 hover:scale-110 transition-all duration-500 ease-in-out">
@@ -46,9 +48,9 @@
       </div>
     </section>
 
-    <section class="h-full sm:my-44 my-20 sm:pl-10 p-0 sm:flex-row flex-col flex gap-10 bg-base100 isolate">
+    <section class="h-full lg:my-44 my-20 lg:pl-10 p-0 lg:flex-row flex-col flex gap-10 bg-base100 isolate">
       <!-- info -->
-      <div class="flex flex-col gap-5 place-self-center sm:w-1/2 w-full sm:ml-0 ml-5">
+      <div class="flex flex-col gap-5 place-self-center lg:w-1/2 w-full lg:ml-0 ml-5">
         <Bubbletext :default_clr="'000'" :ID="'details'"
           class="tracking-wider mission text-center font-Unbound w-fit text-4xl hover-unerline-animation"
           :text="visitData?.details.title!" :clrs="{
@@ -70,23 +72,23 @@
       </div>
 
       <!-- image -->
-      <div class="w-full min-h-full sm:clip-para">
-        <img class="object-cover sm:w-full w-[95%] sm:mx-0 mx-auto h-full"
+      <div class="w-full min-h-full lg:clip-para">
+        <img class="object-cover lg:w-full w-[95%] lg:mx-0 mx-auto h-full"
           src="https://live.staticflickr.com/65535/52947199654_7fbd5b3a81_o.jpg" alt="image of the church" srcset="" />
       </div>
     </section>
 
     <section
-      class="text-white sm:max-h-screen h-full flex justify-between pt-10 sm:px-10 px-4 min-h-[1900px] gap-3 bg-base900 relative isolate">
-      <div class="sm:w-3/5 w-full flex flex-col">
-        <h1 class="font-Monument sm:text-[2em] text-[1.5em]">
+      class="text-white lg:max-h-screen h-full flex justify-between pt-10 lg:px-10 px-4 min-h-[1900px] gap-3 bg-base900 relative isolate">
+      <div class="lg:w-3/5 w-full flex flex-col">
+        <h1 class="font-Monument lg:text-[2em] text-[1.5em]">
           {{ visitData?.expectations.title }}
         </h1>
-        <p class="sm:text-md text-[.8em] font-Unbound">
+        <p class="lg:text-md text-[.8em] font-Unbound">
           {{ visitData?.expectations.title_exp }}
         </p>
 
-        <div class="w-full h-full gap-7 grid sm:grid-cols-2 grid-cols-1 sm:pr-5 pr-0 mt-10">
+        <div class="w-full h-full gap-7 grid lg:grid-cols-2 grid-cols-1 lg:pr-5 pr-0 mt-10">
           <div class="border-t-8 border-prime flex flex-col gap-5 py-8" v-for="info in visitData?.expectations.info">
             <h1 class="font-Monument text-xl">{{ info.head }}</h1>
             <p class="font-Unbound font-light text-[.8em]">
@@ -102,13 +104,13 @@
       </div>
     </section>
 
-    <section class="sm:py-32 py-20 sm:px-10 px-4 flex sm:flex-row flex-col gap-20 bg-base100 relative isolate">
-      <p class="flex flex-col sm:w-1/3 w-full h-fulll gap-8 place-self-center">
+    <section class="lg:py-32 py-20 lg:px-10 px-4 flex lg:flex-row flex-col gap-20 bg-base100 relative isolate">
+      <p class="flex flex-col lg:w-1/3 w-full h-fulll gap-8 place-self-center">
       <h3 class="font-Monument text-3xl pb-3 border-b-8 border-prime">{{ visitData?.welcome_msg.title }}</h3>
       <p v-for="(msg, i) in visitData?.welcome_msg.body" :key="i" class="w-full font-semibold text-lg font-Outfit">{{ msg
       }}</p>
       </p>
-      <div class="sm:w-2/3 w-full min-h-full">
+      <div class="lg:w-2/3 w-full min-h-full">
         <!-- <staggerPics /> -->
 
         <img src="https://live.staticflickr.com/65535/52865328454_3edb969606_o.jpg" alt="" class="object-cover">

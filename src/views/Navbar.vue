@@ -1,14 +1,14 @@
 <template>
   <nav ref="navBar" :class="isVisible
-    ? 'flex justify-between items-center sm:py-5 sm:px-2 w-full min-h-[128px] fixed z-[100] top-0 text-bold backdrop-blur-lg transition-all duration-200 ease-linear text-white font-Monument tracking-wide navbar'
+    ? 'flex justify-between items-center lg:py-5 lg:px-2 w-full min-h-[128px] fixed z-[100] top-0 text-bold backdrop-blur-lg transition-all duration-200 ease-linear text-white font-Monument tracking-wide navbar'
     : 'flex justify-between items-center w-full min-h-fit fixed z-[100] top-0 text-bold border-y-4 border-base900 transition-all duration-200 bg-base100 ease-linear font-Monument tracking-wide navbar shadow-lg'
     ">
     <!-- logo -->
     <RouterLink v-if="isVisible" to="/" v-motion-slide-left class="opacity-0 logo flex gap-3 items-center">
-      <div class="grid place-items-center rounded-full w-10 sm:w-16 aspect-square">
+      <div class="grid place-items-center rounded-full w-10 lg:w-16 aspect-square">
         <img src="https://live.staticflickr.com/65535/52864536397_c81ebaab56_o.png" alt="" class="" />
       </div>
-      <span v-if="isVisible" class="text-white text-[.7rem] sm:text-xl inverse-text uppercase sm:w-80 w-fit font-Unbound">
+      <span v-if="isVisible" class="text-white text-[.7rem] lg:text-xl inverse-text uppercase lg:w-80 w-fit font-Unbound">
         <Bubbletext :default_clr="'fff'" :ID="'truth'" class="uppercase" :text="`living truth`" :h="'e48157'"
           :h_adj="'f3c9b7'" />
         <br />
@@ -19,7 +19,7 @@
     </RouterLink>
 
     <!-- links -->
-    <div v-if="!if_sm" :class="isVisible
+    <div v-if="!if_md" :class="isVisible
       ? 'flex gap-5 items-center min-h-full pr-10'
       : 'flex gap-5 items-center justify-evenly min-h-full w-full'
       ">
@@ -74,7 +74,7 @@ import { useAppStore } from '../store/appStore'
 gsap.registerPlugin(ScrollTrigger)
 
 const navBar = ref<HTMLElement>()
-const if_sm = inject('small_screen')
+const if_md = inject('small_screen')
 
 
 const props = defineProps<{
@@ -92,7 +92,7 @@ onMounted(() => {
   init_animate()
 })
 
-watch(if_sm!, (new_val) => {
+watch(if_md!, (new_val) => {
   if (!new_val) {
     setTimeout(() => {
       init_animate()

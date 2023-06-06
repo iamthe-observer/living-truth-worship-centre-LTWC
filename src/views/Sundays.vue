@@ -1,8 +1,8 @@
 <template>
-  <main class="sm:pt-[59px] pt-5 sundays-page bg-base300">
-    <section class="relative sm:h-fit h-screen">
+  <main class="lg:pt-[59px] pt-5 sundays-page bg-base300">
+    <section class="relative lg:h-fit h-screen">
       <div v-if='if_sm'
-        class="absolute sm:-bottom-8 bottom-[53px] left-4 flex flex-col w-max text-prime text-[1.5em] font-Monument drop-shadow-lg z-50 gap-1 font-light leading-tight">
+        class="absolute lg:-bottom-8 bottom-[53px] left-4 flex flex-col w-max text-prime text-[1.5em] font-Monument drop-shadow-lg z-50 gap-1 font-light leading-tight">
         <span v-motion-slide-left class="text-white">
           {{ data?.title[0] }}
         </span>
@@ -10,7 +10,7 @@
       </div>
 
       <div v-else
-        class="absolute sm:-bottom-8 left-10 flex flex-col w-max text-prime text-[3em] font-Monument drop-shadow-lg z-50 gap-1 font-light leading-tight">
+        class="absolute lg:-bottom-8 left-10 flex flex-col w-max text-prime text-[3em] font-Monument drop-shadow-lg z-50 gap-1 font-light leading-tight">
         <span v-motion-slide-left>{{ data?.title[0] }}<br />{{ data?.title[1] }}</span>
       </div>
 
@@ -22,11 +22,11 @@
     </section>
 
     <!-- section for content -->
-    <section class="sm:pt-32 pt-10 flex-col flex gap-32">
-      <div class="flex sm:flex-row flex-col sm:gap-32 gap-20 h-max">
+    <section class="lg:pt-32 pt-10 flex-col flex gap-32">
+      <div class="flex lg:flex-row flex-col lg:gap-32 gap-20 h-max">
         <!-- left side -->
         <div
-          class="sm:w-[45%] mx-auto sm:mx-0 w-[90%] h-full flex flex-col sm:gap-20 gap-10 font-Monument sm:pl-10 p-0 tracking-wide text-2xl">
+          class="lg:w-[45%] mx-auto lg:mx-0 w-[90%] h-full flex flex-col lg:gap-20 gap-10 font-Monument lg:pl-10 p-0 tracking-wide text-2xl">
           <span class="w-full first-letter:text-[1.6em] first-letter:font-thin">Building a community founded on the truth
             of
             Christ's
@@ -38,11 +38,11 @@
           </div>
         </div>
         <!-- right side -->
-        <div class="sm:w-[55%] w-[90%] sm:mx-0 mx-auto min-h-full text-2xl flex flex-col gap-8">
+        <div class="lg:w-[55%] w-[90%] lg:mx-0 mx-auto min-h-full text-2xl flex flex-col gap-8">
           <p class="font-Unbound">
             {{ data?.section1.p1 }}
           </p>
-          <p class="font-Unbound font-light sm:text-md text-[.8em]">
+          <p class="font-Unbound font-light lg:text-md text-[.8em]">
             {{ data?.section1.p2 }}
           </p>
 
@@ -52,7 +52,7 @@
                 {{ info.q }}
               </h1>
               <p
-                class="relative sm:before:absolute sm:before:contents-[''] sm:before:top-3 sm:before:left-10 sm:before:w-2 sm:before:aspect-square sm:before:rounded-full sm:before:bg-prime font-Unbound text-[.7em] sm:px-10 px-0 sm:pl-20 pl-4">
+                class="relative lg:before:absolute lg:before:contents-[''] lg:before:top-3 lg:before:left-10 lg:before:w-2 lg:before:aspect-square lg:before:rounded-full lg:before:bg-prime font-Unbound text-[.7em] lg:px-10 px-0 lg:pl-20 pl-4">
                 {{ info.a }}
               </p>
             </div>
@@ -67,7 +67,7 @@
 
     <main class="pt-[59px] flex flex-col bg-transparent z-50 isolate">
       <section
-        class="min-h-[55vh] bg-base900 flex sm:flex-row flex-col sm:gap-0 gap-10 justify-evenly items-center sm:px-10 sm:py-10 px-[5%] py-10">
+        class="min-h-[55vh] bg-base900 flex lg:flex-row flex-col lg:gap-0 gap-10 justify-evenly items-center lg:px-10 lg:py-10 px-[5%] py-10">
         <div v-if="if_sm" class="flex-1 w-full h-full bg-white">
           <img src="https://live.staticflickr.com/65535/52865540210_d5010dea3e_o.jpg" alt="" />
         </div>
@@ -85,16 +85,16 @@
       </section>
 
       <section class="flex h-96 my-10 text-center">
-        <div v-if="!if_sm" class="sm:pl-10 w-fit h-full opacity-60">
+        <div v-if="!if_sm" class="lg:pl-10 w-fit h-full opacity-60">
           <img src="https://live.staticflickr.com/65535/52918680615_ecab3c105c_o.png" alt="" class="object-center" />
         </div>
 
         <div class="welcome_container w-full font-Monument mx-10 flex-col flex justify-center items-center relative">
           <div class="topbox absolute top-0 left-0 w-1/3 h-2 bg-prime"></div>
 
-          <div class="welcome_text flex flex-col gap-3 text-xl sm:text-4xl">
+          <div class="welcome_text flex flex-col gap-3 text-xl lg:text-4xl">
             <span>WELCOME TO OUR PLACE OF WORSHIP.</span>
-            <span class="text-[.8em] sm:[line-height:inherit;] [line-height:17px;]">THERE'S A PLACE DESIGNED JUST FOR YOU
+            <span class="text-[.8em] lg:[line-height:inherit;] [line-height:17px;]">THERE'S A PLACE DESIGNED JUST FOR YOU
               AT
               <span class="font-bold text-prime">LTWC</span>.</span>
           </div>
@@ -103,19 +103,19 @@
         </div>
       </section>
 
-      <section class="text-white w-full h-max py-10 sm:px-10 px-[5%] bg-base900 relative">
-        <Bubbletext :class="'font-Unbound text-3xl sm:text-left text-center'" :text="data?.section2.expect_head!" ID="12"
+      <section class="text-white w-full h-max py-10 lg:px-10 px-[5%] bg-base900 relative">
+        <Bubbletext :class="'font-Unbound text-3xl lg:text-left text-center'" :text="data?.section2.expect_head!" ID="12"
           default_clr="fff">
         </Bubbletext>
 
-        <div class="sm:grid flex flex-col sm:grid-cols-3 gap-8 w-full sm:min-h-[400px] mt-10">
+        <div class="lg:grid flex flex-col lg:grid-cols-3 gap-8 w-full lg:min-h-[400px] mt-10">
           <div v-for="(expectation, idx) in data?.section2.expectations" :key="idx"
-            class="border-t-8 border-prime w-full sm:h-48 h-full flex flex-col gap-3">
+            class="border-t-8 border-prime w-full lg:h-48 h-full flex flex-col gap-3">
             <p class="font-Monument text-2xl pt-3">{{ expectation.title }}</p>
             <span class="font-Outfit text-lg">{{ expectation.body }}</span>
           </div>
 
-          <div class="col-span-3 sm:flex grid grid-cols-2 gap-3 w-full sm:h-56 h-full">
+          <div class="col-span-3 lg:flex grid grid-cols-2 gap-3 w-full lg:h-56 h-full">
             <div v-for="(str, idx) in pix_str" :class="idx == 2
               ? 'w-full border-prime border-8'
               : 'w-full bg-green-700'
@@ -128,18 +128,18 @@
     </main>
 
     <!-- TODO crop imageY to be more visible on the page -->
-    <section class="py-32 sm:px-20 px-0 flex-col flex gap-10 h-max">
-      <div class="relative w-full sm:h-full h-96">
+    <section class="py-32 lg:px-20 px-0 flex-col flex gap-10 h-max">
+      <div class="relative w-full lg:h-full h-96">
         <img src="https://live.staticflickr.com/65535/52865279829_5b074e256f_o.jpg" alt=""
-          class="object-cover sm:-translate-x-5 -translate-x-2 sm:-translate-y-5 -translate-y-2 brightness-90 shadow-lg w-full h-full sm:h-fit" />
+          class="object-cover lg:-translate-x-5 -translate-x-2 lg:-translate-y-5 -translate-y-2 brightness-90 shadow-lg w-full h-full lg:h-fit" />
         <img src="https://live.staticflickr.com/65535/52865279829_5b074e256f_o.jpg" alt=""
-          class="object-cover absolute inset-0 sm:translate-x-5 translate-x-2 sm:translate-y-5 translate-y-2 shadow-xl w-full h-full sm:h-fit brightness-50" />
+          class="object-cover absolute inset-0 lg:translate-x-5 translate-x-2 lg:translate-y-5 translate-y-2 shadow-xl w-full h-full lg:h-fit brightness-50" />
         <div
           class="absolute top-1/2 right-[30%] translate-x-1/2 -translate-y-1/2 w-[45%] h-[60%] flex flex-col justify-center p-10">
           <Bubbletext default_clr="fff" ID="1" text="GET WEEKLY UPDATES FROM LIVING TRUTH MINISTRIES"
-            class="sm:text-[3.5em] text-md font-Unbound uppercase drop-shadow-md" :h="'e48157'" :h_adj="'f3c9b7'" />
+            class="lg:text-[3.5em] text-md font-Unbound uppercase drop-shadow-md" :h="'e48157'" :h_adj="'f3c9b7'" />
 
-          <span class="text-white sm:text-inherit text-sm font-Outfit drop-shadow-md">Join our House News email list to
+          <span class="text-white lg:text-inherit text-sm font-Outfit drop-shadow-md">Join our House News email list to
             stay
             up-to-date on all things
             Passion City.</span>

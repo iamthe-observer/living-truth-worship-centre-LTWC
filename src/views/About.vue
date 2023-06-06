@@ -1,5 +1,5 @@
 <template>
-  <main class="md:pt-[59px] pt-5 flex flex-col bg-transparent z-50 isolate">
+  <main class="lg:pt-[59px] pt-5 flex flex-col bg-transparent z-50 isolate">
     <section class="relative min-h-[55vh] bg-base900 flex justify-evenly items-center p-10">
       <div class="flex-1 text-white flex flex-col gap-4 font-Monument z-10">
         <span class="text-4xl tracking-wide drop-shadow-lg">WHAT WE BELIEVE IN</span>
@@ -8,18 +8,18 @@
       </div>
 
       <div
-        class="absolute md:relative inset-0 md:inline grid place-items-center flex-1 w-full h-full md:brightness-100 brightness-[35%]">
+        class="absolute lg:relative inset-0 lg:inline grid place-items-center flex-1 w-full h-full lg:brightness-100 brightness-[35%]">
         <img class="" src="https://live.staticflickr.com/65535/52918725652_323217ede7_o.png" />
       </div>
     </section>
 
-    <section class="min-h-screen md:py-20 py-16 md:px-20 px-4 flex flex-col gap-3 bg-base100 relative isolate">
+    <section class="min-h-screen lg:py-20 py-16 lg:px-20 px-4 flex flex-col gap-3 bg-base100 relative isolate">
       <h1 class="self-center bg-prime text-white p-4 font-Monument uppercase tracking-[.3em] mb-10">
         Our Mission
       </h1>
 
-      <p class="md:mx-20 mx-0 w-fit max-w-full md:text-[3em] text-[2.1em] md:text-left text-center font-Gloock relative">
-      <div class="w-32 aspect-square absolute opacity-50 -top-10 md:-left-16 -left-6 -rotate-[20deg] -z-1">
+      <p class="lg:mx-20 mx-0 w-fit max-w-full lg:text-[3em] text-[2.1em] lg:text-left text-center font-Gloock relative">
+      <div class="w-32 aspect-square absolute opacity-50 -top-10 lg:-left-16 -left-6 -rotate-[20deg] -z-1">
         <svg version="1.1" id="svg2" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
           xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -37,9 +37,9 @@
       </div>
 
       Our purpose is to help people who are distant from God to discover new life through Jesus Christ.<br />
-      <span class="md:text-4xl text-2xl">That means:</span>
+      <span class="lg:text-4xl text-2xl">That means:</span>
       </p>
-      <div class="grid md:grid-cols-2 grid-cols-1 gap-5">
+      <div class="grid lg:grid-cols-2 grid-cols-1 gap-5">
         <div class="flex items-start" v-for="mission in missions">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="right-alt-circle" class="icon glyph w-10"
             fill="#000000">
@@ -57,14 +57,14 @@
     </section>
 
     <section
-      class="text-white md:max-h-screen max-h-full flex justify-between md:py-32 py-20 md:px-10 px-4 min-h-[1900px] gap-3 bg-base900 relative isolate">
+      class="text-white lg:max-h-screen max-h-full flex justify-between lg:py-32 py-20 lg:px-10 px-4 min-h-[1900px] gap-3 bg-base900 relative isolate">
       <div v-if="!if_sm" class="image_container flex-1">
         <img class="image1 w-[85%] mx-auto " src="https://live.staticflickr.com/65535/52865506040_6c24735dfb_o.jpg"
           alt="">
       </div>
 
-      <div class="md:w-3/5 w-full flex flex-col">
-        <div class="flex flex-col gap-2 md:gap-3 justify-between mb-10">
+      <div class="lg:w-3/5 w-full flex flex-col">
+        <div class="flex flex-col gap-2 lg:gap-3 justify-between mb-10">
           <h1 class="font-Monument text-[2em]">
             Our <br />
             Beliefs
@@ -78,7 +78,7 @@
             alt="" class="object-cover" />
         </div>
 
-        <div class="w-full h-full gap-16 grid grid-cols-1 md:grid-cols-2 mt-10">
+        <div class="w-full h-full gap-16 grid grid-cols-1 lg:grid-cols-2 mt-10">
           <div class="border-t-8 border-prime flex flex-col gap-5 py-8" v-for="belief in beliefs">
             <h1 class="font-Monument text-2xl">{{ belief.title }}</h1>
             <p class="font-Unbound font-light">
@@ -94,16 +94,16 @@
         Our Values
       </h1>
 
-      <div class="w-full h-full flex flex-col md:gap-20 gap-12">
-        <div class="flex-1 flex gap-10 pl-10 md:pr-20 pr-10">
+      <div class="w-full h-full flex flex-col lg:gap-20 gap-12">
+        <div class="flex-1 flex gap-10 pl-10 lg:pr-20 pr-10">
           <img v-if="!if_sm" src="https://live.staticflickr.com/65535/52919403376_4bb6abe58e_o.png" alt=""
             class="object-cover w-1/2 h-[400px]" />
           <img src="https://live.staticflickr.com/65535/52919863688_2e39f97c4d_o.png" alt=""
-            class="object-cover w-full md:w-1/2 md:h-[400px] h-[250px]" />
+            class="object-cover w-full lg:w-1/2 lg:h-[400px] h-[250px]" />
         </div>
 
-        <div class="grid md:grid-cols-2 gid-cols-1 gap-5 flex-1 md:px-20 px-4">
-          <div v-for="values in ltwc_values" class="flex md:gap-5 gap-0 h-full items-center bg-base100 p-4">
+        <div class="grid lg:grid-cols-2 gid-cols-1 gap-5 flex-1 lg:px-20 px-4">
+          <div v-for="values in ltwc_values" class="flex lg:gap-5 gap-0 h-full items-center bg-base100 p-4">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="right-alt-circle"
               class="icon glyph w-8 aspect-square" fill="#000000">
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -121,14 +121,14 @@
     </section>
 
     <section
-      class="md:spikes_container_about spikesSM_container_about min-h-[80vh] py-32  bg-transparent isolate relative flex items-center">
+      class="lg:spikes_container_about spikesSM_container_about min-h-[80vh] py-32  bg-transparent isolate relative flex items-center">
 
       <div
-        class="flex flex-col items-center justify-center gap-6 h-full w-full relative my-auto md:mx-0 mx-5 before:content-[''] before:w-24 before:h-2 before:absolute before:-top-16 before:bg-base100 before:left-10 after:content-[''] after:w-24 after:h-2 after:absolute after:-bottom-16 after:bg-base100 after:right-10">
+        class="flex flex-col items-center justify-center gap-6 h-full w-full relative my-auto lg:mx-0 mx-5 before:content-[''] before:w-24 before:h-2 before:absolute before:-top-16 before:bg-base100 before:left-10 after:content-[''] after:w-24 after:h-2 after:absolute after:-bottom-16 after:bg-base100 after:right-10">
 
         <Bubbletext text="EVERYTHING FOR THE GLORY OF JESUS CHRIST “WHO CAME FROM THE FATHER, FULL
         OF GRACE AND TRUTH" ID="12" default_clr="fff"
-          class="text-center w-full md:text-4xl text-2xl font-Unbound font-[200]" />
+          class="text-center w-full lg:text-4xl text-2xl font-Unbound font-[200]" />
 
         <div
           class="isolate p-5 before:content-[''] after:content-[''] before:absolute before:top-0 before:left-0 before:w-1/3 before:h-1/3 before:bg-base100 after:absolute after:bottom-0 after:right-0 after:w-1/3 after:h-1/3 after:bg-base100 relative bg-prime shadow-lg w-fit mx-auto font-Monument tracking-[.2em] hover:before:w-1/2 hover:after:w-1/2 before:transition-all before:duration-150 before:ease-in-out after:transition-all after:duration-150 after:ease-in-out">
