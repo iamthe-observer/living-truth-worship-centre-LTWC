@@ -225,3 +225,6 @@ onMounted(() => {
   }, 500)
 })
 </script>
+
+<!-- TODO get a better horizontal side scroller -->
+<!-- TODO fix sundays images in small screens -->

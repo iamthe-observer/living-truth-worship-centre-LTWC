@@ -103,7 +103,7 @@
         </div>
       </section>
 
-      <section class="text-white w-full h-max py-10 lg:px-10 px-[5%] bg-base900 relative">
+      <section class="text-white w-full h-full py-10 lg:px-10 px-[5%] bg-base900 relative">
         <Bubbletext :class="'font-Unbound text-3xl lg:text-left text-center'" :text="data?.section2.expect_head!" ID="12"
           default_clr="fff">
         </Bubbletext>
