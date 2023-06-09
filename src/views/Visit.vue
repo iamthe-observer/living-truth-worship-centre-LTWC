@@ -9,7 +9,7 @@
         <span class="warp-text text-prime [line-height:2rem;]">{{ visitData?.head_text[2] }}</span>
 
         <span v-motion-slide-left class="leading-tight text-4xl" v-if="animation_done">
-          <Bubbletext :text="visitData?.head_text[3]!" ID="rock" default_clr="fff" class="sm:text-left text-center" />
+          <Bubbletext :text="visitData?.head_text[3]!" ID="rock" default_clr="fff" class="lg:text-left text-center" />
           <svg v-if="!if_sm" class="animated-arrow icon flat-line inline-block" fill="#fff" width="120px" height="120px"
             viewBox="-2.4 -2.4 28.80 28.80" id="right-arrow" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
             transform="rotate(0)">

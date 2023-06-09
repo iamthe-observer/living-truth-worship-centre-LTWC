@@ -1,11 +1,11 @@
 <template>
   <main class="lg:pt-[59px] pt-5 sundays-page bg-base300">
-    <section class="relative lg:h-fit h-screen">
+    <section class="relative h-screen">
       <div v-if='!if_sm'
-        class="absolute -bottom-8 left-10 flex flex-col w-max text-prime text-[3em] font-Monument drop-shadow-lg z-50 gap-1 font-light leading-tight">
-        <span v-motion-slide-left>{{ data?.title[0] }}<br />{{ data?.title[1] }}</span>
+        class="absolute bottom-[15%] left-10 flex flex-col w-max text-prime text-[3em] font-Monument drop-shadow-xl z-50 gap-1 font-light leading-tight">
+        <span v-motion-slide-left><span class="text-white drop-shadow-lg">{{ data?.title[0] }}</span><br />{{
+          data?.title[1] }}</span>
       </div>
-
 
       <div class="lg:h-[80%] h-full w-full overflow-clip shadow-lg relative">
         <div v-if='if_sm'
@@ -22,7 +22,7 @@
     </section>
 
     <!-- section for content -->
-    <section class="lg:pt-32 pt-10 flex-col flex gap-32">
+    <section class="pt-10 flex-col flex gap-32">
       <div class="flex lg:flex-row flex-col lg:gap-32 gap-20 h-max">
         <!-- left side -->
         <div
@@ -127,24 +127,24 @@
       </section>
     </main>
 
-    <!-- TODO crop imageY to be more visible on the page -->
-    <section class="py-32 lg:px-20 px-0 flex-col flex gap-10 h-max">
+    <section class="py-32 lg:px-20 px-5 flex-col flex gap-10 h-max">
       <div class="relative w-full lg:h-full h-96">
         <img src="https://live.staticflickr.com/65535/52865279829_5b074e256f_o.jpg" alt=""
           class="object-cover lg:-translate-x-5 -translate-x-2 lg:-translate-y-5 -translate-y-2 brightness-90 shadow-lg w-full h-full lg:h-fit" />
         <img src="https://live.staticflickr.com/65535/52865279829_5b074e256f_o.jpg" alt=""
           class="object-cover absolute inset-0 lg:translate-x-5 translate-x-2 lg:translate-y-5 translate-y-2 shadow-xl w-full h-full lg:h-fit brightness-50" />
         <div
-          class="absolute top-1/2 right-[30%] translate-x-1/2 -translate-y-1/2 w-[45%] h-[60%] flex flex-col justify-center p-10">
+          class="absolute top-1/2 lg:right-[30%] right-1/2 translate-x-1/2 -translate-y-1/2 lg:w-[45%] w-[100%] h-[60%] flex flex-col justify-center p-10 lg:text-left text-center">
           <Bubbletext default_clr="fff" ID="1" text="GET WEEKLY UPDATES FROM LIVING TRUTH MINISTRIES"
             class="lg:text-[3.5em] text-md font-Unbound uppercase drop-shadow-md" :h="'e48157'" :h_adj="'f3c9b7'" />
 
-          <span class="text-white lg:text-inherit text-sm font-Outfit drop-shadow-md">Join our House News email list to
+          <span class="lg:text-2xl text-white text-sm font-Outfit drop-shadow-md">Join our House
+            News email list to
             stay
             up-to-date on all things
             Passion City.</span>
           <span @click="goToSignUp"
-            class="flex items-center gap-3 drop-shadow-md hover:text-base300 w-fit cursor-pointer text-white">Sign
+            class="flex items-center justify-center lg:justify-start gap-3 drop-shadow-md hover:text-base300 lg:w-fit w-full cursor-pointer text-white font-Outfit">Sign
             Up <i class="font-prime pi pi-angle-double-right"></i></span>
         </div>
       </div>

@@ -201,7 +201,7 @@ function runParallax(
       </div>
 
       <div
-        class="self-center lg:self-end lg:w-2/4 w-full lg:text-justify text-center right-20 text-black font-Unbound font-normal drop-shadow-lg hover:scale-105 transition-transform peer duration-150 ease-in-out text-xl z-10 lg:pr-24 px-4 mission_text opacity-0">
+        class="self-center lg:self-end lg:w-2/4 w-full lg:text-justify text-center right-20 text-black font-Unbound font-normal drop-shadow-lg hover:scale-105 transition-transform peer duration-150 ease-in-out lg:text-xl text-lg z-10 lg:pr-24 px-4 mission_text opacity-0">
         {{ data.home?.mission_statement.body[0] }}
         <span class="">
           {{ data.home?.mission_statement.body[1] }}
@@ -367,7 +367,7 @@ function runParallax(
       </div>
 
       <span
-        class="lg:p-10 px-10 pl-16 lg:text-left text-justify text-white font-bold text-3xl tracking-wide drop-shadow-md font-Gloock verse opacity-0 translate-x-40 leading-9">{{
+        class="lg:p-10 px-10 pl-16 lg:text-left text-justify text-white font-bold lg:text-3xl text-2xl tracking-wide drop-shadow-md font-Gloock verse opacity-0 translate-x-40 lg:leading-9">{{
           data.home?.bible_verse.quote }}
         <span class="bg-prime block w-fit px-4 py-2 mt-2">{{ data.home?.bible_verse.loc }}
         </span></span>
