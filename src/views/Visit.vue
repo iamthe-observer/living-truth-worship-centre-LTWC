@@ -8,37 +8,37 @@
         <span class="warp-text">{{ visitData?.head_text[1] }}</span>
         <span class="warp-text text-prime [line-height:2rem;]">{{ visitData?.head_text[2] }}</span>
 
-        <a href="https://goo.gl/maps/bajfjsFn3DsHosgS8">
-          <span v-motion-slide-left class="leading-tight text-4xl lg:text-left text-center" v-if="animation_done">
-            <Bubbletext :text="visitData?.head_text[3]!" ID="rock" default_clr="fff" />
-            <svg v-if="!if_sm" class="animated-arrow icon flat-line inline-block" fill="#fff" width="120px" height="120px"
-              viewBox="-2.4 -2.4 28.80 28.80" id="right-arrow" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
-              transform="rotate(0)">
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#fff"
-                stroke-width="0.4800000000000001"></g>
-              <g id="SVGRepo_iconCarrier">
-                <line id="primary" x1="3" y1="12" x2="21" y2="12" style="
+        <span v-motion-slide-left class="leading-tight text-4xl" v-if="animation_done">
+          <Bubbletext :text="visitData?.head_text[3]!" ID="rock" default_clr="fff" class="sm:text-left text-center" />
+          <svg v-if="!if_sm" class="animated-arrow icon flat-line inline-block" fill="#fff" width="120px" height="120px"
+            viewBox="-2.4 -2.4 28.80 28.80" id="right-arrow" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
+            transform="rotate(0)">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#fff"
+              stroke-width="0.4800000000000001"></g>
+            <g id="SVGRepo_iconCarrier">
+              <line id="primary" x1="3" y1="12" x2="21" y2="12" style="
                   fill: none;
                   stroke: #fff;
                   stroke-linecap: round;
                   stroke-linejoin: round;
                   stroke-width: 0.792;
                 "></line>
-                <polyline id="primary-2" data-name="primary" points="18 15 21 12 18 9" style="
+              <polyline id="primary-2" data-name="primary" points="18 15 21 12 18 9" style="
                   fill: none;
                   stroke: #fff;
                   stroke-linecap: round;
                   stroke-linejoin: round;
                   stroke-width: 0.792;
                 "></polyline>
-              </g>
-            </svg>
+            </g>
+          </svg>
+          <a href="https://goo.gl/maps/bajfjsFn3DsHosgS8">
             <span v-if="if_sm" v-motion-fade
               class="font-Unbound min-h-fit border-[3px] border-white bg- text-2xl text-center px-4 py-1 rounded-lg block w-fit mx-auto mt-5">GO
               <i class="pi pi-map text-prime"></i></span>
-          </span>
-        </a>
+          </a>
+        </span>
       </div>
 
       <div v-if="!if_sm" class="map-container bg-base300 hover:scale-110 transition-all duration-500 ease-in-out">

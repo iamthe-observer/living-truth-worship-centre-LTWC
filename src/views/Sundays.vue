@@ -1,21 +1,21 @@
 <template>
   <main class="lg:pt-[59px] pt-5 sundays-page bg-base300">
     <section class="relative lg:h-fit h-screen">
-      <div v-if='if_sm'
-        class="absolute lg:-bottom-8 bottom-[53px] left-4 flex flex-col w-max text-prime text-[1.5em] font-Monument drop-shadow-lg z-50 gap-1 font-light leading-tight">
-        <span v-motion-slide-left class="text-white">
-          {{ data?.title[0] }}
-        </span>
-        <span class="w-2/3">{{ data?.title[1] }}</span>
-      </div>
-
-      <div v-else
-        class="absolute lg:-bottom-8 left-10 flex flex-col w-max text-prime text-[3em] font-Monument drop-shadow-lg z-50 gap-1 font-light leading-tight">
+      <div v-if='!if_sm'
+        class="absolute -bottom-8 left-10 flex flex-col w-max text-prime text-[3em] font-Monument drop-shadow-lg z-50 gap-1 font-light leading-tight">
         <span v-motion-slide-left>{{ data?.title[0] }}<br />{{ data?.title[1] }}</span>
       </div>
 
 
-      <div class="h-[80vh] w-full overflow-clip shadow-lg">
+      <div class="lg:h-[80%] h-full w-full overflow-clip shadow-lg relative">
+        <div v-if='if_sm'
+          class="absolute bottom-10 right-4 flex flex-col items-end w-max text-prime text-right text-[1.5em] font-Monument drop-shadow-lg z-50 gap-1 font-light leading-tight">
+          <span v-motion-slide-left class="">
+            {{ data?.title[0] }}
+          </span>
+          <span class="w-2/3">{{ data?.title[1] }}</span>
+        </div>
+
         <img v-motion-fade src="https://live.staticflickr.com/65535/52865514555_4b3f8457be_o.jpg"
           class="h-full w-full object-cover -z-1" alt="" srcset="" />
       </div>
