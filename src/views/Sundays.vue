@@ -103,7 +103,7 @@
         </div>
       </section>
 
-      <section class="text-white w-full h-full py-10 lg:px-10 px-[5%] bg-base900 relative">
+      <section class="text-white w-full h-full py-10 pb-20 lg:px-10 px-[5%] bg-base900 relative">
         <Bubbletext :class="'font-Unbound text-3xl lg:text-left text-center'" :text="data?.section2.expect_head!" ID="12"
           default_clr="fff">
         </Bubbletext>
@@ -115,7 +115,7 @@
             <span class="font-Outfit text-lg">{{ expectation.body }}</span>
           </div>
 
-          <div class="col-span-3 lg:flex grid grid-cols-2 gap-3 w-full lg:h-56 h-full">
+          <div class="col-span-3 lg:flex grid grid-cols-2 gap-3 w-full lg:h-56 h-fit">
             <div v-for="(str, idx) in !if_sm ? pix_str : pix_str_mb" :class="idx == 2
               ? 'w-full h-full border-prime border-8'
               : 'w-full h-full'
