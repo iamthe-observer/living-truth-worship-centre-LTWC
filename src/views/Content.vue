@@ -93,16 +93,18 @@ onMounted(() => {
     },
   })
 
-  gsap.to('.holdbible', {
-    opacity: 1,
-    duration: 1,
-    delay: 0.2,
-    scrollTrigger: {
-      trigger: '.holdbible',
-      start: 'top 60%',
-      end: 'end 60%',
-    },
-  })
+  if (!if_sm) {
+    gsap.to('.holdbible', {
+      opacity: 1,
+      duration: 1,
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: '.holdbible',
+        start: 'top 60%',
+        end: 'end 60%',
+      },
+    })
+  }
 
   gsap.to('.mission_title', {
     opacity: 1,
@@ -215,7 +217,7 @@ function runParallax(
     </section>
 
     <!-- showcase images -->
-    <section ref="test" class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-7 sm:h-full min-h-screen">
+    <section ref="test" class="relative flex flex-col text-[1.5em] gap-10 bg-base900 py-7 h-full">
       <div v-if="!if_sm" class="grid grid-cols-3 grid-rows-2 gap-2 px-10">
         <div v-for="(source, i) in src" :class="source
           ? 'w-full h-96 flex justify-center items-center overflow-hidden img_item perspective'
@@ -254,7 +256,7 @@ function runParallax(
       <!-- for small screen -->
       <div class="h-full grid grid-cols-2 gap-2 px-2 my-auto" v-else>
         <div class="h-full" v-for="(source, i) in sm_src">
-          <div v-if="i == 0" class="h-[250px] uppercase flex justify-between items-end px-6 py-5 bg-prime">
+          <div v-if="i == 0" class="h-[350px] uppercase flex justify-between items-end px-6 py-5 bg-prime">
             <span v-motion-slide-visible-left class="text-white font-bold bubble-text font-Unbound">Visit Us</span>
             <svg v-motion-slide-visible-top class="w-16 aspect-square" fill="#fff" version="1.1" id="Layer_1"
               xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 476.213 476.213"
@@ -269,14 +271,14 @@ function runParallax(
             </svg>
           </div>
 
-          <img v-if="source" class="object-cover h-[250px] w-full" :src="source" alt="" />
+          <img v-if="source" class="object-cover h-[350px] w-full" :src="source" alt="" />
 
-          <div v-if="i == 3" class="h-[250px] w-full uppercase flex justify-between items-end group relative">
+          <div v-if="i == 3" class="h-[350px] w-full uppercase flex justify-between items-end group relative">
             <img class="object-cover w-full h-full brightness-50"
               src="https://live.staticflickr.com/65535/52865504755_fdc1f77d16_o.png" alt="" />
             <RouterLink to="/visit" class="absolute bottom-2 right-1/2 translate-x-1/2">
               <button
-                class="border-base900 text-black border-[3px] active:border-none active:bg-prime text-sm font-Unbound px-2  whitespace-nowrap">
+                class="border-white border-[3px] active:border-none active:bg-prime text-sm text-white font-Unbound px-2  whitespace-nowrap">
                 Find Us!
               </button>
             </RouterLink>

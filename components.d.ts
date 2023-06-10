@@ -19,6 +19,7 @@ declare module '@vue/runtime-core' {
     HomeVideo: typeof import('./src/components/HomeVideo.vue')['default']
     HorizontalScroller: typeof import('./src/components/HorizontalScroller.vue')['default']
     Loading: typeof import('./src/views/Loading.vue')['default']
+    MobileNav: typeof import('./src/components/mobileNav.vue')['default']
     Navbar: typeof import('./src/views/Navbar.vue')['default']
     QuickNavigationBox: typeof import('./src/components/QuickNavigationBox.vue')['default']
     Routelinks: typeof import('./src/components/Routelinks.vue')['default']

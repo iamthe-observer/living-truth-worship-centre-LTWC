@@ -22,7 +22,7 @@
     </section>
 
     <!-- section for content -->
-    <section class="pt-10 flex-col flex gap-32">
+    <section class="lg:pt-10 pt-20 flex-col flex gap-32">
       <div class="flex lg:flex-row flex-col lg:gap-32 gap-20 h-max">
         <!-- left side -->
         <div

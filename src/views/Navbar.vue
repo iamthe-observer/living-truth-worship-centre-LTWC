@@ -62,7 +62,20 @@
       > -->
     </div>
 
-    <div class="self-center mr-6 w-fit h-full aspect-square" v-else><i class="pi pi-angle-down text-3xl"></i></div>
+    <RouterLink v-if="if_md && !isVisible" v-motion-fade to="/" class="opacity-0 logo flex gap-3 items-center">
+      <div class="grid place-items-center rounded-full w-10 aspect-square">
+        <img src="https://live.staticflickr.com/65535/52864536397_c81ebaab56_o.png" alt="" class="" />
+      </div>
+      <span class="text-black text-lg uppercase w-fit font-bold font-Unbound">LTWC</span>
+    </RouterLink>
+
+    <mobileNav :links="links" v-if="if_md" @close="toggle = false" :toggle="toggle">
+      <div @click="toggle = !toggle" class="self-center mr-6 w-fit h-full aspect-square"><i
+          class="pi pi-angle-down text-3xl font-thin"></i></div>
+    </mobileNav>
+
+
+
   </nav>
 </template>
 
@@ -75,6 +88,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const navBar = ref<HTMLElement>()
 const if_md = inject('small_screen')
+const toggle = ref(false)
 
 
 const props = defineProps<{
@@ -89,7 +103,7 @@ const links = reactive<{ label: string; to: string }[]>([
 
 onMounted(() => {
   useAppStore().setNavRef(navBar.value!)
-  init_animate()
+  if (!if_md) init_animate()
 })
 
 watch(if_md!, (new_val) => {
@@ -107,6 +121,7 @@ function init_animate() {
     ease: Power3.easeOut,
     scrollTrigger: '.navbar',
   })
+
   for (let ii = 0; ii < links.length; ii++) {
     gsap.to(`.linkz${ii}`, {
       y: 80,
