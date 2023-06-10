@@ -110,7 +110,7 @@
 
         <div class="lg:grid flex flex-col lg:grid-cols-3 gap-8 w-full lg:min-h-[400px] mt-10">
           <div v-for="(expectation, idx) in data?.section2.expectations" :key="idx"
-            class="border-t-8 border-prime w-full lg:h-48 h-full flex flex-col gap-3">
+            :class="if_sm ? 'border-t-8 border-prime w-full lg:h-48 h-full flex flex-col gap-3 order-2' : 'border-t-8 border-prime w-full lg:h-48 h-full flex flex-col gap-3'">
             <p class="font-Monument text-2xl pt-3">{{ expectation.title }}</p>
             <span class="font-Outfit text-lg">{{ expectation.body }}</span>
           </div>
