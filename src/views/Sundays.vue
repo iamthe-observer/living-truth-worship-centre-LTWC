@@ -117,8 +117,8 @@
 
           <div class="col-span-3 lg:flex grid grid-cols-2 gap-3 w-full lg:h-56 h-full">
             <div v-for="(str, idx) in pix_str" :class="idx == 2
-              ? 'w-full border-prime border-8'
-              : 'w-full bg-green-700'
+              ? 'w-full h-full border-prime border-8'
+              : 'w-full h-full'
               ">
               <img class="object-cover w-full h-full" v-if="idx == 2 ? false : true" :src="str" alt="" />
             </div>
