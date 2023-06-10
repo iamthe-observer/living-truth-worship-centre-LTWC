@@ -30,9 +30,6 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
   }
-  * {
-    border: 1px solid red;
-  }
 
   html {
     overflow-x: hidden;
