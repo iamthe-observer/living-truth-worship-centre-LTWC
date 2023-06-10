@@ -116,7 +116,7 @@
           </div>
 
           <div class="col-span-3 lg:flex grid grid-cols-2 gap-3 w-full lg:h-56 h-full">
-            <div v-for="(str, idx) in pix_str" :class="idx == 2
+            <div v-for="(str, idx) in !if_sm ? pix_str : pix_str_mb" :class="idx == 2
               ? 'w-full h-full border-prime border-8'
               : 'w-full h-full'
               ">
@@ -202,6 +202,10 @@ const pix_str = ref([
   'https://live.staticflickr.com/65535/52919403396_3dbb94148d_o.png',
   'https://live.staticflickr.com/65535/52865280994_2ee59efb3f_o.jpg',
   '',
+  'https://live.staticflickr.com/65535/52864570107_e0bc628f1b_o.jpg',
+])
+const pix_str_mb = ref([
+  'https://live.staticflickr.com/65535/52919403396_3dbb94148d_o.png',
   'https://live.staticflickr.com/65535/52864570107_e0bc628f1b_o.jpg',
 ])
 </script>
