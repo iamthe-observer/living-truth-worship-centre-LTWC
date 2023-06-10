@@ -103,19 +103,19 @@
         </div>
       </section>
 
-      <section class="text-white w-full h-full py-10 pb-20 lg:px-10 px-[5%] bg-base900 relative">
+      <section class="text-white w-full h-full py-10 lg:px-10 px-[5%] bg-base900 relative">
         <Bubbletext :class="'font-Unbound text-3xl lg:text-left text-center'" :text="data?.section2.expect_head!" ID="12"
           default_clr="fff">
         </Bubbletext>
 
-        <div class="lg:grid flex flex-col lg:grid-cols-3 gap-8 w-full lg:min-h-[400px] mt-10">
+        <div class="lg:grid flex flex-col lg:grid-cols-3 gap-8 w-full lg:min-h-[400px] h-full mt-10">
           <div v-for="(expectation, idx) in data?.section2.expectations" :key="idx"
-            :class="if_sm ? 'border-t-8 border-prime w-full lg:h-48 h-full flex flex-col gap-3 order-2' : 'border-t-8 border-prime w-full lg:h-48 h-full flex flex-col gap-3'">
+            class="border-t-8 border-prime w-full lg:h-48 h-full flex flex-col gap-3">
             <p class="font-Monument text-2xl pt-3">{{ expectation.title }}</p>
             <span class="font-Outfit text-lg">{{ expectation.body }}</span>
           </div>
 
-          <div class="col-span-3 lg:flex grid grid-cols-2 gap-3 w-full lg:h-56 h-fit">
+          <div class="col-span-3 flex gap-3 w-full lg:h-56 h-32">
             <div v-for="(str, idx) in !if_sm ? pix_str : pix_str_mb" :class="idx == 2
               ? 'w-full h-full border-prime border-8'
               : 'w-full h-full'
