@@ -103,7 +103,7 @@ const links = reactive<{ label: string; to: string }[]>([
 
 onMounted(() => {
   useAppStore().setNavRef(navBar.value!)
-  if (!if_md) init_animate()
+  if (if_md) init_animate()
 })
 
 watch(if_md!, (new_val) => {
